@@ -11,8 +11,8 @@ Ticket.create(
   date: Date.new(2021, 10, 18),
   title: "MHP",
   description: "Made some change to the home page.",
-  duration: 75,
-  start_time: Time.new(2021, 10, 18, 14, 30, 0)
+  duration: 60,
+  start_time: Time.new(2021, 10, 18, 8, 30, 0)
 )
 
 Ticket.create(
@@ -20,19 +20,19 @@ Ticket.create(
   title: "MHP",
   description: "This is anther ticket I've created for some test data so it doesn't look poop...",
   duration: 45,
-  start_time:Time.new(2021, 10, 18, 10, 30, 0)
+  start_time:Time.new(2021, 10, 18, 9, 30, 0)
 )
 Ticket.create(
   date: Date.new(2021, 10, 18),
   title: "MHP",
   description: "Fix layout issue with the parks navigation, Tony has request this to be changed.",
   duration: 15,
-  start_time: Time.new(2021, 10, 18, 12, 30, 0)
+  start_time: Time.new(2021, 10, 18, 10, 15, 0)
 )
 Ticket.create(
   date: Date.new(2021, 10, 18),
   title: "MHP",
-  description: "Break",
-  duration: 30,
-  start_time: Time.new(2021, 10, 18, 5, 30, 0)
+  description: "Had to pair as I needed help on a ticket, the issue was much harder that I first thought.",
+  duration: 90,
+  start_time: Time.new(2021, 10, 18, 10, 30, 0)
 )
