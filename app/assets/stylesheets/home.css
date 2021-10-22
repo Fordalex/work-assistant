@@ -1,0 +1,14 @@
+.homeSearch-container {
+  border-bottom: grey 1px solid;
+}
+
+.dailySummary-container p {
+  color: rgb(143, 143, 143)
+}
+
+.rightSide-container {
+  height: 100vw;
+  background-color: white;
+  box-shadow: 0 0 35px 0 rgba(0,0,0,0.08);
+}
+
