@@ -1,9 +1,9 @@
 .homeSearch-container {
-  border-bottom: grey 1px solid;
+  border-bottom: rgb(206, 206, 206) 1px solid;
 }
 
 .dailySummary-container {
-  margin: 1rem 0;
+  margin: 2rem 0;
 }
 
 .dailySummary-container p {

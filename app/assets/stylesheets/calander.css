@@ -1,0 +1,37 @@
+.calendar-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.calendar-dayContainer {
+  transition: 0.5s;
+  background-color: white;
+  box-shadow: 0 0 35px 0 rgba(0,0,0,0.08);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  width: 5.5%;
+  min-height: 65vh;
+}
+
+.calendar-dayContainer:last-of-type {
+  margin-right: 0;
+}
+
+.calendar-closed {
+  width: 5.5%;
+}
+
+.calendar-closed:hover {
+  width: 7.5%;
+}
+
+.calendar-open {
+  width: 60%;
+  cursor: default;
+}
+
+.calendar-timeSheet {
+
+}
