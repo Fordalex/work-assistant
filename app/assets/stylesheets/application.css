@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+
+:root {
+    --mainColour: #E67E22;
+}
+
+.profiler-results {
+    display: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(253, 253, 253);
+}
+
+.page-container {
+    margin-left: 75px;
+}
+
+.main-gradient {
+    background-image: linear-gradient(
+135deg
+, rgb(252, 207, 49) 10%, rgb(245, 85, 85) 100%);
+}
