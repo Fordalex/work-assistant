@@ -1,6 +1,8 @@
 <div class="calendar-ticket" style="top:<%= ticket_position(ticket) %>px; height:<%= ticket.duration %>px;">
-  <%= ticket.title %>
-  <%= ticket.description %>
-  <%= ticket.start_time.strftime("%H: %M") %>
-  <%= ticket.duration %> Mins
+  <div class="calendarTicket-wrapper">
+    <h6 class="calendar-title"><%= ticket.title %></h6>
+    <%= ticket.description %>
+    <%= ticket.start_time.strftime("%H: %M") %>
+    <%= ticket.duration %> Mins
+  </div>
 </div>

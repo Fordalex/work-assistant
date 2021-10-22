@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap');
+
 .calendar-container {
   display: flex;
   justify-content: flex-start;
@@ -27,10 +29,14 @@
 
 .calendar-closed {
   width: 5.5%;
+  transform: scale(0.9);
+  opacity: 0.7;
+  filter: blur(3px);
 }
 
 .calendar-closed:hover {
-  width: 8.5%;
+  width: 9%;
+  filter: blur(0);
 }
 
 .calendar-open {
@@ -40,7 +46,7 @@
 
 .calendar-timeSheet {
   position: relative;
-  height: 500px;
+  height: 650px;
   overflow-y: scroll;
   scrollbar-width: none;
 }
@@ -55,11 +61,27 @@
   margin-left: 4.5rem;
   margin-right: 0.7rem;
   font-size: 0.8rem;
-  border-radius: 0.25rem;
+  border-radius: 10px;
+  box-shadow: 0 0 35px 0 rgba(0,0,0,0.0);
+}
+
+.calendar-ticket .calendar-title {
+  font-family: 'Balsamiq Sans', cursive;
+  margin: 0;
 }
 
 .calendar-ticket:hover {
   height: fit-content !important;
+  z-index: 15;
+  transform: scale(1.1);
+  cursor: pointer;
+  box-shadow: 0 0 35px 0 rgba(0,0,0,0.15);
+}
+
+.calendarTicket-wrapper {
+  border-radius: 10px;
+  padding: 1rem;
+  border: dashed white 3px;
 }
 
 .hour-container {
@@ -71,6 +93,7 @@
   position: absolute;
   top: -18px;
   white-space: nowrap;
+  font-family: 'Balsamiq Sans', cursive;
 }
 
 .hour-container hr {
