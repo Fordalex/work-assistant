@@ -1,5 +1,19 @@
 <div data-day="<% day %>" class="calendar-dayContainer <% if day.to_s == "Monday" %>calendar-open<% else %>calendar-closed<% end %>">
-  <h6><%= day %></h6>
+  <h3 class="m-0"><b><%= day %></b></h3>
+  <p><%= day %></p>
+
+  <p>
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample<%= day %>" aria-expanded="false" aria-controls="collapseExample<%= day %>">
+      + Ticket
+    </button>
+  </p>
+  <div class="collapse mb-3" id="collapseExample<%= day %>">
+    <div class="card card-body">
+      Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+    </div>
+  </div>
+
+
   <div class="calendar-timeSheet">
     <% 24.times do |hour| %>
       <div class="hour-container">
@@ -11,6 +25,5 @@
     <% tickets.each do |ticket| %>
       <%= render partial: "ticket", locals: {ticket: ticket} %>
     <% end %>
-
   </div>
 </div>
