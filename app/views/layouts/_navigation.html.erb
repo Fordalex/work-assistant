@@ -43,9 +43,9 @@
       </ul>
       <ul>
         <li class="navList-item">
-          <%= link_to websites_path do %>
-              <%= image_tag("icons/logout_icon.png") %>
-              <span>Logout</span>
+          <%= link_to destroy_user_session_path, method: "DELETE", class: "dropdown-item" do %>
+            <%= image_tag("icons/logout_icon.png") %>
+            <span>Logout</span>
           <% end %>
         </li>
       </ul>
