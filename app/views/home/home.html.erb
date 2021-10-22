@@ -10,7 +10,7 @@
       </div>
 
       <div class="col-12 m-0 p-0 dailySummary-container">
-        <h3>Daily summary</h3>
+        <h3>Day summary</h3>
         <p>Random Random Random Random Random Random Random Random RandomRandom Random RandomRandom Random RandomRandom Random RandomRandom Random Random Random Random Random Random Random Random Random Random Random Random Random Random</p>
       </div>
 
@@ -23,11 +23,19 @@
   <div class="col-12 col-lg-3 rightSide-container">
 
     <div class="profileDetails-container">
-
+      <div>
+        <h6 class="profileDetails-name">Alex Ford</h6>
+        <p class="profileDetails-jobTitle">Web developer</p>
+      </div>
+      <%= image_tag("icons/home_icon.png") %>
     </div>
 
-    <div class="weeklySummary-container">
+    <%= select_tag("Manufacturer", options_for_select(date_input(10)), {class: "form-control"}) %>
 
+    <div class="weeklySummary-container">
+      <h4>Week summary</h4>
+
+      <p>asdf asdf;lkasdf asddlfja falskdjf asf asldk falksd a fl sla sij3qepfom woqw fdfljaslkjaas fas f lk asdlk sadlk ask f </p>
     </div>
 
   </div>
