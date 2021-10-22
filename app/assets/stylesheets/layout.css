@@ -36,7 +36,7 @@ nav ul li {
     margin-bottom: 1.25rem;
 }
 
-nav .nav-link {
+nav .navList-item {
     width: 110px;
 }
 
@@ -44,17 +44,19 @@ nav a .navLink-selected {
     color: var(--mainColour) !important;
 }
 
-nav .nav-link a {
+nav .navList-item a {
     text-decoration: none;
+    display: flex;
+    align-items: baseline;
 }
 
-nav .nav-link img {
+nav .navList-item img {
     width: 35px;
     height: 35px;
 }
 
-nav .nav-link span {
-    margin-left: 0.90rem;
+nav .navList-item span {
+    margin-left: 1.3rem;
     position: relative;
     bottom: 4px;
     color: #CCCCCC;
@@ -63,5 +65,5 @@ nav .nav-link span {
 /* navigation hover */
 
 nav:hover {
-    width: 145px;
+    width: 185px;
 }
