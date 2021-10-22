@@ -1,11 +1,14 @@
 <div class="row m-0 p-0">
-  <div class="col-12 col-lg-9 m-0 p-0">
+  <div class="col-12 col-lg-9 order-2 order-lg-1 m-0 p-0">
 
     <div class="row m-0 px-4">
-      <div class="col-12 d-flex justify-content-between p-0 py-3 m-0 homeSearch-container">
-        <h4>Home</h4>
+      <div class="col-12 d-flex justify-content-between align-items-center p-0 py-3 m-0 homeSearch-container">
+        <h4 class="m-0 p-0">Dashboard</h4>
         <div class="search-container">
-          <input type="text">
+          <input type="text" placeholder="Search anything...">
+          <button>
+            <%= image_tag("icons/search_icon.png") %>
+          </button>
         </div>
       </div>
 
@@ -13,17 +16,18 @@
     </div>
 
   </div>
-  <div class="col-12 col-lg-3 rightSide-container">
+  <div class="col-12 col-lg-3 order-1 order-lg-2 rightSide-container">
 
     <div class="profileDetails-container">
       <div>
-        <h6 class="profileDetails-name">Alex Ford</h6>
+        <h6 class="profileDetails-name"><b>Alex Ford</b></h6>
         <p class="profileDetails-jobTitle">Web developer</p>
       </div>
       <%= image_tag("icons/home_icon.png") %>
     </div>
 
-    <%= select_tag("Manufacturer", options_for_select(date_input(10)), {class: "form-control"}) %>
+    <input type="date" class="form-control">
+    <button class="date-button main-gradient">Search Date</button>
 
     <div class="arrow-divider"></div>
 
