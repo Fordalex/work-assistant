@@ -1,4 +1,4 @@
-class HomeController < ApplicationController
+class HomeController < SessionsController
     def home
       @week_tickets = {
         "#{Ticket.first.date.strftime("%A")}": Ticket.all.to_a,
