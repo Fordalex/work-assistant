@@ -1,0 +1,16 @@
+<div data-day="<% day %>" class="calendar-dayContainer <% if day.to_s == "Monday" %>calendar-open<% else %>calendar-closed<% end %>">
+  <h6><%= day %></h6>
+  <div class="calendar-timeSheet">
+    <% 24.times do |hour| %>
+      <div class="hour-container">
+        <hr>
+        <span><%= hour.to_s + (hour < 12 ? " am" : " pm") %></span>
+      </div>
+    <% end %>
+
+    <% tickets.each do |ticket| %>
+      <%= render partial: "ticket", locals: {ticket: ticket} %>
+    <% end %>
+
+  </div>
+</div>
