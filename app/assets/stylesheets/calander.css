@@ -3,7 +3,12 @@
   justify-content: flex-start;
 }
 
+.calendar-container h6 {
+  margin-bottom: 2rem;
+}
+
 .calendar-dayContainer {
+  overflow: hidden;
   transition: 0.5s;
   background-color: white;
   box-shadow: 0 0 35px 0 rgba(0,0,0,0.08);
@@ -13,6 +18,7 @@
   cursor: pointer;
   width: 5.5%;
   min-height: 65vh;
+  border: solid white 1px;
 }
 
 .calendar-dayContainer:last-of-type {
@@ -33,5 +39,23 @@
 }
 
 .calendar-timeSheet {
+  height: 500px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
 
+.hour-container span {
+  position: relative;
+  bottom: 34px;
+  white-space: nowrap;
+}
+
+.hour-container hr {
+  margin-left: 2.75rem;
+  background-color: rgb(163, 163, 163);
+}
+
+/* width */
+.calendar-timeSheet::-webkit-scrollbar {
+  width: 0px;
 }
