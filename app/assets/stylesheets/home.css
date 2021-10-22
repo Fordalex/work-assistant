@@ -2,6 +2,10 @@
   border-bottom: grey 1px solid;
 }
 
+.dailySummary-container {
+  margin: 1rem 0;
+}
+
 .dailySummary-container p {
   color: rgb(143, 143, 143)
 }
@@ -42,5 +46,25 @@
 }
 
 .weeklySummary-container {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
+}
+
+.arrow-divider {
+  margin-top: 1.5rem;
+  border-bottom: solid 1px rgb(221, 221, 221);
+  position: relative;
+}
+
+.arrow-divider::after {
+  transform: rotateZ(45deg);
+  display: inline-block;
+  content: "";
+  position: absolute;
+  left: 47%;
+  bottom: -8px;
+  width: 15px;
+  height: 15px;
+  background-color: rgb(255, 255, 255);
+  border-right: solid 1px rgb(221, 221, 221);
+  border-bottom: solid 1px rgb(221, 221, 221);
 }
