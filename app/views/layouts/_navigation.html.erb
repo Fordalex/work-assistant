@@ -21,22 +21,10 @@
           <%= link_to notes_path do %>
             <% if current_page?(notes_path) %>
               <%= image_tag("icons/notes_icon_selected.png") %>
-              <span class="navLink-selected">Notes</span>
+              <span class="navLink-selected">Tickets</span>
             <% else %>
               <%= image_tag("icons/notes_icon.png") %>
-              <span>Notes</span>
-            <% end %>
-          <% end %>
-        </li>
-
-        <li class="navList-item">
-          <%= link_to websites_path do %>
-            <% if current_page?(websites_path) %>
-              <%= image_tag("icons/website_icon_selected.png") %>
-              <span class="navLink-selected">websites</span>
-            <% else %>
-              <%= image_tag("icons/website_icon.png") %>
-              <span>websites</span>
+              <span>Tickets</span>
             <% end %>
           <% end %>
         </li>
@@ -49,6 +37,18 @@
             <% else %>
               <%= image_tag("icons/cms_icon.png") %>
               <span>CMS</span>
+            <% end %>
+          <% end %>
+        </li>
+
+        <li class="navList-item">
+          <%= link_to websites_path do %>
+            <% if current_page?(websites_path) %>
+              <%= image_tag("icons/website_icon_selected.png") %>
+              <span class="navLink-selected">websites</span>
+            <% else %>
+              <%= image_tag("icons/website_icon.png") %>
+              <span>websites</span>
             <% end %>
           <% end %>
         </li>
