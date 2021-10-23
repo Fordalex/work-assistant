@@ -7,7 +7,7 @@ class HomeController < SessionsController
       7.times do |index|
         search_date = @start_date + index.days
         day_tickets = Ticket.where(user: current_user, date: search_date)
-        @week_tickets["#{search_date.strftime("%A")}"] = day_tickets
+        @week_tickets["#{search_date.strftime("%A")}"] = {date: search_date, tickets: day_tickets}
       end
 
       @ticket = Ticket.new

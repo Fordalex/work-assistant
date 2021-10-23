@@ -1,3 +1,8 @@
+<%= content_for :scripts do %>
+  <%= javascript_pack_tag "duration" %>
+<% end %>
+
+
 <div class="row m-0 p-0">
   <div class="col-12 col-lg-9 order-2 order-lg-1 m-0 p-0">
 
@@ -12,7 +17,7 @@
         </div>
       </div>
 
-      <%= render partial: "week_calendar" %>
+      <%= render partial: "calendar" %>
     </div>
 
   </div>
@@ -36,9 +41,12 @@
     <div class="arrow-divider"></div>
 
     <div class="weeklySummary-container">
-      <h4>Week Summary</h4>
+      <h4>Week Stats</h4>
 
-      <p>asdf asdf;lkasdf asddlfja falskdjf asf asldk falksd a fl sla sij3qepfom woqw fdfljaslkjaas fas f lk asdlk sadlk ask f </p>
+      <h6>Category</h6>
+      <ul>
+        <li>MHP - 45 mins</li>
+      </ul>
     </div>
 
   </div>
