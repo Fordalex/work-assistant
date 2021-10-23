@@ -1,5 +1,7 @@
 class CmsController < SessionsController
   def cms
-    @categories = []
+    @subjects = []
+    @categories = Category.where(user: current_user)
+    @members = []
   end
 end

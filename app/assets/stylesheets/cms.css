@@ -27,12 +27,18 @@
 }
 
 .cms-category {
-  border-top: orange 5px solid;
+  border-top: #9dc082 5px solid;
 }
 
-.cms-staff {
-  border-top: rgb(89, 206, 43) 5px solid;
+.cms-members {
+  border-top: #54807e 5px solid;
 }
+
+.cms-subjects {
+  border-top: #ef822d 5px solid;
+}
+
+/* #c06ec8 */
 
 .border-right {
   border-right: solid rgb(225, 228, 230) 1px;

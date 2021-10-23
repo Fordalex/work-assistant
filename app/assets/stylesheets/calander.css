@@ -55,7 +55,6 @@
   transition: 0.5s;
   box-sizing: border-box;
   padding: 0.5rem;
-  background-image: linear-gradient( 135deg, #FDEB71 10%, #F8D800 100%);
   position: absolute;
   overflow: hidden;
   margin-left: 4.5rem;
