@@ -7,7 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Ticket.destroy_all
 
+user = User.create!(
+  email: "test@example.com",
+  password: "password"
+)
+
 Ticket.create(
+  user: user,
   date: Date.new(2021, 10, 18),
   title: "MHP",
   description: "Made some change to the home page.",
@@ -16,6 +22,7 @@ Ticket.create(
 )
 
 Ticket.create(
+  user: user,
   date: Date.new(2021, 10, 18),
   title: "MHP",
   description: "This is anther ticket I've created for some test data so it doesn't look poop...",
@@ -23,6 +30,7 @@ Ticket.create(
   start_time:Time.new(2021, 10, 18, 9, 30, 0)
 )
 Ticket.create(
+  user: user,
   date: Date.new(2021, 10, 18),
   title: "MHP",
   description: "Fix layout issue with the parks navigation, Tony has request this to be changed.",
@@ -30,6 +38,7 @@ Ticket.create(
   start_time: Time.new(2021, 10, 18, 10, 15, 0)
 )
 Ticket.create(
+  user: user,
   date: Date.new(2021, 10, 18),
   title: "MHP",
   description: "Had to pair as I needed help on a ticket, the issue was much harder that I first thought.",
