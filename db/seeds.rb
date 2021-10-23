@@ -69,3 +69,13 @@ Ticket.create(
   duration: 90,
   start_time: Time.new(2021, 10, 18, 10, 30, 0)
 )
+
+Ticket.create(
+  user: user,
+  category: mcf,
+  date: Date.new(2021, 10, 18),
+  title: "MHP",
+  description: "Had to pair as I needed help on a ticket, the issue was much harder that I first thought.",
+  duration: 120,
+  start_time: Time.new(2021, 10, 18, 14, 30, 0)
+)
