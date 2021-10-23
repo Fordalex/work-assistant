@@ -25,6 +25,10 @@ p {
   letter-spacing: 1px;
 }
 
+.nowrap {
+  white-space: nowrap;
+}
+
 :root {
     --mainColour: #E67E22;
 }

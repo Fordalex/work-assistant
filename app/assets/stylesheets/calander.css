@@ -78,9 +78,11 @@
 }
 
 .calendarTicket-wrapper {
+  height: 100%;
   border-radius: 10px;
   padding: 1rem;
-  border: dashed white 3px;
+  border: dashed rgba(255,255,255,0.45) 3px;
+  overflow: hidden;
 }
 
 .hour-container {
