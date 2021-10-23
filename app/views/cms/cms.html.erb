@@ -13,6 +13,9 @@
 
 
   <div class="col-3 border-right">
+
+    <%= render partial: "categories/form", locals: { category: @category } %>
+
     <div class="cmsEntity-container cms-category">
       <div class="d-flex justify-content-between align-items-center">
         <h6 class="m-0"><b>Categories</b></h6>
@@ -20,9 +23,6 @@
       </div>
     </div>
 
-    <button class="btn btn-info container-fluid mt-3">
-      New
-    </button>
 
     <% @categories.each do |category| %>
       <%= render partial: "category", locals: { category: category } %>
