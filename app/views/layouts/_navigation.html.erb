@@ -40,6 +40,18 @@
             <% end %>
           <% end %>
         </li>
+
+        <li class="navList-item">
+          <%= link_to cms_path do %>
+            <% if current_page?(cms_path) %>
+              <%= image_tag("icons/cms_icon_selected.png") %>
+              <span class="navLink-selected">CMS</span>
+            <% else %>
+              <%= image_tag("icons/cms_icon.png") %>
+              <span>CMS</span>
+            <% end %>
+          <% end %>
+        </li>
       </ul>
       <ul>
         <li class="navList-item">
