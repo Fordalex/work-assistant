@@ -1,12 +1,17 @@
 .flashMessage-container {
   position: absolute;
-  top: 15px;
+  top: 25px;
   left: 40%;
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
   background-color: rgb(255, 255, 255);
-  box-shadow: 0 0 35px 0 rgba(0,0,0,0.08);
+  box-shadow: 0 0 45px 0 rgba(0,0,0,0.1);
+}
+
+.flashMessage-container img {
+  width: 30px;
+  height: 30px;
 }
 
 .flashMessage-success {

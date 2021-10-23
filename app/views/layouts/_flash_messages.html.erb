@@ -1,9 +1,13 @@
 <% flash.each do |type, msg| %>
   <div class="flashMessage-container alert flashMessage-<%= type %> alert-dismissible fade show" role="alert">
-    <div>
-      <%# icon %>
+    <div class="d-flex align-items-center">
+      <% if type == "warning" %>
+        <%= image_tag("icons/warning_icon.png") %>
+      <% elsif type == "success" %>
+        <%= image_tag("icons/success_icon.png") %>
+      <% end %>
     </div>
-    <div>
+    <div class="px-3">
       <h5 class="m-0"><b><%= type %></b></h5>
       <p class="m-0"><%= msg %></p>
     </div>
