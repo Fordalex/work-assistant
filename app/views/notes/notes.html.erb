@@ -8,15 +8,22 @@
     <th>Category</th>
     <th>Description</th>
     <th>Members</th>
+    <th>Subjects</th>
+    <th>Duration</th>
     <th>Date</th>
   </tr>
 
   <% @tickets.each do |ticket| %>
     <tr>
       <td><b>#<%= ticket.id %></b></td>
-      <td><%= ticket %></td>
+      <td class="d-flex justify-content-start align-items-center">
+        <div class="category-block me-2" style="background-color:<%= ticket.category.colour %>;"></div>
+        <%= ticket.category.name %>
+      </td>
       <td><%= ticket.description %></td>
       <td><%= ticket %></td>
+      <td><%= ticket %></td>
+      <td><%= ticket.duration %> Mins</td>
       <td><%= ticket.date.strftime("%d %B %Y") %></td>
     </tr>
   <% end %>

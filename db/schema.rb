@@ -13,10 +13,12 @@
 ActiveRecord::Schema.define(version: 2021_10_23_153218) do
 
   create_table "categories", force: :cascade do |t|
+    t.integer "user_id"
     t.string "colour"
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_categories_on_user_id"
   end
 
   create_table "tickets", force: :cascade do |t|
