@@ -26,8 +26,12 @@
       <%= image_tag("icons/home_icon.png") %>
     </div>
 
-    <input type="date" class="form-control">
-    <button class="date-button">Search Date</button>
+    <%= form_with url: root_path, method: :get do |form| %>
+      <%= form.date_field :start_date, class: "form-control", value: @start_date %>
+      <%= form.submit :Search, class: "date-button" %>
+    <% end %>
+
+
 
     <div class="arrow-divider"></div>
 
