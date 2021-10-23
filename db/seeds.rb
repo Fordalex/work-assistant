@@ -19,11 +19,13 @@ user = User.create!(
 puts "\n== Creating categories =="
 
 mhp = Category.create(
+  user: user,
   name: "MHP",
   colour: "#65e33b"
 )
 
 mcf = Category.create(
+  user: user,
   name: "MCF",
   colour: "#6cc9f5"
 )
@@ -32,7 +34,7 @@ puts "\n== Creating tickets =="
 
 Ticket.create(
   user: user,
-  category: mcf,
+  category: mhp,
   date: Date.new(2021, 10, 18),
   title: "MHP",
   description: "Made some change to the home page.",
@@ -42,7 +44,7 @@ Ticket.create(
 
 Ticket.create(
   user: user,
-  category: mcf,
+  category: mhp,
   date: Date.new(2021, 10, 18),
   title: "MHP",
   description: "This is anther ticket I've created for some test data so it doesn't look poop...",
@@ -51,7 +53,7 @@ Ticket.create(
 )
 Ticket.create(
   user: user,
-  category: mcf,
+  category: mhp,
   date: Date.new(2021, 10, 18),
   title: "MHP",
   description: "Fix layout issue with the parks navigation, Tony has request this to be changed.",
