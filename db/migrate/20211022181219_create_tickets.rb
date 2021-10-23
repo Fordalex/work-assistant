@@ -6,6 +6,7 @@ class CreateTickets < ActiveRecord::Migration[6.1]
       t.date :date
       t.time :start_time
       t.integer :duration
+      t.references :user
 
       t.timestamps
     end
