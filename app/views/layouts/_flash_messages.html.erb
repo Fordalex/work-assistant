@@ -1,0 +1,14 @@
+<% flash.each do |type, msg| %>
+  <div class="flashMessage-container alert flashMessage-<%= type %> alert-dismissible fade show" role="alert">
+    <div>
+      <%# icon %>
+    </div>
+    <div>
+      <h5 class="m-0"><b><%= type %></b></h5>
+      <p class="m-0"><%= msg %></p>
+    </div>
+    <div>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  </div>
+<% end %>
