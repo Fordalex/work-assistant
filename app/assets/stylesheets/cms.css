@@ -1,0 +1,39 @@
+.cmsEntity-container {
+  background-color: white;
+  box-shadow: 0 0 35px 0 rgba(0,0,0,0.08);
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.cmsEntity-container span {
+  padding: 0.2rem 0.5rem;
+  background-color: #eceef0;
+  border-radius: 3px;
+  color: #757779;
+}
+
+.cmsEntity-containerItem {
+  background-color: white;
+  box-shadow: 0 0 15px 0 rgba(0,0,0,0.05);
+  padding: 0.75rem;
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+
+.cmsEntity-containerItem span {
+  padding: 0.5rem;
+  background-color: green;
+  border-radius: 3px;
+}
+
+.cms-category {
+  border-top: orange 5px solid;
+}
+
+.cms-staff {
+  border-top: rgb(89, 206, 43) 5px solid;
+}
+
+.border-right {
+  border-right: solid rgb(225, 228, 230) 1px;
+}
