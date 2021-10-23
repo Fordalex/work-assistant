@@ -1,0 +1,8 @@
+.ticket-table tr:first-child {
+  background-color: #f4f8f9;
+  font-weight: 700;
+}
+
+.ticket-table td {
+  padding: 0.75rem;
+}

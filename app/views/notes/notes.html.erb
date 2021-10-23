@@ -1,1 +1,25 @@
 <h2>Notes</h2>
+
+<div class="white-container p-4 m-4">
+<table class="table ticket-table">
+
+  <tr>
+    <th>Ticket ID</th>
+    <th>Category</th>
+    <th>Description</th>
+    <th>Members</th>
+    <th>Date</th>
+  </tr>
+
+  <% @tickets.each do |ticket| %>
+    <tr>
+      <td><b>#<%= ticket.id %></b></td>
+      <td><%= ticket %></td>
+      <td><%= ticket.description %></td>
+      <td><%= ticket %></td>
+      <td><%= ticket.date.strftime("%d %B %Y") %></td>
+    </tr>
+  <% end %>
+
+</table>
+</div>
