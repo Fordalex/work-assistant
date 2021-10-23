@@ -20,14 +20,14 @@
 
     <div class="profileDetails-container">
       <div>
-        <h6 class="profileDetails-name"><b>Alex Ford</b></h6>
+        <h6 class="profileDetails-name"><b><%= current_user.email %></b></h6>
         <p class="profileDetails-jobTitle">Web developer</p>
       </div>
       <%= image_tag("icons/home_icon.png") %>
     </div>
 
     <input type="date" class="form-control">
-    <button class="date-button main-gradient">Search Date</button>
+    <button class="date-button">Search Date</button>
 
     <div class="arrow-divider"></div>
 

@@ -65,6 +65,8 @@
 }
 
 .date-button {
+  background-image: linear-gradient( 135deg, #ffce85 20%, #FA742B 100%);
+  color: white;
   border: none;
   width: 100%;
   border-radius: 10px;
