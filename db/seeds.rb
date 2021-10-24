@@ -13,7 +13,7 @@ puts "\n== Creating users =="
 
 user = User.create!(
   email: "test@example.com",
-  password: "password"
+  password: "Secret123"
 )
 
 puts "\n== Creating categories =="
@@ -28,6 +28,32 @@ mcf = Category.create(
   user: user,
   name: "MCF",
   colour: "#6cc9f5"
+)
+
+puts "\n== Creating subjects =="
+
+Subject.create(
+  user: user,
+  name: "Elite",
+  content: "Some information about Elite."
+)
+
+Subject.create(
+  user: user,
+  name: "Avantio",
+  content: "Some information about Avantio."
+)
+
+Subject.create(
+  user: user,
+  name: "Arkiane",
+  content: "Some information about Arkiane."
+)
+
+Subject.create(
+  user: user,
+  name: "Interhome",
+  content: "Some information about Interhome."
 )
 
 puts "\n== Creating tickets =="
