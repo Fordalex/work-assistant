@@ -39,6 +39,10 @@
   filter: blur(0);
 }
 
+.calendar-closed:hover .calendar-ticket {
+  margin-left: 3.5rem;
+}
+
 .calendar-open {
   width: 60%;
   cursor: default;
@@ -72,7 +76,7 @@
 .calendar-ticket:hover {
   height: fit-content !important;
   z-index: 15;
-  transform: scale(1.1);
+  transform: scale(1.03);
   cursor: pointer;
   box-shadow: 0 0 35px 0 rgba(0,0,0,0.15);
 }
