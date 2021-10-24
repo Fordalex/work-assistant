@@ -2,8 +2,8 @@ require "rails_helper"
 
 RSpec.describe TicketsHelper, type: :helper do
   let(:user) { FactoryBot.create(:user) }
-  let(:mhp) { FactoryBot.create(:category, name: "MHP") }
-  let(:tms) { FactoryBot.create(:category, name: "TMS") }
+  let(:mhp) { FactoryBot.create(:category, name: "MHP", colour: "#fff") }
+  let(:tms) { FactoryBot.create(:category, name: "TMS", colour: "#000") }
   let(:ticket_one) { FactoryBot.create(:ticket, category: mhp, duration: 32) }
   let(:ticket_two) { FactoryBot.create(:ticket, category: tms, duration: 10) }
   let(:ticket_three) { FactoryBot.create(:ticket, category: tms, duration: 65) }
@@ -36,7 +36,7 @@ RSpec.describe TicketsHelper, type: :helper do
 
   describe "#total_tickets" do
     it "return hash of categories with count" do
-      expect(all_categories_stats(week_tickets)).to eq( { MHP: { count: 1, duration: 32 }, TMS: { count: 2, duration: 75 } } )
+      expect(all_categories_stats(week_tickets)).to eq( { MHP: { colour: "#fff", count: 1, duration: 32 }, TMS: { colour: "#000", count: 2, duration: 75 } } )
     end
   end
 end

@@ -20,7 +20,7 @@ module TicketsHelper
         dict[category][:count] += 1
         dict[category][:duration] += ticket.duration
       else
-        dict[category] = { count: 1, duration: ticket.duration }
+        dict[category] = { colour: ticket.category.colour, count: 1, duration: ticket.duration }
       end
 
     end
