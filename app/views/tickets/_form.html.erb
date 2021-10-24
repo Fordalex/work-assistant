@@ -40,13 +40,18 @@
       </div>
     </div>
 
-    <div class="row m-0 p-0">
-      <div class="col-6 m-0 p-0">
-        <label>Members</label>
-      </div>
-      <div class="col-6 m-0 p-0">
-        <label>Subjects</label>
+    <hr>
 
+    <div class="row m-0 p-0">
+      <div class="col-12 m-0 p-0">
+        <label class="mb-2">Members</label>
+      </div>
+      <div class="col-12 m-0 p-0">
+        <label class="mb-2">Subjects</label><br>
+        <% @subjects.each do |subject| %>
+          <%= form.check_box "#{subject.name}#{day}", class: "ticket-checkbox" %>
+          <%= form.label "#{subject.name}#{day}", subject.name %>
+        <% end %>
       </div>
     </div>
 

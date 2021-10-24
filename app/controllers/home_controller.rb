@@ -11,6 +11,7 @@ class HomeController < SessionsController
       end
 
       @ticket = Ticket.new
+      @subjects = Subject.where(user: current_user)
     end
 
     private
