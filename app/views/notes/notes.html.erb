@@ -16,15 +16,17 @@
   <% @tickets.each do |ticket| %>
     <tr>
       <td><b>#<%= ticket.id %></b></td>
-      <td class="d-flex justify-content-start align-items-center">
-        <div class="category-block me-2" style="background-color:<%= ticket.category.colour %>;"></div>
-        <%= ticket.category.name %>
+      <td>
+        <div class="d-flex justify-content-start align-items-center">
+          <div class="category-block me-2" style="background-color:<%= ticket.category.colour %>;"></div>
+          <%= ticket.category.name %>
+        </div>
       </td>
-      <td><%= ticket.description %></td>
-      <td><%= ticket %></td>
-      <td><%= ticket %></td>
-      <td><%= ticket.duration %> Mins</td>
-      <td><%= ticket.date.strftime("%d %B %Y") %></td>
+      <td><%= ticket.description.truncate(100) %></td>
+      <td></td>
+      <td></td>
+      <td><%= ticket&.duration %> Mins</td>
+      <td><%= ticket&.date&.strftime("%d %B %Y") %></td>
     </tr>
   <% end %>
 
