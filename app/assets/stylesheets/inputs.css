@@ -60,7 +60,7 @@ input:-webkit-autofill:focus {
 
 input,
 input[type="radio"] + label,
-input[type="checkbox"] + label:before,
+.normal-checkbox + label:before,
 select option,
 select {
   width: 100%;
@@ -126,17 +126,17 @@ select:active {
   border-color: #bd8200;
 }
 
-input[type="checkbox"] {
+.normal-checkbox {
   display: none;
 }
 
-input[type="checkbox"] + label {
+.normal-checkbox + label {
   position: relative;
   display: block;
   padding-left: 1.6em;
 }
 
-/* input[type="checkbox"] + label:before {
+.normal-checkbox + label:before {
   position: absolute;
   top: 0.2em;
   left: 0;
@@ -147,7 +147,7 @@ input[type="checkbox"] + label {
   content: "";
 }
 
-input[type="checkbox"] + label:after {
+.normal-checkbox + label:after {
   position: absolute;
   top: -3px;
   left: 0em;
@@ -155,7 +155,7 @@ input[type="checkbox"] + label:after {
   color: #fff;
   opacity: 0;
   content: "\2713";
-} */
+}
 
 input:checked + label:after {
   opacity: 1;
@@ -208,63 +208,14 @@ input:checked + label:after {
   transition: all 0.35s ease-in-out;
 }
 
+/* word checkbox */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* input[type="checkbox"] + label:before {
-  position: absolute;
-  top: 0.2em;
-  left: 0;
-  display: block;
-  width: 1em;
-  height: 1em;
-  padding: 0;
-  content: "";
-}
-
-input[type="checkbox"] + label:after {
-  position: absolute;
-  top: -3px;
-  left: 0em;
-  font-size: 1.2em;
-  color: #fff;
-  opacity: 0;
-  content: "\2713";
-} */
-
-input[type="checkbox"] + label,
-input[type="checkbox"] + label:before {
-  padding: 10px;
+.word-checkbox + label,
+.word-checkbox + label:before {
+  padding: 10px 15px;
   line-height: 1.4;
   color: orange;
   background-color: #f9f9f9;
-  border: 1px solid #e5e5e5;
   border-radius: 3px;
   -webkit-transition: 0.35s ease-in-out;
   -moz-transition: 0.35s ease-in-out;
@@ -273,26 +224,24 @@ input[type="checkbox"] + label:before {
   transition: all 0.35s ease-in-out;
 }
 
-input[type="checkbox"] {
+.word-checkbox {
   display: none;
 }
 
-input[type="checkbox"] + label,
-select {
+.word-checkbox + label {
   text-align: center;
   border-radius: 70px;
   cursor: pointer;
   display: inline-block;
+  margin-right: 5px;
 }
 
-input[type="checkbox"] + label i {
+.word-checkbox + label i {
   padding-right: 0.4em;
 }
 
-input[type="checkbox"]:checked + label,
-input:checked + label:before,
-select:focus,
-select:active {
+.word-checkbox:checked + label,
+input:checked + label:before {
   background-color: #f0a500;
   color: #fff;
   border-color: #bd8200;
