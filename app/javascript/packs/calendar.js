@@ -9,6 +9,9 @@ function openCalendar() {
 }
 
 window.onload = function() {
-  calendarContainers = document.querySelectorAll('.calendar-dayContainer')
-  calendarContainers.forEach((c) => c.addEventListener('click', openCalendar))
+  calendarContainers = document.querySelectorAll('.calendar-dayContainer');
+  calendarContainers.forEach((c) => c.addEventListener('click', openCalendar));
+
+  calendarTimeSheet = document.querySelectorAll('.calendar-timeSheet');
+  calendarTimeSheet.forEach((t) => t.scrollTo(0, 440))
 }
