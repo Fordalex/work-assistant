@@ -40,25 +40,8 @@
 
     <div class="arrow-divider"></div>
 
-    <div class="weeklySummary-container">
-      <h4>Week information</h4>
-
-      <table class="table table-striped">
-        <tr>
-          <th>Category</th>
-          <th>Count</th>
-          <th>Duration</th>
-        </tr>
-        <% all_categories_stats(@week_tickets).each do |category, dict| %>
-          <tr>
-            <td><%= category %></td>
-            <td><%= dict[:count] %></td>
-            <td><%= time_conversion(dict[:duration].to_i) %></td>
-          </tr>
-        <% end %>
-      </table>
-    </div>
-    <span>Total tickets: <%= total_tickets(@week_tickets) %></span>
+    <%= render partial: "week_information" %>
 
   </div>
+
 </div>
