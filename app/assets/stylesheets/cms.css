@@ -3,6 +3,7 @@
   box-shadow: 0 0 35px 0 rgba(0,0,0,0.08);
   padding: 0.5rem;
   border-radius: 5px;
+  margin-bottom: 1rem;
 }
 
 .cmsEntity-container span {
@@ -19,7 +20,7 @@
   box-shadow: 0 0 15px 0 rgba(0,0,0,0.05);
   padding: 0.75rem;
   border-radius: 5px;
-  margin-top: 1rem;
+  margin: 1rem 0;
   overflow: hidden;
 }
 

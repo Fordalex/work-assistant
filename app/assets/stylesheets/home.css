@@ -68,6 +68,10 @@
   border-bottom: solid 1px rgb(221, 221, 221);
 }
 
+.arrow-divider-body::after {
+  background-color: #fafcff;
+}
+
 .date-button {
   background-image: linear-gradient( 135deg, #ffce85 20%, #FA742B 100%);
   color: white;
