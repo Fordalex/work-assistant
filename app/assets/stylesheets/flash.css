@@ -1,7 +1,11 @@
 .flashMessage-container {
   position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  width: fit-content;
   top: 25px;
-  left: 40%;
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
@@ -21,4 +25,12 @@
 
 .flashMessage-warning {
   border-left: 5px solid rgb(235, 221, 36);
+}
+
+.flashMessage-notice {
+  border-left: 5px solid rgb(81, 157, 238);
+}
+
+.flashMessage-alert {
+  border-left: 5px solid rgb(236, 62, 62);
 }
