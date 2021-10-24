@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "/cms", to: "cms#cms", as: :cms
   post "/tickets", to: "tickets#create"
   post "/categories", to: "categories#create"
+  post "/subjects", to: "subjects#create"
 
   devise_for :users
 end

@@ -16,11 +16,16 @@
     </div>
     <div class="collapse mb-3" id="newSubject">
       <div class="">
-        <%= render partial: "categories/form", locals: { category: @category } %>
+        <%= render partial: "subjects/form", locals: { subject: @subject } %>
       </div>
     </div>
 
     <div class="arrow-divider arrow-divider-body mb-5"></div>
+
+    <% @subjects.each do |subject| %>
+      <%= render partial: "subject", locals: { subject: subject } %>
+    <% end %>
+
   </div>
 
 

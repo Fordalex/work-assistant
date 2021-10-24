@@ -1,0 +1,32 @@
+<div class="pb-5">
+<%= form_with(model: subject) do |form| %>
+  <% if subject.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(subject.errors.count, "error" ) %> prohibited this subject from being saved:
+      </h2>
+      <ul>
+        <% subject.errors.each do |error| %>
+          <li>
+            <%= error.full_message %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="form-group">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: "form-control", required: true %>
+    </div>
+
+    <div class="form-group mb-3">
+      <%= form.label :content %>
+      <%= form.text_area :content, class: "form-control", required: true %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit :save, class: "btn btn-success container-fluid" %>
+    </div>
+<% end %>
+</div>
