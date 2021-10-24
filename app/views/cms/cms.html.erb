@@ -9,6 +9,18 @@
         <span><%= @subjects.count %></span>
       </div>
     </div>
+
+    <div class="cmsEntity-container d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#newSubject" aria-expanded="false" aria-controls="newSubject">
+      <h6 class="m-0"><b>New</b></h6>
+      <span>+</span>
+    </div>
+    <div class="collapse mb-3" id="newSubject">
+      <div class="">
+        <%= render partial: "categories/form", locals: { category: @category } %>
+      </div>
+    </div>
+
+    <div class="arrow-divider arrow-divider-body mb-5"></div>
   </div>
 
 
@@ -21,11 +33,11 @@
       </div>
     </div>
 
-    <div class="cmsEntity-container d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    <div class="cmsEntity-container d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#newCategory" aria-expanded="false" aria-controls="newCategory">
       <h6 class="m-0"><b>New</b></h6>
       <span>+</span>
     </div>
-    <div class="collapse mb-3" id="collapseExample">
+    <div class="collapse mb-3" id="newCategory">
       <div class="">
         <%= render partial: "categories/form", locals: { category: @category } %>
       </div>
@@ -46,7 +58,20 @@
         <span><%= @members.count %></span>
       </div>
     </div>
-  </div>
 
+    <div class="cmsEntity-container d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#newMembers" aria-expanded="false" aria-controls="newMembers">
+      <h6 class="m-0"><b>New</b></h6>
+      <span>+</span>
+    </div>
+    <div class="collapse mb-3" id="newMembers">
+      <div class="">
+        <%= render partial: "categories/form", locals: { category: @category } %>
+      </div>
+    </div>
+
+    <div class="arrow-divider arrow-divider-body mb-5"></div>
+
+
+  </div>
 
 </div>
