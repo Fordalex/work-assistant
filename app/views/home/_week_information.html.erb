@@ -21,4 +21,6 @@
     <% end %>
   </table>
   <span>Total tickets: <%= total_tickets(@week_tickets) %></span>
+  <canvas id="myChart" width="400" height="400" data-colours="<%= values_for_chart(@week_tickets, :colour) %>" data-categories="<%= values_for_chart(@week_tickets, :category) %>" data-durations="<%= values_for_chart(@week_tickets, :duration) %>"></canvas>
 </div>
+
