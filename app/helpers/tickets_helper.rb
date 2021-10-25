@@ -20,11 +20,15 @@ module TicketsHelper
         dict[category][:count] += 1
         dict[category][:duration] += ticket.duration
       else
-        dict[category] = { colour: ticket.category.colour, count: 1, duration: ticket.duration }
+        dict[category] = { category: category, colour: ticket.category.colour, count: 1, duration: ticket.duration }
       end
 
     end
     dict.symbolize_keys
+  end
+
+  def values_for_chart(week_tickets, key)
+    all_categories_stats(week_tickets).map { |t| t[1][key] }.join(" ")
   end
 
   def time_conversion(minutes)
