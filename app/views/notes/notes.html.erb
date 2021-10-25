@@ -23,7 +23,11 @@
         </div>
       </td>
       <td><%= ticket.description.truncate(100) %></td>
-      <td></td>
+      <td>
+        <% ticket.member_groups.each do |member_group| %>
+          <%= render partial: "shared/member", locals: {member_group: member_group} %>
+        <% end %>
+      </td>
       <td class="notes-subjectContainer">
         <% ticket.subject_groups.each do |subject_group| %>
           <span><%= subject_group.subject.name %> </span>
