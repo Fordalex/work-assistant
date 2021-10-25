@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+SubjectGroup.destroy_all
+Subject.destroy_all
+Member.destroy_all
 Category.destroy_all
 Ticket.destroy_all
 User.destroy_all
@@ -64,6 +67,12 @@ Member.create(
   user: user,
 )
 
+Member.create(
+  name: "Jane",
+  colour: "#fc68e6",
+  user: user,
+)
+
 puts "\n== Creating tickets =="
 
 Ticket.create(
@@ -115,6 +124,8 @@ ticket_three = Ticket.create(
   duration: 120,
   start_time: Time.new(2021, 10, 18, 14, 30, 0)
 )
+
+# puts "\n== Creating member groups =="
 
 puts "\n== Creating subject groups =="
 
