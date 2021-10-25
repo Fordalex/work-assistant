@@ -25,6 +25,10 @@ p {
   letter-spacing: 1px;
 }
 
+hr {
+  background-color: rgb(172, 172, 172);
+}
+
 .nowrap {
   white-space: nowrap;
 }
