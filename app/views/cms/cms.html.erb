@@ -76,6 +76,9 @@
 
     <div class="arrow-divider arrow-divider-body mb-5"></div>
 
+    <% @members.each do |member| %>
+      <%= render partial: "member", locals: { member: member } %>
+    <% end %>
 
   </div>
 

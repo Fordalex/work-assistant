@@ -5,7 +5,7 @@ class CmsController < SessionsController
 
 
     @categories = Category.where(user: current_user)
-    @members = []
+    @members = Member.where(user: current_user)
     @subjects = Subject.where(user: current_user)
   end
 end
