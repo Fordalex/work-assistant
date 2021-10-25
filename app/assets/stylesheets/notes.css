@@ -12,3 +12,11 @@
   height: 16px;
   border-radius: 2px;
 }
+
+.notes-subjectContainer span::after {
+  content: ", "
+}
+
+.notes-subjectContainer span:last-child::after {
+  content: ""
+}

@@ -24,9 +24,9 @@
       </td>
       <td><%= ticket.description.truncate(100) %></td>
       <td></td>
-      <td>
+      <td class="notes-subjectContainer">
         <% ticket.subject_groups.each do |subject_group| %>
-          <%= subject_group.subject.name %>
+          <span><%= subject_group.subject.name %> </span>
         <% end %>
       </td>
       <td><%= ticket&.duration %> Mins</td>
