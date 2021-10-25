@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_24_124356) do
+ActiveRecord::Schema.define(version: 2021_10_25_192423) do
 
   create_table "categories", force: :cascade do |t|
     t.integer "user_id"
@@ -19,6 +19,26 @@ ActiveRecord::Schema.define(version: 2021_10_24_124356) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_categories_on_user_id"
+  end
+
+  create_table "members", force: :cascade do |t|
+    t.string "name"
+    t.string "colour"
+    t.integer "user_id"
+    t.integer "subject_group_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["subject_group_id"], name: "index_members_on_subject_group_id"
+    t.index ["user_id"], name: "index_members_on_user_id"
+  end
+
+  create_table "subject_groups", force: :cascade do |t|
+    t.integer "ticket_id"
+    t.integer "subject_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["subject_id"], name: "index_subject_groups_on_subject_id"
+    t.index ["ticket_id"], name: "index_subject_groups_on_ticket_id"
   end
 
   create_table "subjects", force: :cascade do |t|
@@ -40,7 +60,9 @@ ActiveRecord::Schema.define(version: 2021_10_24_124356) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "category_id"
+    t.integer "subject_group_id"
     t.index ["category_id"], name: "index_tickets_on_category_id"
+    t.index ["subject_group_id"], name: "index_tickets_on_subject_group_id"
     t.index ["user_id"], name: "index_tickets_on_user_id"
   end
 
