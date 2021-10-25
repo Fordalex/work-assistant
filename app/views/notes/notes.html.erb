@@ -24,7 +24,11 @@
       </td>
       <td><%= ticket.description.truncate(100) %></td>
       <td></td>
-      <td></td>
+      <td>
+        <% ticket.subject_groups.each do |subject_group| %>
+          <%= subject_group.subject.name %>
+        <% end %>
+      </td>
       <td><%= ticket&.duration %> Mins</td>
       <td><%= ticket&.date&.strftime("%d %B %Y") %></td>
     </tr>
