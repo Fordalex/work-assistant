@@ -61,13 +61,13 @@ interhome = Subject.create(
 
 puts "\n== Creating members =="
 
-Member.create(
+david = Member.create(
   name: "David",
   colour: "#f5aa42",
   user: user,
 )
 
-Member.create(
+jane = Member.create(
   name: "Jane",
   colour: "#fc68e6",
   user: user,
@@ -125,7 +125,22 @@ ticket_three = Ticket.create(
   start_time: Time.new(2021, 10, 18, 14, 30, 0)
 )
 
-# puts "\n== Creating member groups =="
+puts "\n== Creating member groups =="
+
+MemberGroup.create(
+  member: david,
+  ticket: ticket_two
+)
+
+MemberGroup.create(
+  member: david,
+  ticket: ticket_three
+)
+
+MemberGroup.create(
+  member: jane,
+  ticket: ticket_three
+)
 
 puts "\n== Creating subject groups =="
 
