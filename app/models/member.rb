@@ -1,5 +1,5 @@
 class Member < ApplicationRecord
   belongs_to :user
-  has_many :subjects
+  has_many :member_groups
 
 end
