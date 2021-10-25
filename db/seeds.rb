@@ -33,6 +33,18 @@ mcf = Category.create(
   colour: "#6cc9f5"
 )
 
+mvf = Category.create(
+  user: user,
+  name: "MVF",
+  colour: "#ffbf36"
+)
+
+my3c = Category.create(
+  user: user,
+  name: "My3c",
+  colour: "#c3f1fa"
+)
+
 puts "\n== Creating subjects =="
 
 elite = Subject.create(
@@ -75,26 +87,6 @@ jane = Member.create(
 
 puts "\n== Creating tickets =="
 
-Ticket.create(
-  user: user,
-  category: mhp,
-  date: Date.new(2021, 10, 18),
-  title: "MHP",
-  description: "Made some change to the home page.",
-  duration: 60,
-  start_time: Time.new(2021, 10, 18, 8, 30, 0)
-)
-
-Ticket.create(
-  user: user,
-  category: mhp,
-  date: Date.new(2021, 10, 18),
-  title: "MHP",
-  description: "This is anther ticket I've created for some test data so it doesn't look poop...",
-  duration: 45,
-  start_time:Time.new(2021, 10, 18, 9, 30, 0)
-)
-
 ticket_one = Ticket.create(
   user: user,
   category: mhp,
@@ -125,24 +117,49 @@ ticket_three = Ticket.create(
   start_time: Time.new(2021, 10, 18, 14, 30, 0)
 )
 
+ticket_four = Ticket.create(
+  user: user,
+  category: mvf,
+  date: Date.new(2021, 10, 18),
+  title: "MHP",
+  description: "Made some change to the home page.",
+  duration: 30,
+  start_time: Time.new(2021, 10, 18, 13, 30, 0)
+)
+
+ticket_five = Ticket.create(
+  user: user,
+  category: my3c,
+  date: Date.new(2021, 10, 18),
+  title: "MHP",
+  description: "This is anther ticket I've created for some test data so it doesn't look poop...",
+  duration: 75,
+  start_time:Time.new(2021, 10, 18, 12, 0, 0)
+)
+
 puts "\n== Creating member groups =="
 
 MemberGroup.create(
-  member: david,
-  ticket: ticket_two
-)
-
-MemberGroup.create(
-  member: david,
-  ticket: ticket_three
+  member: jane,
+  ticket: ticket_four
 )
 
 MemberGroup.create(
   member: jane,
-  ticket: ticket_three
+  ticket: ticket_five
 )
 
 puts "\n== Creating subject groups =="
+
+SubjectGroup.create(
+  subject: avantio,
+  ticket: ticket_one
+)
+
+SubjectGroup.create(
+  subject: avantio,
+  ticket: ticket_one
+)
 
 SubjectGroup.create(
   subject: avantio,
@@ -162,4 +179,14 @@ SubjectGroup.create(
 SubjectGroup.create(
   subject: elite,
   ticket: ticket_three
+)
+
+SubjectGroup.create(
+  subject: arkiane,
+  ticket: ticket_four
+)
+
+SubjectGroup.create(
+  subject: avantio,
+  ticket: ticket_five
 )
