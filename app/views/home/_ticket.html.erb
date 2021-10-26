@@ -5,6 +5,8 @@ background-color: <%= ticket.category.colour %>;">
   <div class="calendarTicket-wrapper">
     <h6 class="calendar-title"><%= ticket.category.name %></h6>
     <%= ticket.description %>
+    <br>
+    <%= image_tag("icons/clock_icon.png") %>
     <%= ticket.start_time.strftime("%H: %M") %>
     <%= ticket.duration %> Mins
   </div>
