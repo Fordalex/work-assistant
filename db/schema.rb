@@ -12,8 +12,11 @@
 
 ActiveRecord::Schema.define(version: 2021_10_25_204144) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "categories", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.string "colour"
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -22,8 +25,8 @@ ActiveRecord::Schema.define(version: 2021_10_25_204144) do
   end
 
   create_table "member_groups", force: :cascade do |t|
-    t.integer "member_id"
-    t.integer "ticket_id"
+    t.bigint "member_id"
+    t.bigint "ticket_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["member_id"], name: "index_member_groups_on_member_id"
@@ -33,8 +36,8 @@ ActiveRecord::Schema.define(version: 2021_10_25_204144) do
   create_table "members", force: :cascade do |t|
     t.string "name"
     t.string "colour"
-    t.integer "user_id"
-    t.integer "subject_group_id"
+    t.bigint "user_id"
+    t.bigint "subject_group_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["subject_group_id"], name: "index_members_on_subject_group_id"
@@ -42,8 +45,8 @@ ActiveRecord::Schema.define(version: 2021_10_25_204144) do
   end
 
   create_table "subject_groups", force: :cascade do |t|
-    t.integer "ticket_id"
-    t.integer "subject_id"
+    t.bigint "ticket_id"
+    t.bigint "subject_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["subject_id"], name: "index_subject_groups_on_subject_id"
@@ -51,7 +54,7 @@ ActiveRecord::Schema.define(version: 2021_10_25_204144) do
   end
 
   create_table "subjects", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.string "name"
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
@@ -65,11 +68,11 @@ ActiveRecord::Schema.define(version: 2021_10_25_204144) do
     t.date "date"
     t.time "start_time"
     t.integer "duration"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "category_id"
-    t.integer "subject_group_id"
+    t.bigint "category_id"
+    t.bigint "subject_group_id"
     t.index ["category_id"], name: "index_tickets_on_category_id"
     t.index ["subject_group_id"], name: "index_tickets_on_subject_group_id"
     t.index ["user_id"], name: "index_tickets_on_user_id"
