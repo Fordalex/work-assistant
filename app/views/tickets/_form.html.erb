@@ -35,8 +35,8 @@
 
       <div class="form-group container-fluid p-0">
         <%= form.label :duration %>
-        <%= form.range_field :duration, min: 0, max: 180, step: 5, value: 30, class: "duration-input", id: "durationInput#{day}", required: true %>
-        <span id="durationInput<%= day %>Container">30</span> Mins
+        <%= form.range_field :duration, min: 0, max: 600, step: 5, value: 30, class: "duration-input", id: "durationInput#{day}", required: true %>
+        <span id="durationInput<%= day %>Container">0h : 30m</span>
       </div>
     </div>
 
