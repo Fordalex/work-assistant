@@ -26,6 +26,7 @@
   width: 16px;
   height: 16px;
   border-radius: 2px;
+  border: solid grey 1px;
 }
 
 .notes-subjectContainer span::after {
