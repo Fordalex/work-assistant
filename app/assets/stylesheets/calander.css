@@ -56,16 +56,23 @@
 }
 
 .calendar-ticket {
+  background-color: white;
   transition: 0.5s;
   box-sizing: border-box;
-  padding: 0.5rem;
+  padding: 0.2rem;
   position: absolute;
   overflow: hidden;
   margin-left: 4.5rem;
   margin-right: 0.7rem;
   font-size: 0.8rem;
-  border-radius: 10px;
-  box-shadow: 0 0 35px 0 rgba(0,0,0,0.0);
+  border-radius: 4px;
+  border: solid 1px black;
+  box-shadow: 0 0 35px 0 rgba(0,0,0,0.1);
+}
+
+.calendar-ticket a {
+  color: black;
+  text-decoration: none;
 }
 
 .calendar-ticket .calendar-title {

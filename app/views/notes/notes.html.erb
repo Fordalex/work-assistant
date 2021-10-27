@@ -9,6 +9,7 @@
     <th>Description</th>
     <th>Members</th>
     <th>Subjects</th>
+    <th>Start time</th>
     <th>Duration</th>
     <th>Date</th>
   </tr>
@@ -33,7 +34,8 @@
           <span><%= subject_group.subject.name %> </span>
         <% end %>
       </td>
-      <td><%= ticket&.duration %> Mins</td>
+      <td><%= ticket&.start_time&.strftime("%H :%M") %></td>
+      <td><%= time_conversion(ticket&.duration) %></td>
       <td><%= ticket&.date&.strftime("%d %B %Y") %></td>
     </tr>
   <% end %>
