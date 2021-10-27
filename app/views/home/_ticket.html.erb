@@ -2,12 +2,14 @@
 top:<%= ticket_position(ticket) %>px;
 height:<%= ticket.duration %>px;
 background-color: <%= ticket.category.colour %>;">
-  <div class="calendarTicket-wrapper">
-    <h6 class="calendar-title"><%= ticket.category.name %></h6>
-    <%= ticket.description %>
-    <br>
-    <%= image_tag("icons/clock_icon.png") %>
-    <%= ticket.start_time.strftime("%H: %M") %>
-    <%= ticket.duration %> Mins
-  </div>
+  <%= link_to edit_ticket_path(ticket) do %>
+    <div class="calendarTicket-wrapper">
+      <h6 class="calendar-title"><%= ticket.category.name %></h6>
+      <%= ticket.description %>
+      <br>
+      <%= image_tag("icons/clock_icon.png") %>
+      <%= ticket.start_time.strftime("%H: %M") %>
+      <%= ticket.duration %> Mins
+    </div>
+  <% end %>
 </div>

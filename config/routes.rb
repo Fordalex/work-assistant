@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "/notes", to: "notes#notes"
   get "/websites", to: "websites#websites"
   get "/cms", to: "cms#cms", as: :cms
+  resources :tickets, only: %i[new create edit update]
   post "/tickets", to: "tickets#create"
   post "/categories", to: "categories#create"
   post "/subjects", to: "subjects#create"

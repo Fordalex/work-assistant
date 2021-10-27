@@ -14,7 +14,7 @@
   </tr>
 
   <% @tickets.each do |ticket| %>
-    <tr>
+    <tr onclick="window.location='<%= edit_ticket_path(ticket) %>'">
       <td><b>#<%= ticket.id %></b></td>
       <td>
         <div class="d-flex justify-content-start align-items-center">
