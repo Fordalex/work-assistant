@@ -12,6 +12,17 @@
   background-color: rgb(255, 255, 255);
   box-shadow: 0 0 45px 0 rgba(0,0,0,0.1);
   z-index: 1000;
+  animation-name: transitionDown;
+  animation-duration: 1s;
+}
+
+@keyframes transitionDown {
+  from {
+    top: -100px;
+  }
+  to {
+    top: 25px;
+  }
 }
 
 .flashMessage-container img {
