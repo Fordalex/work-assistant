@@ -2,16 +2,10 @@
   <h3 class="m-0"><b><%= day %></b></h3>
   <p class="nowrap text-secondary"><%= tickets[:date]&.strftime("%d %B %Y") %></p>
 
-  <p>
-    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample<%= day %>" aria-expanded="false" aria-controls="collapseExample<%= day %>">
-      + Ticket
-    </button>
-  </p>
-  <div class="collapse mb-3" id="collapseExample<%= day %>">
-    <div class="">
-      <%= render partial: "tickets/form", locals: {ticket: @ticket, day: day, date: tickets[:date]} %>
-    </div>
-  </div>
+
+  <%= link_to "+ Ticket", new_ticket_path, class: "btn btn-primary" %>
+
+
 
   <div class="calendar-timeSheet">
     <% 24.times do |hour| %>
