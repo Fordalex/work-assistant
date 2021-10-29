@@ -33,7 +33,8 @@ module TicketsHelper
 
   def time_conversion(minutes)
     hours = minutes / 60
-    rest = minutes % 60
-    "#{hours}h #{rest}m"
+    rest = (minutes % 60).to_s
+    rest = rest.length < 2 ? '0' + rest : rest
+    "#{hours}h :   #{rest}m"
   end
 end

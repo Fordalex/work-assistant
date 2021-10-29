@@ -1,3 +1,6 @@
+<%= content_for :scripts do %>
+  <%= javascript_pack_tag "duration" %>
+<% end %>
 
 <%= form_with(model: ticket) do |form| %>
   <% if ticket.errors.any? %>
@@ -38,8 +41,10 @@
 
       <div class="form-group container-fluid p-0">
         <%= form.label :duration %>
-        <%= form.range_field :duration, min: 0, max: 600, step: 5, class: "duration-input", id: "durationInput#{day}", required: true %>
-        <span id="durationInput<%= day %>Container"></span>
+        <%= form.range_field :duration, min: 0, max: 600, step: 5, value: ticket.duration || 30, class: "duration-input", id: "durationInput#{day}", required: true %>
+        <span id="durationInput<%= day %>Container">
+          <%= time_conversion(ticket.duration || 30) %>
+        </span>
       </div>
     </div>
 
