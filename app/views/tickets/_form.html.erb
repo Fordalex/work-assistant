@@ -68,6 +68,9 @@
           <%= form.check_box "member_checkboxes[#{member.id}]", {checked: member_group.present?, class: "word-checkbox"} %>
           <%= form.label "member_checkboxes[#{member.id}]", member.name %>
         <% end %>
+        <% unless @members.any? %>
+          <p class="text-secondary">Members can be added from the cms page</p>
+        <% end %>
       </div>
       <div class="col-12 m-0 p-0">
         <label class="mb-2">Subjects</label><br>
@@ -75,6 +78,9 @@
           <% subject_group = ticket.subject_groups.where(subject: subject, ticket: ticket).first %>
           <%= form.check_box "subject_checkboxes[#{subject.id}]", {checked: subject_group.present?, class: "word-checkbox"} %>
           <%= form.label "subject_checkboxes[#{subject.id}]", subject.name %>
+        <% end %>
+         <% unless @subjects.any? %>
+          <p class="text-secondary">Subjects can be added from the cms page</p>
         <% end %>
       </div>
     </div>
