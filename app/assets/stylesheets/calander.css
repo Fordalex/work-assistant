@@ -12,7 +12,7 @@
 .calendar-dayContainer {
   overflow: hidden;
   transition: 0.5s;
-  background-color: white;
+  background-color: #fdfeff;
   box-shadow: 0 0 35px 0 rgba(0,0,0,0.08);
   padding: 1rem;
   border-radius: 0.75rem;
@@ -66,7 +66,6 @@
   margin-right: 0.7rem;
   font-size: 0.8rem;
   border-radius: 4px;
-  border: solid 1px black;
   box-shadow: 0 0 35px 0 rgba(0,0,0,0.1);
 }
 
@@ -92,8 +91,7 @@
   height: 100%;
   border-radius: 10px;
   padding: 1rem;
-  border: dashed rgba(255,255,255,0.45) 3px;
-  overflow: hidden;
+    overflow: hidden;
 }
 
 .hour-container {
