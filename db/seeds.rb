@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 SubjectGroup.destroy_all
 Subject.destroy_all
+MemberGroup.destroy_all
 Member.destroy_all
 Category.destroy_all
 Ticket.destroy_all
