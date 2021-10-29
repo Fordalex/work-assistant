@@ -10,7 +10,7 @@
 }
 
 .ticket-table tr {
-  transition: 0.5s;
+  transition: 0.1s;
 }
 
 .ticket-table tr:hover {

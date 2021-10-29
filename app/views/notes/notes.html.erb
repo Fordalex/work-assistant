@@ -1,6 +1,7 @@
 <h2>Notes</h2>
 
 <div class="white-container p-4 m-4">
+<% if @tickets.any? %>
 <table class="table ticket-table">
 
   <tr>
@@ -39,6 +40,8 @@
       <td><%= ticket&.date&.strftime("%d %B %Y") %></td>
     </tr>
   <% end %>
-
 </table>
+<% else %>
+<p class="text-secondary m-0">No tickets have been added yet.</p>
+<% end %>
 </div>
