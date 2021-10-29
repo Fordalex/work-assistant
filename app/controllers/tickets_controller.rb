@@ -1,6 +1,7 @@
-class TicketsController < ApplicationController
+class TicketsController < SessionsController
   before_action :set_ticket, only: %i[edit]
   before_action :set_subjects, only: %i[edit]
+  before_action :set_members, only: %i[edit]
 
   def create
     ticket = Ticket.new(tickets_params.merge(user: current_user))
@@ -21,6 +22,10 @@ class TicketsController < ApplicationController
 
   def set_subjects
     @subjects = Subject.where(user: current_user)
+  end
+
+  def set_members
+    @members = Member.where(user: current_user)
   end
 
   def tickets_params
