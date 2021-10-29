@@ -62,13 +62,13 @@
   border-right: solid rgb(225, 228, 230) 1px;
 }
 
-.cms-icon {
+.icon {
   cursor: pointer;
   font-size: 1.4rem;
   margin-left: 0.5rem;
   color: #ccc;
 }
 
-.cms-icon:hover {
+.icon:hover {
   color: rgb(255, 166, 0);
 }
