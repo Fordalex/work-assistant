@@ -5,18 +5,20 @@
 <table class="table ticket-table">
 
   <tr>
-    <th>Ticket ID</th>
+    <th>ID</th>
     <th>Category</th>
     <th>Description</th>
     <th>Members</th>
     <th>Subjects</th>
-    <th>Start time</th>
+    <th>Time</th>
     <th>Duration</th>
     <th>Date</th>
+    <th>Links</th>
+    <th>Actions</th>
   </tr>
 
   <% @tickets.each do |ticket| %>
-    <tr onclick="window.location='<%= edit_ticket_path(ticket) %>'">
+    <tr>
       <td><b>#<%= ticket.id %></b></td>
       <td>
         <div class="d-flex justify-content-start align-items-center">
@@ -35,9 +37,24 @@
           <span><%= subject_group.subject.name %> </span>
         <% end %>
       </td>
-      <td><%= ticket&.start_time&.strftime("%H :%M") %></td>
+      <td>
+        <%= ticket&.start_time&.strftime("%H :%M") %>
+        -
+        <%= (ticket&.start_time + ticket&.duration.minutes).strftime("%H :%M") %>
+      </td>
       <td><%= time_conversion(ticket&.duration) %></td>
-      <td><%= ticket&.date&.strftime("%d %B %Y") %></td>
+      <td><%= ticket&.date&.strftime("%d %b %y") %></td>
+      <td>
+        <% if ticket.commit.present? %>
+          <%= link_to "", ticket.commit, target: "_blank", class: "fab fa-github icon" %>
+        <% end %>
+        <% if ticket.resource.present? %>
+          <%= link_to "", ticket.resource, target: "_blank", class: "fas fa-globe-asia icon" %>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to "Edit", edit_ticket_path(ticket),class: "btn btn-primary btn-small" %>
+      </td>
     </tr>
   <% end %>
 </table>
