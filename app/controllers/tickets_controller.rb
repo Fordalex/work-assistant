@@ -16,7 +16,7 @@ class TicketsController < SessionsController
       flash[:warning] = "An error occured please try again"
       render "edit"
     end
-    redirect_to root_path
+    redirect_to notes_path
   end
 
   def edit
@@ -27,7 +27,7 @@ class TicketsController < SessionsController
       update_members(@ticket)
       update_subjects(@ticket)
       flash[:success] = "#{@ticket.category.name} ticket has been updated!"
-      redirect_to root_path
+      redirect_to notes_path
     else
       flash[:warning] = "An error occured please try again"
       render "edit"
