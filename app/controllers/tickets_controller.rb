@@ -1,7 +1,7 @@
 class TicketsController < SessionsController
-  before_action :set_ticket, only: %i[edit]
-  before_action :set_subjects, only: %i[edit]
-  before_action :set_members, only: %i[edit]
+  before_action :set_ticket, only: %i[edit update destroy]
+  before_action :set_subjects, only: %i[edit update]
+  before_action :set_members, only: %i[edit update]
 
   def create
     ticket = Ticket.new(tickets_params.merge(user: current_user))
@@ -12,6 +12,24 @@ class TicketsController < SessionsController
     end
 
     redirect_to root_path
+  end
+
+  def edit
+  end
+
+  def update
+    if @ticket.update(tickets_params)
+      flash[:success] = "#{@ticket.category.name} ticket has been updated!"
+      redirect_to root_path
+    else
+      flash[:warning] = "An error occured please try again"
+      render "edit"
+    end
+  end
+
+  def destroy
+    @ticket.destroy
+    redirect_to notes_path
   end
 
   private

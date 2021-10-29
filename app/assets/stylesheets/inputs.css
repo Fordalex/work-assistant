@@ -246,3 +246,7 @@ input:checked + label:before {
   color: #fff;
   border-color: #bd8200;
 }
+
+.large-textArea {
+  min-height: 150px !important;
+}
