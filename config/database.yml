@@ -97,4 +97,4 @@ production:
   <<: *default
   database: work_assistant_production
   username: work_assistant
-  password: <%= ENV['WORK_ASSISTANT_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
