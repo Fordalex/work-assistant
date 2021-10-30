@@ -14,7 +14,7 @@
 }
 
 .login-pageContainer {
-  background-color: #f2f6ff;
+  background-color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -23,12 +23,24 @@
 }
 
 .login-wrapper {
-  padding: 2.5rem;
+  padding: 1.5rem;
   border-radius: 15px;
   background-color: white;
-  box-shadow: 0 0 35px 0 rgba(0,0,0,0.03);
-  margin: 2rem 0;
-  min-width: 600px;
+  box-shadow: 0 0 35px 0 rgba(0,0,0,0.0);
+  margin: 1rem 0;
+  min-width: auto;
+}
+
+@media screen and (min-width: 767px) {
+  .login-pageContainer {
+    background-color: #fafcff;
+  }
+  .login-wrapper {
+    box-shadow: 0 0 35px 0 rgba(0,0,0,0.03);
+    padding: 2.5rem;
+    margin: 2rem 0;
+    min-width: 600px;
+  }
 }
 
 .signin-button {

@@ -48,7 +48,13 @@ a {
 body {
     margin: 0;
     padding: 0;
+    background-color: white;
+}
+
+@media screen and (min-width: 767px) {
+  body {
     background-color: #fafcff;
+  }
 }
 
 .page-container {
