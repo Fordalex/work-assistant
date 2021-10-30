@@ -1,64 +1,64 @@
 <nav>
-      <ul>
-        <li>
-          <div class="logo main-gradient">
-            WA
-          </div>
-        </li>
-        <li class="navList-item">
-          <%= link_to root_path do %>
-            <% if current_page?(root_path) %>
-              <%= image_tag("icons/home_icon_selected.png") %>
-              <span class="navLink-selected">Home</span>
-            <% else %>
-              <%= image_tag("icons/home_icon.png") %>
-              <span>Home</span>
-            <% end %>
-          <% end %>
-        </li>
+  <ul>
+    <li>
+      <div class="logo main-gradient">
+        WA
+      </div>
+    </li>
+    <li class="navList-item">
+      <%= link_to root_path do %>
+        <% if current_page?(root_path) %>
+          <%= image_tag("icons/home_icon_selected.png") %>
+          <span class="navLink-selected">Home</span>
+        <% else %>
+          <%= image_tag("icons/home_icon.png") %>
+          <span>Home</span>
+        <% end %>
+      <% end %>
+    </li>
 
-        <li class="navList-item">
-          <%= link_to notes_path do %>
-            <% if current_page?(notes_path) %>
-              <%= image_tag("icons/notes_icon_selected.png") %>
-              <span class="navLink-selected">Tickets</span>
-            <% else %>
-              <%= image_tag("icons/notes_icon.png") %>
-              <span>Tickets</span>
-            <% end %>
-          <% end %>
-        </li>
+    <li class="navList-item">
+      <%= link_to notes_path do %>
+        <% if current_page?(notes_path) %>
+          <%= image_tag("icons/notes_icon_selected.png") %>
+          <span class="navLink-selected">Tickets</span>
+        <% else %>
+          <%= image_tag("icons/notes_icon.png") %>
+          <span>Tickets</span>
+        <% end %>
+      <% end %>
+    </li>
 
-        <li class="navList-item">
-          <%= link_to cms_path do %>
-            <% if current_page?(cms_path) %>
-              <%= image_tag("icons/cms_icon_selected.png") %>
-              <span class="navLink-selected">CMS</span>
-            <% else %>
-              <%= image_tag("icons/cms_icon.png") %>
-              <span>CMS</span>
-            <% end %>
-          <% end %>
-        </li>
+    <li class="navList-item">
+      <%= link_to cms_path do %>
+        <% if current_page?(cms_path) %>
+          <%= image_tag("icons/cms_icon_selected.png") %>
+          <span class="navLink-selected">CMS</span>
+        <% else %>
+          <%= image_tag("icons/cms_icon.png") %>
+          <span>CMS</span>
+        <% end %>
+      <% end %>
+    </li>
 
-        <li class="navList-item">
-          <%= link_to websites_path do %>
-            <% if current_page?(websites_path) %>
-              <%= image_tag("icons/website_icon_selected.png") %>
-              <span class="navLink-selected">websites</span>
-            <% else %>
-              <%= image_tag("icons/website_icon.png") %>
-              <span>websites</span>
-            <% end %>
-          <% end %>
-        </li>
-      </ul>
-      <ul>
-        <li class="navList-item">
-          <%= link_to destroy_user_session_path, method: "DELETE" do %>
-            <%= image_tag("icons/logout_icon.png") %>
-            <span>Logout</span>
-          <% end %>
-        </li>
-      </ul>
-    </nav>
+    <li class="navList-item">
+      <%= link_to websites_path do %>
+        <% if current_page?(websites_path) %>
+          <%= image_tag("icons/website_icon_selected.png") %>
+          <span class="navLink-selected">websites</span>
+        <% else %>
+          <%= image_tag("icons/website_icon.png") %>
+          <span>websites</span>
+        <% end %>
+      <% end %>
+    </li>
+  </ul>
+  <ul>
+    <li class="navList-item">
+      <%= link_to destroy_user_session_path, method: "DELETE" do %>
+        <%= image_tag("icons/logout_icon.png") %>
+        <span>Logout</span>
+      <% end %>
+    </li>
+  </ul>
+</nav>
