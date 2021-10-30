@@ -9,6 +9,8 @@ SubjectGroup.destroy_all
 Subject.destroy_all
 MemberGroup.destroy_all
 Member.destroy_all
+Language.destroy_all
+LanguageGroup.destroy_all
 Category.destroy_all
 Ticket.destroy_all
 User.destroy_all
@@ -190,4 +192,28 @@ SubjectGroup.create(
 SubjectGroup.create(
   subject: avantio,
   ticket: ticket_five
+)
+
+puts "\n== Creating languages =="
+
+css = Language.create(
+  user: user,
+  name: "css"
+)
+
+js = Language.create(
+  user: user,
+  name: "js"
+)
+
+ruby = Language.create(
+  user: user,
+  name: "ruby"
+)
+
+puts "\n== Creating language groups =="
+
+LanguageGroup.create(
+  language: ruby,
+  ticket: ticket_one
 )
