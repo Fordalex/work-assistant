@@ -1,4 +1,4 @@
 class LanguageGroup < ApplicationRecord
-  has_many :languages
-  has_many :tickets
+  belongs_to :language
+  belongs_to :ticket
 end

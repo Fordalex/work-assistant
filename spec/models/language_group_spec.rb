@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe LanguageGroup, type: :model do
   describe "Association" do
-    it { should have_many(:tickets) }
-    it { should have_many(:languages) }
+    it { should belong_to(:ticket) }
+    it { should belong_to(:language) }
   end
 end
