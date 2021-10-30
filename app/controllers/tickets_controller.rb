@@ -2,6 +2,7 @@ class TicketsController < SessionsController
   before_action :set_ticket, only: %i[edit update destroy]
   before_action :set_subjects, only: %i[edit update new]
   before_action :set_members, only: %i[edit update new]
+  before_action :set_categories, only: %i[edit update new]
 
   def new
     @ticket = Ticket.new
@@ -51,6 +52,14 @@ class TicketsController < SessionsController
 
   def set_members
     @members = Member.where(user: current_user)
+  end
+
+  def set_languages
+    @languages = Language.where(user: current_user)
+  end
+
+  def set_categories
+    @categories = Category.where(user: current_user)
   end
 
   def update_members(ticket)

@@ -56,7 +56,9 @@
   border-top: #ef822d 5px solid;
 }
 
-/* #c06ec8 */
+.cms-languages {
+  border-top: #c06ec8 5px solid;
+}
 
 .border-right {
   border-right: solid rgb(225, 228, 230) 1px;

@@ -1,6 +1,7 @@
 class HomeController < TicketsController
   before_action :set_members, only: %i[home]
   before_action :set_subjects, only: %i[home]
+  before_action :set_languages, only: %i[home]
 
   def home
     @start_date = start_date

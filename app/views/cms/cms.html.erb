@@ -91,4 +91,33 @@
 
   </div>
 
+  <div class="col-3 border-right">
+    <div class="cmsEntity-container cms-languages">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="m-0"><b>Languages</b></h6>
+        <span><%= @languages.count %></span>
+      </div>
+    </div>
+
+    <div class="cmsEntity-container d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#newlanguages" aria-expanded="false" aria-controls="newlanguages">
+      <h6 class="m-0"><b>New</b></h6>
+      <span>+</span>
+    </div>
+    <div class="collapse mb-3" id="newlanguages">
+      <div class="">
+        <%# <%= render partial: "categories/form", locals: { languages: @languages } %>
+      </div>
+    </div>
+
+    <div class="arrow-divider arrow-divider-body mb-5"></div>
+
+    <% @languages.each do |language| %>
+      <%= render partial: "language", locals: { language: language } %>
+    <% end %>
+    <% unless @languages.any? %>
+      <p class="text-secondary">No languages have been created yet.</p>
+    <% end %>
+
+  </div>
+
 </div>

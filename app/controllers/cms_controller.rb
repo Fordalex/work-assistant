@@ -1,11 +1,12 @@
-class CmsController < SessionsController
+class CmsController < TicketsController
+  before_action :set_members, only: %i[cms]
+  before_action :set_subjects, only: %i[cms]
+  before_action :set_languages, only: %i[cms]
+  before_action :set_categories, only: %i[cms]
+
   def cms
     @category = Category.new
     @subject = Subject.new
-
-
-    @categories = Category.where(user: current_user)
-    @members = Member.where(user: current_user)
-    @subjects = Subject.where(user: current_user)
+    @language = Language.new
   end
 end
