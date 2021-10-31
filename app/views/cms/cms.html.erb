@@ -15,7 +15,7 @@
       <span>+</span>
     </div>
     <div class="collapse mb-3" id="newSubject">
-      <div class="">
+      <div>
         <%= render partial: "subjects/form", locals: { subject: @subject } %>
       </div>
     </div>
@@ -46,7 +46,7 @@
       <span>+</span>
     </div>
     <div class="collapse mb-3" id="newCategory">
-      <div class="">
+      <div>
         <%= render partial: "categories/form", locals: { category: @category } %>
       </div>
     </div>
@@ -75,8 +75,8 @@
       <span>+</span>
     </div>
     <div class="collapse mb-3" id="newMembers">
-      <div class="">
-        <%= render partial: "categories/form", locals: { category: @category } %>
+      <div>
+        <%= render partial: "members/form", locals: { member: @member } %>
       </div>
     </div>
 
@@ -104,8 +104,8 @@
       <span>+</span>
     </div>
     <div class="collapse mb-3" id="newlanguages">
-      <div class="">
-        <%# <%= render partial: "categories/form", locals: { languages: @languages } %>
+      <div>
+        <%= render partial: "languages/form", locals: { language: @language } %>
       </div>
     </div>
 
