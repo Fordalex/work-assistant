@@ -26,7 +26,7 @@
       <div class="col-12 col-md-6 m-0 p-0 pe-3 border-right">
         <h4>Information</h4>
 
-        <%= form.label :category %>
+        <%= form.label :category, class: "required" %>
         <div class="input-group-icon">
           <%= form.select :category_id, Category.where(user: current_user).map{ |c| [c.name, c.id] }, {prompt: "Pick a category..."}, id: "category#{day}", class: "form-control", required: true %>
           <div class="input-icon">
@@ -34,7 +34,7 @@
           </div>
         </div>
 
-        <%= form.label :description %>
+        <%= form.label :description, class: "required" %>
         <div class="input-group-icon">
           <%= form.text_area :description, class: "form-control large-textArea input-style", placeholder: "Add your description here...", id: "description#{day}", required: true %>
           <div class="input-icon">
@@ -69,7 +69,7 @@
 
         <%= form.label :technical %>
         <div class="input-group-icon">
-          <%= form.text_area :technical, class: "form-control large-textArea input-style", placeholder: "Add code and message here...", id: "description#{day}", required: true %>
+          <%= form.text_area :technical, class: "form-control large-textArea input-style", placeholder: "Add code and message here...", id: "description#{day}" %>
           <div class="input-icon">
             <i class="fas fa-laptop-code"></i>
           </div>
@@ -110,7 +110,7 @@
 
         <%= form.hidden_field :date, value: date %>
 
-        <%= form.label :start_time %>
+        <%= form.label :start_time, class: "required" %>
         <div class="input-group-icon">
           <%= form.time_field :start_time, class: "form-control", id: "startTime#{day}", value: ticket.start_time&.strftime("%H:%M") || Time.now.strftime("%H:%M"), required: true %>
           <div class="input-icon">
@@ -119,7 +119,7 @@
         </div>
 
         <div class="form-group container-fluid p-0">
-          <%= form.label :duration %>
+          <%= form.label :duration, class: "required" %>
           <%= form.range_field :duration, min: 0, max: 600, step: 5, value: ticket.duration || 30, class: "duration-input", id: "durationInput#{day}", required: true %>
           <span id="durationInput<%= day %>Container">
             <%= time_conversion(ticket.duration || 30) %>
