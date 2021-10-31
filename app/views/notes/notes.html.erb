@@ -2,8 +2,41 @@
 
 <div class="white-container p-4 m-4">
 <% if @tickets.any? %>
-<table class="table ticket-table">
 
+<%= form_with url: notes_path, method: :get, class: "notes-filterContainer" do |form| %>
+
+  <div class="input-group-icon">
+    <%= form.select :categories, @categories.map { |s| [s.name, s.id] }, {prompt: "Any"}, class: "form-control" %>
+    <div class="input-icon">
+      <i class="fas fa-folder-open"></i>
+    </div>
+  </div>
+
+  <div class="input-group-icon">
+    <%= form.select :members, @members.map { |s| [s.name, s.id] }, {prompt: "Any"}, class: "form-control" %>
+    <div class="input-icon">
+      <i class="fas fa-folder-open"></i>
+    </div>
+  </div>
+
+  <div class="input-group-icon">
+    <%= form.select :subjects, @subjects.map { |s| [s.name, s.id] }, {prompt: "Any"}, class: "form-control" %>
+    <div class="input-icon">
+      <i class="fas fa-folder-open"></i>
+    </div>
+  </div>
+
+  <div class="input-group-icon">
+    <%= form.select :languages, @languages.map { |s| [s.name, s.id] }, {prompt: "Any"}, class: "form-control" %>
+    <div class="input-icon">
+      <i class="fas fa-folder-open"></i>
+    </div>
+  </div>
+
+  <%= form.submit "Search", class: "btn btn-success ms-2" %>
+<% end %>
+
+<table class="table ticket-table">
   <tr>
     <th>ID</th>
     <th>Category</th>
