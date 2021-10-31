@@ -6,5 +6,8 @@ class NotesController < TicketsController
 
   def notes
     @tickets = Ticket.where(user: current_user)
+    if params[:categories].present?
+      @tickets = @tickets.joins(:category).where(categories: {id: params[:categories]})
+    end
   end
 end
