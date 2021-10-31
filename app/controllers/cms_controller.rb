@@ -7,6 +7,7 @@ class CmsController < TicketsController
   def cms
     @category = Category.new
     @subject = Subject.new
+    @member = Member.new
     @language = Language.new
   end
 end
