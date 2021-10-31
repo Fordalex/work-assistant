@@ -125,6 +125,7 @@ ticket_four = Ticket.create(
   category: mvf,
   date: Date.new(2021, 10, 18),
   title: "MHP",
+  resource: "https://www.youtube.com",
   description: "Made some change to the home page.",
   duration: 30,
   start_time: Time.new(2021, 10, 18, 13, 30, 0)
@@ -133,6 +134,7 @@ ticket_four = Ticket.create(
 ticket_five = Ticket.create(
   user: user,
   category: my3c,
+  commit: "https://www.github.com",
   date: Date.new(2021, 10, 18),
   title: "MHP",
   description: "This is anther ticket I've created for some test data so it doesn't look poop...",
