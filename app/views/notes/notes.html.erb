@@ -1,7 +1,6 @@
 <h2>Notes</h2>
 
 <div class="white-container p-4 m-4">
-<% if @tickets.any? %>
 
 <%= form_with url: notes_path, method: :get, class: "notes-filterContainer" do |form| %>
 
@@ -15,27 +14,28 @@
   <div class="input-group-icon">
     <%= form.select :members, @members.map { |s| [s.name, s.id] }, {prompt: "Any"}, class: "form-control" %>
     <div class="input-icon">
-      <i class="fas fa-folder-open"></i>
+      <i class="fa fa-user"></i>
     </div>
   </div>
 
   <div class="input-group-icon">
     <%= form.select :subjects, @subjects.map { |s| [s.name, s.id] }, {prompt: "Any"}, class: "form-control" %>
     <div class="input-icon">
-      <i class="fas fa-folder-open"></i>
+      <i class="fas fa-info-circle"></i>
     </div>
   </div>
 
   <div class="input-group-icon">
     <%= form.select :languages, @languages.map { |s| [s.name, s.id] }, {prompt: "Any"}, class: "form-control" %>
     <div class="input-icon">
-      <i class="fas fa-folder-open"></i>
+      <i class="fas fa-laptop-code"></i>
     </div>
   </div>
 
   <%= form.submit "Search", class: "btn btn-success ms-2" %>
 <% end %>
 
+<% if @tickets.any? %>
 <table class="table ticket-table">
   <tr>
     <th>ID</th>
