@@ -10,7 +10,7 @@
     <th>Description</th>
     <th>Members</th>
     <th>Subjects</th>
-    <th>Time</th>
+    <th>Technical</th>
     <th>Duration</th>
     <th>Date</th>
     <th>Links</th>
@@ -34,13 +34,13 @@
       </td>
       <td class="notes-subjectContainer">
         <% ticket.subject_groups.each do |subject_group| %>
-          <span><%= subject_group.subject.name %> </span>
+          <span><%= subject_group.subject.name %></span>
         <% end %>
       </td>
       <td>
-        <%= ticket&.start_time&.strftime("%H :%M") %>
-        -
-        <%= (ticket&.start_time + ticket&.duration.minutes).strftime("%H :%M") %>
+        <% ticket.language_groups.each do |language_group| %>
+          <span><%= language_group.language.name %></span>
+        <% end %>
       </td>
       <td><%= time_conversion(ticket&.duration) %></td>
       <td><%= ticket&.date&.strftime("%d %b %y") %></td>

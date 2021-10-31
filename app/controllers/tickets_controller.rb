@@ -3,6 +3,7 @@ class TicketsController < SessionsController
   before_action :set_subjects, only: %i[edit update new]
   before_action :set_members, only: %i[edit update new]
   before_action :set_categories, only: %i[edit update new]
+  before_action :set_languages, only: %i[edit update new]
 
   def new
     @ticket = Ticket.new
@@ -12,6 +13,8 @@ class TicketsController < SessionsController
     ticket = Ticket.new(tickets_params.merge(user: current_user))
     if ticket.save!
       update_members(ticket)
+      update_subjects(ticket)
+      update_languages(ticket)
       flash[:success] = "#{ticket.category.name} ticket has been added!"
     else
       flash[:warning] = "An error occured please try again"
@@ -27,6 +30,7 @@ class TicketsController < SessionsController
     if @ticket.update(tickets_params)
       update_members(@ticket)
       update_subjects(@ticket)
+      update_languages(@ticket)
       flash[:success] = "#{@ticket.category.name} ticket has been updated!"
       redirect_to notes_path
     else
@@ -90,7 +94,21 @@ class TicketsController < SessionsController
     end
   end
 
+  def update_languages(ticket)
+    language_groups = LanguageGroup.where(ticket: ticket)
+    language_groups.destroy_all
+    params[:ticket][:language_checkboxes].each do |language_id, active|
+      if active == "1"
+        language = Language.find(language_id)
+        LanguageGroup.create(
+          language: language,
+          ticket: ticket
+        )
+      end
+    end
+  end
+
   def tickets_params
-    params.require(:ticket).permit(:category_id, :description, :start_time, :commit, :resource, :date, :duration, :member_checkboxes, :subject_checkboxes)
+    params.require(:ticket).permit(:category_id, :description, :start_time, :commit, :resource, :date, :duration, :technical, :member_checkboxes, :subject_checkboxes, :language_checkboxes)
   end
 end

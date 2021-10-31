@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_30_231848) do
+ActiveRecord::Schema.define(version: 2021_10_31_105308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 2021_10_30_231848) do
     t.bigint "subject_group_id"
     t.string "commit"
     t.string "resource"
+    t.text "technical"
     t.index ["category_id"], name: "index_tickets_on_category_id"
     t.index ["subject_group_id"], name: "index_tickets_on_subject_group_id"
     t.index ["user_id"], name: "index_tickets_on_user_id"

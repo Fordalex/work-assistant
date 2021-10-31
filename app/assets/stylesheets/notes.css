@@ -11,6 +11,7 @@
 
 .ticket-table tr {
   transition: 0.1s;
+  font-size: 0.85rem;
 }
 
 .ticket-table td {
