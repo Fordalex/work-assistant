@@ -7,9 +7,10 @@ Rails.application.routes.draw do
   get "/websites", to: "websites#websites"
   get "/cms", to: "cms#cms", as: :cms
   resources :tickets
-  post "/tickets", to: "tickets#create"
-  post "/categories", to: "categories#create"
-  post "/subjects", to: "subjects#create"
+  resources :subjects
+  resources :categories
+  resources :languages
+  resources :members
 
   devise_for :users
 end
