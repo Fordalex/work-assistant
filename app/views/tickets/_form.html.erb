@@ -18,45 +18,62 @@
     </div>
   <% end %>
 
-      <% date = date || ticket&.date %>
-      <% day = day || "edit" %>
+    <% date = date || ticket&.date %>
+    <% day = day || "edit" %>
 
-      <%= form.hidden_field :date, value: date %>
+    <%= form.hidden_field :date, value: date %>
 
-    <div class="form-group">
-      <%= form.label :category %>
+    <%= form.label :category %>
+    <div class="input-group-icon">
       <%= form.select :category_id, Category.where(user: current_user).map{ |c| [c.name, c.id] }, {prompt: "Pick a category..."}, id: "category#{day}", class: "form-control", required: true %>
+      <div class="input-icon">
+        <i class="fas fa-folder-open"></i>
+      </div>
     </div>
 
-    <div class="form-group">
-      <%= form.label :description %>
-      <%= form.text_area :description, class: "form-control large-textArea", placeholder: "Add your description here...", id: "description#{day}", required: true %>
+    <%= form.label :description %>
+    <div class="input-group-icon">
+      <%= form.text_area :description, class: "form-control large-textArea input-style", placeholder: "Add your description here...", id: "description#{day}", required: true %>
+      <div class="input-icon">
+        <i class="fas fa-info-circle"></i>
+      </div>
     </div>
 
-    <div class="form-group">
-      <%= form.label :commit %>
-      <%= form.text_field :commit, class: "form-control", placeholder: "Add a link to your commit...", id: "commit#{day}"%>
+    <%= form.label :commit %>
+    <div class="input-group-icon">
+      <%= form.text_field :commit, class: "form-control input-style", placeholder: "Add a link to your commit...", id: "commit#{day}" %>
+      <div class="input-icon">
+        <i class="fab fa-github"></i>
+      </div>
     </div>
 
-    <div class="form-group">
-      <%= form.label :resource %>
+    <%= form.label :resource %>
+    <div class="input-group-icon">
       <%= form.text_field :resource, class: "form-control", placeholder: "Add a resource link...", id: "resource#{day}" %>
-    </div>
-
-    <div class="d-flex justify-content-between">
-      <div class="form-group container-fluid p-0 pe-3">
-        <%= form.label :start_time %>
-        <%= form.time_field :start_time, class: "form-control", id: "startTime#{day}", value: ticket.start_time&.strftime("%H:%M") || Time.now.strftime("%H:%M"), required: true %>
-      </div>
-
-      <div class="form-group container-fluid p-0">
-        <%= form.label :duration %>
-        <%= form.range_field :duration, min: 0, max: 600, step: 5, value: ticket.duration || 30, class: "duration-input", id: "durationInput#{day}", required: true %>
-        <span id="durationInput<%= day %>Container">
-          <%= time_conversion(ticket.duration || 30) %>
-        </span>
+      <div class="input-icon">
+        <i class="fas fa-link"></i>
       </div>
     </div>
+
+    <%= form.label :start_time %>
+    <div class="input-group-icon">
+      <%= form.time_field :start_time, class: "form-control", id: "startTime#{day}", value: ticket.start_time&.strftime("%H:%M") || Time.now.strftime("%H:%M"), required: true %>
+      <div class="input-icon">
+        <i class="far fa-clock"></i>
+      </div>
+    </div>
+
+
+
+
+    <div class="form-group container-fluid p-0">
+      <%= form.label :duration %>
+      <%= form.range_field :duration, min: 0, max: 600, step: 5, value: ticket.duration || 30, class: "duration-input", id: "durationInput#{day}", required: true %>
+      <span id="durationInput<%= day %>Container">
+        <%= time_conversion(ticket.duration || 30) %>
+      </span>
+    </div>
+
 
     <hr>
 

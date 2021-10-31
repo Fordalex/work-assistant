@@ -10,6 +10,7 @@
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
+    <%= f.label :email %>
     <div class="input-group-icon">
       <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Enter your email", class: "form-control input-style" %>
       <div class="input-icon">
@@ -17,8 +18,9 @@
       </div>
     </div>
 
+    <%= f.label :password %>
     <div class="input-group-icon">
-      <%= f.password_field :password, autocomplete: "current-password", placeholder: "Enter your password", class: "form-control input-style my-3" %>
+      <%= f.password_field :password, autocomplete: "current-password", placeholder: "Enter your password", class: "form-control input-style" %>
       <div class="input-icon">
         <i class="fa fa-key"></i>
       </div>

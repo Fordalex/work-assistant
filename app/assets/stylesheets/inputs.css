@@ -191,10 +191,13 @@ input:checked + label:after {
   top: 0;
   left: 0;
   width: 3.4em;
-  height: 3.4em;
   line-height: 3.4em;
   text-align: center;
   pointer-events: none;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .input-group-icon .input-icon:after {
@@ -261,4 +264,14 @@ input:checked + label:before {
 
 .large-textArea {
   min-height: 150px !important;
+  padding-left: 4.4rem;
+}
+
+select {
+  padding-left: 4.4rem !important;
+  position: relative;
+}
+
+label {
+  margin-top: 0.3rem;
 }

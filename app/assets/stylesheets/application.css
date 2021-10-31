@@ -51,14 +51,17 @@ body {
     background-color: white;
 }
 
+.page-container {
+    margin-left: 0px;
+}
+
 @media screen and (min-width: 767px) {
   body {
     background-color: #fafcff;
   }
-}
-
-.page-container {
+  .page-container {
     margin-left: 70px;
+  }
 }
 
 .main-gradient {
