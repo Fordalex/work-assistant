@@ -1,0 +1,10 @@
+<% if records.any? %>
+  <% records.each do |record| %>
+    <div class="search-checkboxContainer">
+      <%= check_box_tag record.name %>
+      <span><%= record.name %></span>
+    </div>
+  <% end %>
+<% else %>
+  <small>No <%= name %> created.</small>
+<% end %>

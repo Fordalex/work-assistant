@@ -16,30 +16,15 @@
 
       <hr class="sm-hr">
 
-      <% @members.each do |member| %>
-        <div class="search-checkboxContainer">
-          <%= check_box_tag member.name %>
-          <span><%= member.name %></span>
-        </div>
-      <% end %>
+      <%= render partial: "checkbox_search", locals: {records: @members, name: "members"} %>
 
       <hr class="sm-hr">
 
-      <% @subjects.each do |subject| %>
-        <div class="search-checkboxContainer">
-          <%= check_box_tag subject.name %>
-          <span><%= subject.name %></span>
-        </div>
-      <% end %>
+      <%= render partial: "checkbox_search", locals: {records: @subjects, name: "subjects"} %>
 
       <hr class="sm-hr">
 
-      <% @languages.each do |language| %>
-        <div class="search-checkboxContainer">
-          <%= check_box_tag language.name %>
-          <span><%= language.name %></span>
-        </div>
-      <% end %>
+      <%= render partial: "checkbox_search", locals: {records: @languages, name: "languages"} %>
 
       <hr class="sm-hr">
 
@@ -69,8 +54,8 @@
           <td><b>#<%= ticket.id %></b></td>
           <td>
             <div class="d-flex justify-content-start align-items-center">
-              <div class="category-block me-2" style="background-color:<%= ticket.category.colour %>;"></div>
-              <%= ticket.category.name %>
+              <div class="category-block me-2" style="background-color:<%= ticket&.category&.colour %>;"></div>
+              <%= ticket&.category&.name %>
             </div>
           </td>
           <td><%= ticket.description.truncate(100) %></td>
@@ -80,13 +65,13 @@
             <% end %>
           </td>
           <td class="notes-subjectContainer">
-            <% ticket.subject_groups.each do |subject_group| %>
-              <span><%= subject_group.subject.name %></span>
+            <% ticket&.subject_groups&.each do |subject_group| %>
+              <span><%= subject_group&.subject&.name %></span>
             <% end %>
           </td>
           <td>
-            <% ticket.language_groups.each do |language_group| %>
-              <span><%= language_group.language.name %></span>
+            <% ticket&.language_groups&.each do |language_group| %>
+              <span><%= language_group&.language&.name %></span>
             <% end %>
           </td>
           <td><%= time_conversion(ticket&.duration) %></td>
