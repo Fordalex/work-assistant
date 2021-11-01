@@ -6,6 +6,8 @@
   <hr class="mb-0">
   <div class="d-flex justify-content-end align-items-center mt-2">
     <i class="fas fa-edit icon"></i>
-    <i class="fas fa-trash icon"></i>
+    <%= link_to category_path(category), data: {confirm: "Are you sure?"}, method: :delete do %>
+      <i class="fas fa-trash icon"></i>
+    <% end %>
   </div>
 </div>
