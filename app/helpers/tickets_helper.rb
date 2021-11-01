@@ -14,6 +14,9 @@ module TicketsHelper
   def all_categories_stats(week_tickets)
     dict = {}
     all_week_tickets(week_tickets).each do |ticket|
+      if ticket.category.nil?
+        next
+      end
       category = ticket.category.name.to_s
 
       if dict.key?(category)
