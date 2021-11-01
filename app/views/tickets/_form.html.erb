@@ -130,7 +130,7 @@
           <div class="col">
             <%= form.submit :save, class: "btn btn-success container-fluid" %>
           </div>
-          <% if ticket.category %>
+          <% if ticket.description.present? %>
             <div class="col">
               <%= link_to "Delete", ticket_path(ticket), data: {confirm: "Are you sure?"}, method: :delete, class: "btn btn-danger container-fluid" %>
             </div>
