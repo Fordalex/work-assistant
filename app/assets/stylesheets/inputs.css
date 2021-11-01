@@ -292,3 +292,8 @@ label {
 input,select,textarea {
   background-color: rgb(248, 248, 248) !important;
 }
+
+.search-checkBox {
+  width: 13px !important;
+  background-color: pink;
+}

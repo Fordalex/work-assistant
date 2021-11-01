@@ -1,97 +1,112 @@
 <h2>Notes</h2>
 
-<div class="white-container p-4 m-4">
+<div class="white-container row p-4 m-4">
 
-<%= form_with url: notes_path, method: :get, class: "notes-filterContainer" do |form| %>
+  <div class="col-1 m-0 p-0 pe-2 border-right">
+    <h6>Refine search</h6>
 
-  <div class="input-group-icon">
-    <%= form.select :categories, @categories.map { |s| [s.name, s.id] }, {prompt: "Any"}, class: "form-control" %>
-    <div class="input-icon">
-      <i class="fas fa-folder-open"></i>
-    </div>
-  </div>
+    <%= form_with url: notes_path, method: :get do |form| %>
 
-  <div class="input-group-icon">
-    <%= form.select :members, @members.map { |s| [s.name, s.id] }, {prompt: "Any"}, class: "form-control" %>
-    <div class="input-icon">
-      <i class="fa fa-user"></i>
-    </div>
-  </div>
-
-  <div class="input-group-icon">
-    <%= form.select :subjects, @subjects.map { |s| [s.name, s.id] }, {prompt: "Any"}, class: "form-control" %>
-    <div class="input-icon">
-      <i class="fas fa-info-circle"></i>
-    </div>
-  </div>
-
-  <div class="input-group-icon">
-    <%= form.select :languages, @languages.map { |s| [s.name, s.id] }, {prompt: "Any"}, class: "form-control" %>
-    <div class="input-icon">
-      <i class="fas fa-laptop-code"></i>
-    </div>
-  </div>
-
-  <%= form.submit "Search", class: "btn btn-success ms-2" %>
-<% end %>
-
-<% if @tickets.any? %>
-<table class="table ticket-table">
-  <tr>
-    <th>ID</th>
-    <th>Category</th>
-    <th>Description</th>
-    <th>Members</th>
-    <th>Subjects</th>
-    <th>Technical</th>
-    <th>Duration</th>
-    <th>Date</th>
-    <th>Links</th>
-    <th>Actions</th>
-  </tr>
-
-  <% @tickets.each do |ticket| %>
-    <tr>
-      <td><b>#<%= ticket.id %></b></td>
-      <td>
-        <div class="d-flex justify-content-start align-items-center">
-          <div class="category-block me-2" style="background-color:<%= ticket.category.colour %>;"></div>
-          <%= ticket.category.name %>
+      <div class="input-group-icon">
+        <%= form.select :categories, @categories.map { |s| [s.name, s.id] }, {prompt: "Any"}, class: "form-control" %>
+        <div class="input-icon">
+          <i class="fas fa-folder-open"></i>
         </div>
-      </td>
-      <td><%= ticket.description.truncate(100) %></td>
-      <td>
-        <% ticket.member_groups.each do |member_group| %>
-          <%= render partial: "shared/member", locals: {member_group: member_group} %>
-        <% end %>
-      </td>
-      <td class="notes-subjectContainer">
-        <% ticket.subject_groups.each do |subject_group| %>
-          <span><%= subject_group.subject.name %></span>
-        <% end %>
-      </td>
-      <td>
-        <% ticket.language_groups.each do |language_group| %>
-          <span><%= language_group.language.name %></span>
-        <% end %>
-      </td>
-      <td><%= time_conversion(ticket&.duration) %></td>
-      <td><%= ticket&.date&.strftime("%d %b %y") %></td>
-      <td>
-        <% if ticket.commit.present? %>
-          <%= link_to "", ticket.commit, target: "_blank", class: "fab fa-github icon" %>
-        <% end %>
-        <% if ticket.resource.present? %>
-          <%= link_to "", ticket.resource, target: "_blank", class: "fas fa-globe-asia icon" %>
-        <% end %>
-      </td>
-      <td>
-        <%= link_to "Edit", edit_ticket_path(ticket),class: "btn btn-primary btn-small" %>
-      </td>
-    </tr>
-  <% end %>
-</table>
-<% else %>
-<p class="text-secondary m-0">No tickets have been added yet.</p>
-<% end %>
+      </div>
+
+      <hr class="sm-hr">
+
+      <% @members.each do |member| %>
+        <div class="search-checkboxContainer">
+          <%= check_box_tag member.name %>
+          <span><%= member.name %></span>
+        </div>
+      <% end %>
+
+      <hr class="sm-hr">
+
+      <% @subjects.each do |subject| %>
+        <div class="search-checkboxContainer">
+          <%= check_box_tag subject.name %>
+          <span><%= subject.name %></span>
+        </div>
+      <% end %>
+
+      <hr class="sm-hr">
+
+      <% @languages.each do |language| %>
+        <div class="search-checkboxContainer">
+          <%= check_box_tag language.name %>
+          <span><%= language.name %></span>
+        </div>
+      <% end %>
+
+      <hr class="sm-hr">
+
+      <%= form.submit "Search", class: "btn btn-success" %>
+    <% end %>
+  </div>
+
+  <div class="col-11 m-0 p-0 ps-2">
+
+    <% if @tickets.any? %>
+    <table class="table ticket-table">
+      <tr>
+        <th>ID</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Members</th>
+        <th>Subjects</th>
+        <th>Technical</th>
+        <th>Duration</th>
+        <th>Date</th>
+        <th>Links</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @tickets.each do |ticket| %>
+        <tr>
+          <td><b>#<%= ticket.id %></b></td>
+          <td>
+            <div class="d-flex justify-content-start align-items-center">
+              <div class="category-block me-2" style="background-color:<%= ticket.category.colour %>;"></div>
+              <%= ticket.category.name %>
+            </div>
+          </td>
+          <td><%= ticket.description.truncate(100) %></td>
+          <td>
+            <% ticket.member_groups.each do |member_group| %>
+              <%= render partial: "shared/member", locals: {member_group: member_group} %>
+            <% end %>
+          </td>
+          <td class="notes-subjectContainer">
+            <% ticket.subject_groups.each do |subject_group| %>
+              <span><%= subject_group.subject.name %></span>
+            <% end %>
+          </td>
+          <td>
+            <% ticket.language_groups.each do |language_group| %>
+              <span><%= language_group.language.name %></span>
+            <% end %>
+          </td>
+          <td><%= time_conversion(ticket&.duration) %></td>
+          <td><%= ticket&.date&.strftime("%d %b %y") %></td>
+          <td>
+            <% if ticket.commit.present? %>
+              <%= link_to "", ticket.commit, target: "_blank", class: "fab fa-github icon" %>
+            <% end %>
+            <% if ticket.resource.present? %>
+              <%= link_to "", ticket.resource, target: "_blank", class: "fas fa-globe-asia icon" %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to "Edit", edit_ticket_path(ticket),class: "btn btn-primary btn-small" %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+    <% else %>
+    <p class="text-secondary m-0">No tickets have been added yet.</p>
+    <% end %>
+  </div>
 </div>

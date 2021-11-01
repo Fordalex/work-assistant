@@ -51,11 +51,6 @@
   top: 2px;
 }
 
-.notes-filterContainer {
-  margin-bottom: 1rem;
-  display: block;
-}
-
 .notes-filterContainer .input-group-icon {
   width: 100% !important;
   margin-right: 1rem;
@@ -76,4 +71,15 @@
   .notes-filterContainer .input-group-icon {
     width: 15% !important;
   }
+}
+
+.search-checkboxContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.search-checkboxContainer input[type="checkbox"] {
+  margin-right: 0.5rem;
+  width: 13px;
 }
