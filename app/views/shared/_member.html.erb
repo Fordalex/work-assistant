@@ -1,3 +1,6 @@
-<div class="member-wrapper" style="background-color:<%= member_group.member.colour %>;">
-  <span><%= member_group.member.name.split("")[0] %></span>
-</div>
+
+<% if member_group.member.present? %>
+  <div class="member-wrapper" style="background-color:<%= member_group.member.colour %>;">
+    <span><%= member_group.member.name.split("")[0] %></span>
+  </div>
+<% end %>
