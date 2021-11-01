@@ -1,16 +1,15 @@
 window.addEventListener("load", function(){
 
-  const ctx = document.getElementById('myChart');
-  console.log(ctx.dataset.colours)
-  const myChart = new Chart(ctx, {
+  document.querySelectorAll('.jsChart').forEach((c) => {
+    const myChart = new Chart(c, {
       type: 'doughnut',
       data: {
-          labels: ctx.dataset.categories.split(" "),
+          labels: c.dataset.categories.split(" "),
           datasets: [{
               label: '# of Votes',
-              data: ctx.dataset.durations.split(" "),
-              backgroundColor: ctx.dataset.colours.split(" "),
-              borderColor: ctx.dataset.colours.split(" "),
+              data: c.dataset.durations.split(" "),
+              backgroundColor: c.dataset.colours.split(" "),
+              borderColor: c.dataset.colours.split(" "),
               borderWidth: 1
           }]
       },
@@ -22,5 +21,11 @@ window.addEventListener("load", function(){
           }
       }
   });
+  });
+
+
+
+
+
 
 });

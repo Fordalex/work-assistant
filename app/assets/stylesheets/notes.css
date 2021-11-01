@@ -83,3 +83,15 @@
   margin-right: 0.5rem;
   width: 13px;
 }
+
+.notes-table {
+  font-size: 0.7rem;
+}
+
+.notes-table th {
+  padding: 2px;
+}
+
+.notes-table td {
+  padding: 2px;
+}

@@ -1,0 +1,23 @@
+<div class="col-12 col-md-6 col-lg-3 m-0 p-2">
+  <div class="white-container">
+    <div class="row m-0 p-0">
+      <div class="col-12 col-md-6">
+        <table class="table table-striped notes-table">
+          <tr>
+            <th><%= name %></th>
+            <th>Duration</th>
+          </tr>
+          <% records.each do |record| %>
+            <tr>
+              <td><%= record.name %></td>
+              <td>0</td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+      <div class="col-12 col-md-6">
+        <canvas class="jsChart" width="80" height="80" data-colours="" data-categories="" data-durations=""></canvas>
+      </div>
+    </div>
+  </div>
+</div>
