@@ -13,7 +13,7 @@ class LanguagesController < SessionsController
 
   def destroy
     if @language.destroy
-      flash[:success] = "Language has been destroyed"
+      flash[:success] = "Technology destroyed"
     end
     redirect_to cms_path
   end
