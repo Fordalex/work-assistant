@@ -108,15 +108,11 @@
         <hr class="mt-0">
         <h4>Time</h4>
 
-        <%= form.hidden_field :date, value: date %>
+        <%= form.label :date, class: "required" %>
+        <%= form.date_field :date, class: "form-control", id: "startTime#{day}", value: ticket.start_time&.strftime("%H:%M") || Time.now.strftime("%H:%M"), required: true %>
 
         <%= form.label :start_time, class: "required" %>
-        <div class="input-group-icon">
-          <%= form.time_field :start_time, class: "form-control", id: "startTime#{day}", value: ticket.start_time&.strftime("%H:%M") || Time.now.strftime("%H:%M"), required: true %>
-          <div class="input-icon">
-            <i class="far fa-clock"></i>
-          </div>
-        </div>
+        <%= form.time_field :start_time, class: "form-control", id: "startTime#{day}", value: ticket.start_time&.strftime("%H:%M") || Time.now.strftime("%H:%M"), required: true %>
 
         <div class="form-group container-fluid p-0">
           <%= form.label :duration, class: "required" %>
