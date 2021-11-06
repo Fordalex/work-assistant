@@ -51,5 +51,17 @@ RSpec.describe TicketsHelper, type: :helper do
     it "return array of the durations" do
       expect(total_duration(week_tickets)).to eq 107
     end
+
+    it "return zero" do
+      expect(total_duration(nil)).to eq 0
+    end
+  end
+
+  describe "#time_conversion" do
+    it "return the correct format" do
+      expect(time_conversion(62)).to eq "1h : 02m"
+      expect(time_conversion(0)).to eq "0h : 00m"
+      expect(time_conversion(nil)).to eq "0h : 00m"
+    end
   end
 end

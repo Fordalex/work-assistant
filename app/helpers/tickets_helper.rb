@@ -35,13 +35,20 @@ module TicketsHelper
   end
 
   def total_duration(week_tickets)
-    values_for_chart(week_tickets, :duration).split(" ").reduce{| a, v | a.to_i + v.to_i}
+    if week_tickets.present?
+      values_for_chart(week_tickets, :duration).split(" ").reduce{| a, v | a.to_i + v.to_i}
+    else
+      0
+    end
   end
 
   def time_conversion(minutes)
+    if minutes.nil?
+      return "0h : 00m"
+    end
     hours = minutes / 60
     rest = (minutes % 60).to_s
     rest = rest.length < 2 ? '0' + rest : rest
-    "#{hours}h :   #{rest}m"
+    "#{hours}h : #{rest}m"
   end
 end
