@@ -9,30 +9,21 @@ class NotesController < TicketsController
 
   def notes
     @tickets = find_tickets
+    @searched_categories = searched_key(:categories)
+    @searched_members = searched_key(:members)
+    @searched_subjects = searched_key(:subjects)
+    @searched_languages = searched_key(:languages)
+  end
 
-    @searched_categories = if params[:categories].present?
-      params[:categories][0].keys
-    else
-      []
-    end
-    @searched_members = if params[:members].present?
-      params[:members][0].keys
-    else
-      []
-    end
-    @searched_subjects = if params[:subjects].present?
-      params[:subjects][0].keys
-    else
-      []
-    end
-    @searched_languages = if params[:languages].present?
-      params[:languages][0].keys
+  private
+
+  def searched_key(key)
+    if params[key].present?
+      params[key][0].keys
     else
       []
     end
   end
-
-  private
 
   def find_tickets
     tickets = Ticket.where(user: current_user)
