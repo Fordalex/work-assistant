@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :languages
   resources :members
+  resources :settings
 
   devise_for :users
 end
