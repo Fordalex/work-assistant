@@ -1,7 +1,7 @@
 <div class="weeklySummary-container">
   <h4>Week information</h4>
 
-  <table class="table">
+  <table class="table mb-4">
     <tr>
       <th>Category</th>
       <th>Count</th>
@@ -20,7 +20,9 @@
       </tr>
     <% end %>
   </table>
-  <span>Total tickets: <%= total_tickets(@week_tickets) %></span>
-  <canvas class="jsChart" width="400" height="400" data-colours="<%= values_for_chart(@week_tickets, :colour) %>" data-categories="<%= values_for_chart(@week_tickets, :category) %>" data-durations="<%= values_for_chart(@week_tickets, :duration) %>"></canvas>
+  <div class="pieChart-container">
+    <canvas class="jsChart" width="400" height="400" data-colours="<%= values_for_chart(@week_tickets, :colour) %>" data-categories="<%= values_for_chart(@week_tickets, :category) %>" data-durations="<%= values_for_chart(@week_tickets, :duration) %>"></canvas>
+    <span><%= time_conversion(total_duration(@week_tickets)) %></span>
+  </div>
 </div>
 

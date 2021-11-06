@@ -14,18 +14,16 @@ window.addEventListener("load", function(){
           }]
       },
       options: {
-          scales: {
-              y: {
-                  beginAtZero: true
-              }
+        cutout: '80%',
+        animation: {
+          animateScale: true,
+        },
+        plugins: {
+          legend: {
+            display: false
           }
+        }
       }
+    });
   });
-  });
-
-
-
-
-
-
 });

@@ -1,0 +1,12 @@
+.pieChart-container {
+  position: relative;
+}
+
+.pieChart-container span {
+  white-space: nowrap;
+  font-size: 3rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+}

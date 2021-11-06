@@ -34,21 +34,22 @@ RSpec.describe TicketsHelper, type: :helper do
     end
   end
 
-  describe "#total_tickets" do
+  describe "#all_categories_stats" do
     it "return hash of categories with count" do
       expect(all_categories_stats(week_tickets)).to eq( { MHP: { category: "MHP", colour: "#fff", count: 1, duration: 32 }, TMS: { category: "TMS",colour: "#000", count: 2, duration: 75 } } )
     end
   end
 
-  describe "#duration_for_chart" do
-    it "return array of the durations" do
+  describe "#values_for_chart" do
+    it "return a string of the given attribute" do
       expect(values_for_chart(week_tickets, :duration)).to eq "32 75"
+      expect(values_for_chart(week_tickets, :colour)).to eq "#fff #000"
     end
   end
 
-  describe "#colours_for_chart" do
-    it "return array of the colours" do
-      expect(values_for_chart(week_tickets, :colour)).to eq "#fff #000"
+  describe "#total_duration" do
+    it "return array of the durations" do
+      expect(total_duration(week_tickets)).to eq 107
     end
   end
 end

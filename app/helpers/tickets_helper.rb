@@ -34,6 +34,10 @@ module TicketsHelper
     all_categories_stats(week_tickets).map { |t| t[1][key] }.join(" ")
   end
 
+  def total_duration(week_tickets)
+    values_for_chart(week_tickets, :duration).split(" ").reduce{| a, v | a.to_i + v.to_i}
+  end
+
   def time_conversion(minutes)
     hours = minutes / 60
     rest = (minutes % 60).to_s
