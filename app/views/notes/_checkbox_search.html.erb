@@ -1,7 +1,7 @@
 <% if records.any? %>
   <% records.each do |record| %>
     <div class="search-checkboxContainer">
-      <%= check_box_tag record.name %>
+      <%= check_box_tag "#{name}[][#{record.name}]", {}, searched.include?(record.name) %>
       <span><%= record.name %></span>
     </div>
   <% end %>

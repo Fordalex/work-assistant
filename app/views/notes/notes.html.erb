@@ -27,15 +27,15 @@
 
       <hr class="sm-hr">
 
-      <%= render partial: "checkbox_search", locals: {records: @members, name: "members"} %>
+      <%= render partial: "checkbox_search", locals: {records: @members, name: "members", searched: @searched_members} %>
 
       <hr class="sm-hr">
 
-      <%= render partial: "checkbox_search", locals: {records: @subjects, name: "subjects"} %>
+      <%= render partial: "checkbox_search", locals: {records: @subjects, name: "subjects", searched: @searched_subjects} %>
 
       <hr class="sm-hr">
 
-      <%= render partial: "checkbox_search", locals: {records: @languages, name: "languages"} %>
+      <%= render partial: "checkbox_search", locals: {records: @languages, name: "languages", searched: @searched_languages} %>
 
       <hr class="sm-hr">
 
