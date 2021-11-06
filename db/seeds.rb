@@ -93,53 +93,53 @@ puts "\n== Creating tickets =="
 ticket_one = Ticket.create(
   user: user,
   category: mhp,
-  date: Date.new(2021, 10, 18),
+  date: Date.today,
   title: "MHP",
   description: "Fix layout issue with the parks navigation, Tony has request this to be changed.",
   duration: 15,
-  start_time: Time.new(2021, 10, 18, 10, 15, 0)
+  start_time: Time.now + 1.hour
 )
 
 ticket_two = Ticket.create(
   user: user,
   category: mcf,
-  date: Date.new(2021, 10, 18),
+  date: Date.today,
   title: "MHP",
   description: "Had to pair as I needed help on a ticket, the issue was much harder that I first thought.",
   duration: 90,
-  start_time: Time.new(2021, 10, 18, 10, 30, 0)
+  start_time: Time.now - 1.hour
 )
 
 ticket_three = Ticket.create(
   user: user,
   category: mcf,
-  date: Date.new(2021, 10, 18),
+  date: Date.today,
   title: "MHP",
   description: "Had to pair as I needed help on a ticket, the issue was much harder that I first thought.",
   duration: 120,
-  start_time: Time.new(2021, 10, 18, 14, 30, 0)
+  start_time: Time.now + 3.hour
 )
 
 ticket_four = Ticket.create(
   user: user,
   category: mvf,
-  date: Date.new(2021, 10, 18),
+  date: Date.today,
   title: "MHP",
   resource: "https://www.youtube.com",
   description: "Made some change to the home page.",
   duration: 30,
-  start_time: Time.new(2021, 10, 18, 13, 30, 0)
+  start_time: Time.new + 5.hour
 )
 
 ticket_five = Ticket.create(
   user: user,
   category: my3c,
   commit: "https://www.github.com",
-  date: Date.new(2021, 10, 18),
+  date: Date.today,
   title: "MHP",
   description: "This is anther ticket I've created for some test data so it doesn't look poop...",
   duration: 75,
-  start_time:Time.new(2021, 10, 18, 12, 0, 0)
+  start_time:Time.new - 7.hour
 )
 
 puts "\n== Creating member groups =="
