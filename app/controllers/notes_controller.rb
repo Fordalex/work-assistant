@@ -10,6 +10,11 @@ class NotesController < TicketsController
   def notes
     @tickets = find_tickets
 
+    @searched_categories = if params[:categories].present?
+      params[:categories][0].keys
+    else
+      []
+    end
     @searched_members = if params[:members].present?
       params[:members][0].keys
     else
@@ -36,7 +41,7 @@ class NotesController < TicketsController
 
   def filter_by_category(tickets)
     if params[:categories].present?
-      tickets = tickets.joins(:category).where(categories: {id: params[:categories]})
+      tickets = tickets.filter{|t| params[:categories][0].keys.include?(t.category.name)}
     end
     filter_by_subject(tickets)
   end

@@ -1,4 +1,5 @@
 <% if records.any? %>
+  <h5><%= name.capitalize %></h5>
   <% records.each do |record| %>
     <div class="search-checkboxContainer">
       <%= check_box_tag "#{name}[][#{record.name}]", {}, searched.include?(record.name) %>

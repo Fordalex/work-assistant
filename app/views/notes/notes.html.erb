@@ -14,18 +14,16 @@
 <div class="white-container row p-4 m-4">
 
   <div class="col-2 m-0 p-0 pe-3 border-right">
-    <h6>Refine search</h6>
 
     <%= form_with url: notes_path, method: :get do |form| %>
 
-      <div class="input-group-icon">
-        <%= form.select :categories, @categories.map { |s| [s.name, s.id] }, {prompt: "Any"}, class: "form-control" %>
-        <div class="input-icon">
-          <i class="fas fa-folder-open"></i>
-        </div>
-      </div>
+      <h6>Filter (or)</h6>
+
+      <%= render partial: "checkbox_search", locals: {records: @categories, name: "categories", searched: @searched_categories} %>
 
       <hr class="sm-hr">
+
+      <h6>Filter (and)</h6>
 
       <%= render partial: "checkbox_search", locals: {records: @members, name: "members", searched: @searched_members} %>
 
