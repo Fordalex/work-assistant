@@ -43,7 +43,7 @@
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  border: solid grey 1px;
+  border: solid var(--border-colour) 1px;
   margin-left: 0.75rem;
 }
 

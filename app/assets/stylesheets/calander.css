@@ -13,14 +13,14 @@
   overflow: hidden;
   transition: 0.5s;
   background-color:var(--mid-bg-colour);
-  box-shadow: 0 0 35px 0 rgba(0,0,0,0.08);
+  box-shadow: 0 0 35px 0 rgba(0,0,0,var(--shadow-opacity));
   padding: 1rem;
   border-radius: 0.75rem;
   margin-right: 1rem;
   cursor: pointer;
   width: 5.5%;
   min-height: 65vh;
-  border: solid var(--light-bg-colour) 1px;
+  border: solid var(--border-colour) 1px;
 }
 
 .calendar-dayContainer:last-of-type {
@@ -44,7 +44,7 @@
 }
 
 .calendar-open {
-  box-shadow: 0 0 25px 0 rgba(255, 195, 118, 0.1);
+  box-shadow: 0 0 25px 0 rgba(30, 30, 30, var(--shadow-opacity));
   width: 60%;
   cursor: default;
 }
@@ -68,7 +68,7 @@
   font-size: 0.8rem;
   border-radius: 4px;
   box-shadow: 0 0 35px 0 rgba(0,0,0,0.1);
-  border: solid 1px var(--light-bg-colour);
+  border: solid 1px var(--border-colour);
 }
 
 .calendar-ticket a {

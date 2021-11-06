@@ -34,20 +34,20 @@
 
 .flashMessage-success {
   border-left: 5px solid rgb(130, 206, 16);
-  box-shadow: 0 0 35px 0 rgba(85, 255, 42, 0.15);
+  box-shadow: 0 0 35px 0 rgba(85, 255, 42, var(--glow-opacity));
 }
 
 .flashMessage-warning {
   border-left: 5px solid rgb(235, 221, 36);
-  box-shadow: 0 0 35px 0 rgba(255, 251, 42, 0.15);
+  box-shadow: 0 0 35px 0 rgba(255, 251, 42, var(--glow-opacity));
 }
 
 .flashMessage-notice {
   border-left: 5px solid rgb(81, 157, 238);
-  box-shadow: 0 0 35px 0 rgba(42, 170, 255, 0.15);
+  box-shadow: 0 0 35px 0 rgba(42, 170, 255, var(--glow-opacity));
 }
 
 .flashMessage-alert {
   border-left: 5px solid rgb(236, 62, 62);
-  box-shadow: 0 0 35px 0 rgba(255, 67, 42, 0.15);
+  box-shadow: 0 0 35px 0 rgba(255, 67, 42, var(--glow-opacity));
 }
