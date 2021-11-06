@@ -109,7 +109,7 @@
         <h4>Time</h4>
 
         <%= form.label :date, class: "required" %>
-        <%= form.date_field :date, class: "form-control", id: "startTime#{day}", value: ticket.start_time&.strftime("%H:%M") || Time.now.strftime("%H:%M"), required: true %>
+        <%= form.date_field :date, class: "form-control", id: "startTime#{day}", value: ticket&.date&.strftime("%Y-%m-%d") || DateTime.now.strftime("%Y-%m-%d"), required: true %>
 
         <%= form.label :start_time, class: "required" %>
         <%= form.time_field :start_time, class: "form-control", id: "startTime#{day}", value: ticket.start_time&.strftime("%H:%M") || Time.now.strftime("%H:%M"), required: true %>
