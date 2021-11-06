@@ -12,9 +12,12 @@
   right: -8px;
   box-sizing: border-box;
   height: 100vh;
-  background-color: white;
+  background-image: linear-gradient(
+135deg
+ , var(--mid-bg-colour) 20%, var(--dark-bg-colour) 100%);
   box-shadow: 0 0 35px 0 rgba(0,0,0,0.08);
   padding: 1rem;
+  border-left: solid 1px var(--light-bg-colour);
 }
 
 .profileDetails-container {
@@ -63,13 +66,13 @@
   bottom: -8px;
   width: 15px;
   height: 15px;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--mid-bg-colour);
   border-right: solid 1px rgb(221, 221, 221);
   border-bottom: solid 1px rgb(221, 221, 221);
 }
 
 .arrow-divider-body::after {
-  background-color: #fafcff;
+  background-color: var(--dark-bg-colour);
 }
 
 .date-button {

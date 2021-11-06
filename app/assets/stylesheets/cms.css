@@ -1,5 +1,8 @@
 .cmsEntity-container {
-  background-color: white;
+  background-image: linear-gradient(
+    135deg
+     , var(--mid-bg-colour) 20%, var(--dark-bg-colour) 100%);
+  border: solid 1px var(--light-bg-colour);
   box-shadow: 0 0 35px 0 rgba(0,0,0,0.08);
   padding: 0.5rem;
   border-radius: 5px;
@@ -8,15 +11,19 @@
 
 .cmsEntity-container span {
   padding: 0.2rem 0.5rem;
-  background-color: #eceef0;
+  background-color: var(--dark-bg-colour);
+  border: solid 1px var(--light-bg-colour);
   border-radius: 3px;
-  color: #757779;
+  color: var(--text-colour);
 }
 
 .cmsEntity-containerItem {
   transition: 0.5s;
   height: 43px;
-  background-color: white;
+  background-image: linear-gradient(
+    135deg
+     , var(--mid-bg-colour) 20%, var(--dark-bg-colour) 100%);
+  border: solid 1px var(--light-bg-colour);
   box-shadow: 0 0 15px 0 rgba(0,0,0,0.05);
   padding: 0.75rem;
   border-radius: 5px;

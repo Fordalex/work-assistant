@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap');
 
 .ticket-table tr:first-child {
-  background-color: #f4f8f9;
+  background-color: var(--dark-bg-colour);
   font-weight: 700;
-}
-
-.ticket-table tr:first-child:hover {
-  background-color: #f4f8f9;
 }
 
 .ticket-table tr {
   transition: 0.1s;
   font-size: 0.85rem;
+}
+
+.ticket-table tr:nth-child(odd) {
+  background-color: var(--dark-bg-colour);
 }
 
 .ticket-table td {
