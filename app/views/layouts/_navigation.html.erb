@@ -44,6 +44,18 @@
   </ul>
   <ul>
     <li class="navList-item">
+      <%= link_to edit_setting_path(current_user) do %>
+        <% if current_page?(settings_path) %>
+          <%= image_tag("icons/settings_icon_selected.png") %>
+          <span class="navLink-selected">Settings</span>
+        <% else %>
+          <%= image_tag("icons/settings_icon.png") %>
+          <span>Settings</span>
+        <% end %>
+      <% end %>
+    </li>
+
+    <li class="navList-item">
       <%= link_to destroy_user_session_path, method: "DELETE" do %>
         <%= image_tag("icons/logout_icon.png") %>
         <span>Logout</span>
