@@ -1,0 +1,28 @@
+<div>
+<%= form_with(model: setting) do |form| %>
+  <% if setting.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(setting.errors.count, "error" ) %> prohibited this setting from being saved:
+      </h2>
+      <ul>
+        <% setting.errors.each do |error| %>
+          <li>
+            <%= error.full_message %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+    <div class="form-group mb-3">
+      <%= form.label :colour %>
+      <%= form.select :theme, Setting::ALLOWED_THEMES.map{|t| t}, {}, class: "form-control" %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit :save, class: "btn btn-success container-fluid" %>
+    </div>
+<% end %>
+</div>
