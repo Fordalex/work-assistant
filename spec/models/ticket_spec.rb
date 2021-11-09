@@ -6,5 +6,6 @@ RSpec.describe Ticket, type: :model do
     it { should belong_to(:category) }
     it { should have_many(:subject_groups) }
     it { should have_many(:member_groups) }
+    it { should have_many(:job_type_groups) }
   end
 end

@@ -4,4 +4,5 @@ class Ticket < ApplicationRecord
   has_many :subject_groups
   has_many :member_groups
   has_many :language_groups
+  has_many :job_type_groups
 end
