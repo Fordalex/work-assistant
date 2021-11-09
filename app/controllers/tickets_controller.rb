@@ -1,26 +1,26 @@
 class TicketsController < SessionsController
   before_action :set_ticket, only: %i[edit update destroy]
-  before_action :set_subjects, only: %i[edit update new]
-  before_action :set_members, only: %i[edit update new]
-  before_action :set_categories, only: %i[edit update new]
-  before_action :set_languages, only: %i[edit update new]
+  before_action :set_subjects, only: %i[edit update new create]
+  before_action :set_members, only: %i[edit update new create]
+  before_action :set_categories, only: %i[edit update new create]
+  before_action :set_languages, only: %i[edit update new create]
 
   def new
     @ticket = Ticket.new
   end
 
   def create
-    ticket = Ticket.new(tickets_params.merge(user: current_user))
-    if ticket.save!
-      update_members(ticket)
-      update_subjects(ticket)
-      update_languages(ticket)
-      flash[:success] = "#{ticket.category.name} ticket has been added!"
+    @ticket = Ticket.new(tickets_params.merge(user: current_user))
+    if @ticket.save
+      update_members(@ticket) if params[:ticket][:member_checkboxes]
+      update_subjects(@ticket) if params[:ticket][:subject_checkboxes]
+      update_languages(@ticket) if params[:ticket][:language_checkboxes]
+      flash[:success] = "#{@ticket.category.name} ticket has been added!"
+      redirect_to notes_path
     else
       flash[:warning] = "An error occured please try again"
-      render "edit"
+      render "new"
     end
-    redirect_to notes_path
   end
 
   def edit
@@ -28,9 +28,9 @@ class TicketsController < SessionsController
 
   def update
     if @ticket.update(tickets_params)
-      update_members(@ticket)
-      update_subjects(@ticket)
-      update_languages(@ticket)
+      update_members(@ticket) if params[:ticket][:member_checkboxes]
+      update_subjects(@ticket) if params[:ticket][:subject_checkboxes]
+      update_languages(@ticket) if params[:ticket][:language_checkboxes]
       flash[:success] = "#{@ticket.category.name} ticket has been updated!"
       redirect_to notes_path
     else
@@ -109,6 +109,7 @@ class TicketsController < SessionsController
   end
 
   def tickets_params
-    params.require(:ticket).permit(:category_id, :description, :start_time, :commit, :resource, :date, :duration, :technical, :member_checkboxes, :subject_checkboxes, :language_checkboxes)
+    params.require(:ticket).permit(:category_id, :description,
+      :start_time, :commit, :resource, :date, :duration, :technical)
   end
 end
