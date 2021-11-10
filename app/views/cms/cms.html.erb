@@ -1,16 +1,17 @@
+<%= link_to "Add feature type", new_feature_type_path %>
 
 <div class="row m-0 p-0 py-3">
-  <div class="col-12 col-md-6 col-lg-2 border-right">
-    <p>Create feature type</p>
-
-    <%= render partial: "feature_type/form", locals: {feature_type: FeatureType.new} %>
-  </div>
     <% @feature_types.each do |feature_type| %>
       <div class="col-12 col-md-6 col-lg-2 border-right">
          <div class="cmsEntity-container cms-category" style="border-top: solid 5px <%= feature_type.colour %>">
             <div class="d-flex justify-content-between align-items-center">
               <h6 class="m-0"><b><%= feature_type.name %></b></h6>
-              <span><%= feature_type.features.count %></span>
+              <div>
+                <span><%= feature_type.features.count %></span>
+                <%= link_to edit_feature_type_path(feature_type) do %>
+                  <i class="fas fa-edit ms-2"></i>
+                <% end %>
+              </div>
             </div>
           </div>
 
