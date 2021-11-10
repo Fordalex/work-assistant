@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_09_192256) do
+ActiveRecord::Schema.define(version: 2021_11_10_210404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,39 @@ ActiveRecord::Schema.define(version: 2021_11_09_192256) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_categories_on_user_id"
+  end
+
+  create_table "feature_groups", force: :cascade do |t|
+    t.bigint "feature_id"
+    t.bigint "ticket_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["feature_id"], name: "index_feature_groups_on_feature_id"
+    t.index ["ticket_id"], name: "index_feature_groups_on_ticket_id"
+  end
+
+  create_table "feature_types", force: :cascade do |t|
+    t.string "name"
+    t.string "colour"
+    t.bigint "user_id"
+    t.bigint "feature_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["feature_id"], name: "index_feature_types_on_feature_id"
+    t.index ["user_id"], name: "index_feature_types_on_user_id"
+  end
+
+  create_table "features", force: :cascade do |t|
+    t.string "name"
+    t.text "content"
+    t.bigint "feature_type_id"
+    t.bigint "feature_group_id"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["feature_group_id"], name: "index_features_on_feature_group_id"
+    t.index ["feature_type_id"], name: "index_features_on_feature_type_id"
+    t.index ["user_id"], name: "index_features_on_user_id"
   end
 
   create_table "job_type_groups", force: :cascade do |t|

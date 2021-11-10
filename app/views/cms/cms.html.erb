@@ -1,98 +1,26 @@
 <h1>CMS</h1>
 
 <div class="row m-0 p-0">
-
   <div class="col-12 col-md-6 col-lg-3 border-right">
-    <div class="cmsEntity-container cms-subjects">
-      <div class="d-flex justify-content-between align-items-center">
-        <h6 class="m-0"><b>Subjects</b></h6>
-        <span><%= @subjects.count %></span>
-      </div>
-    </div>
-
-    <div class="cmsEntity-container d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#newSubject" aria-expanded="false" aria-controls="newSubject">
-      <h6 class="m-0"><b>New</b></h6>
-      <span>+</span>
-    </div>
-    <div class="collapse mb-3" id="newSubject">
-      <div>
-        <%= render partial: "subjects/form", locals: { subject: @subject } %>
-      </div>
-    </div>
-
-    <div class="arrow-divider arrow-divider-body mb-5"></div>
-
-    <% @subjects.each do |subject| %>
-      <%= render partial: "subject", locals: { subject: subject } %>
-    <% end %>
-    <% unless @subjects.any? %>
-      <p class="text-secondary">No subjects have been created yet.</p>
-    <% end %>
-
-  </div>
-
-
-  <div class="col-12 col-md-6 col-lg-3 border-right">
-
-    <div class="cmsEntity-container cms-category">
-      <div class="d-flex justify-content-between align-items-center">
-        <h6 class="m-0"><b>Categories</b></h6>
-        <span><%= @categories.count %></span>
-      </div>
-    </div>
-
-    <div class="cmsEntity-container d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#newCategory" aria-expanded="false" aria-controls="newCategory">
-      <h6 class="m-0"><b>New</b></h6>
-      <span>+</span>
-    </div>
-    <div class="collapse mb-3" id="newCategory">
-      <div>
-        <%= render partial: "categories/form", locals: { category: @category } %>
-      </div>
-    </div>
-
-    <div class="arrow-divider arrow-divider-body mb-5"></div>
-
-    <% @categories.each do |category| %>
-      <%= render partial: "category", locals: { category: category } %>
-    <% end %>
-    <% unless @categories.any? %>
-      <p class="text-secondary">No categories have been created yet.</p>
-    <% end %>
-
+    <%= render partial: "entity_section", locals: {records: @subjects, new_record: Subject.new, name: "subject"} %>
   </div>
 
   <div class="col-12 col-md-6 col-lg-3 border-right">
-    <div class="cmsEntity-container cms-members">
-      <div class="d-flex justify-content-between align-items-center">
-        <h6 class="m-0"><b>Members</b></h6>
-        <span><%= @members.count %></span>
-      </div>
-    </div>
+    <%= render partial: "entity_section", locals: {records: @categories, new_record: Category.new, name: "category"} %>
+  </div>
 
-    <div class="cmsEntity-container d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#newMembers" aria-expanded="false" aria-controls="newMembers">
-      <h6 class="m-0"><b>New</b></h6>
-      <span>+</span>
-    </div>
-    <div class="collapse mb-3" id="newMembers">
-      <div>
-        <%= render partial: "members/form", locals: { member: @member } %>
-      </div>
-    </div>
-
-    <div class="arrow-divider arrow-divider-body mb-5"></div>
-
-    <% @members.each do |member| %>
-      <%= render partial: "member", locals: { member: member } %>
-    <% end %>
-    <% unless @members.any? %>
-      <p class="text-secondary">No members have been created yet.</p>
-    <% end %>
-
+  <div class="col-12 col-md-6 col-lg-3 border-right">
+    <%= render partial: "entity_section", locals: {records: @members, new_record: Member.new, name: "member"} %>
   </div>
 
   <div class="col-12 col-md-6 col-lg-3">
-    <div class="cmsEntity-container cms-languages">
+    <%= render partial: "entity_section", locals: {records: @languages, new_record: Subject.new, name: "subject"} %>
+  </div>
+</div>
+
+
+
+<div class="cmsEntity-container cms-languages">
       <div class="d-flex justify-content-between align-items-center">
         <h6 class="m-0"><b>Technology</b></h6>
         <span><%= @languages.count %></span>
@@ -117,7 +45,3 @@
     <% unless @languages.any? %>
       <p class="text-secondary">No languages have been created yet.</p>
     <% end %>
-
-  </div>
-
-</div>

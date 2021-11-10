@@ -1,12 +1,12 @@
 <div>
-<%= form_with(model: member) do |form| %>
-  <% if member.errors.any? %>
+<%= form_with(model: new_record) do |form| %>
+  <% if new_record.errors.any? %>
     <div id="error_explanation">
       <h2>
-        <%= pluralize(member.errors.count, "error" ) %> prohibited this member from being saved:
+        <%= pluralize(new_record.errors.count, "error" ) %> prohibited this new_record from being saved:
       </h2>
       <ul>
-        <% member.errors.each do |error| %>
+        <% new_record.errors.each do |error| %>
           <li>
             <%= error.full_message %>
           </li>

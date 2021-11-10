@@ -1,0 +1,25 @@
+<div class="cmsEntity-container cms-<%= name %>">
+  <div class="d-flex justify-content-between align-items-center">
+    <h6 class="m-0"><b><%= name %>s</b></h6>
+    <span><%= records.count %></span>
+  </div>
+</div>
+
+<div class="cmsEntity-container d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#newSubject" aria-expanded="false" aria-controls="newSubject">
+  <h6 class="m-0"><b>New</b></h6>
+  <span>+</span>
+</div>
+<div class="collapse mb-3" id="newSubject">
+  <div>
+    <%= render partial: "#{name[-1] == "y" ? "#{name[0..-2]}ies" : "#{name}s"}/form", locals: { new_record: new_record } %>
+  </div>
+</div>
+
+<div class="arrow-divider arrow-divider-body mb-5"></div>
+
+<% records.each do |record| %>
+  <%= render partial: "#{name}", locals: { record: record } %>
+<% end %>
+<% unless records.any? %>
+  <p class="text-secondary">No <%= name %>s have been created yet.</p>
+<% end %>

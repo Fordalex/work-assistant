@@ -1,8 +1,8 @@
 require "rails_helper"
 
-RSpec.describe Member, type: :model do
+RSpec.describe FeatureType, type: :model do
   describe "Association" do
     it { should belong_to(:user) }
-    it { should have_many(:member_groups) }
+    it { should belong_to(:feature) }
   end
 end
