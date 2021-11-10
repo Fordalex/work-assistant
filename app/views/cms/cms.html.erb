@@ -15,20 +15,17 @@
             </div>
           </div>
 
-          <div class="cmsEntity-container d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#newCategory" aria-expanded="false" aria-controls="newCategory">
-            <h6 class="m-0"><b>New</b></h6>
-            <span>+</span>
-          </div>
-          <div class="collapse mb-3" id="newCategory">
-            <div>
-
+          <%= link_to new_feature_path do %>
+            <div class="cmsEntity-container d-flex justify-content-between align-items-center">
+              <h6 class="m-0"><b>New</b></h6>
+              <span>+</span>
             </div>
-          </div>
+          <% end %>
 
           <div class="arrow-divider arrow-divider-body mb-5"></div>
 
           <% feature_type.features.each do |feature| %>
-            <%# <%= render partial: "category", locals: { category: category } %>
+            <%= render partial: "feature", locals: {feature: feature} %>
           <% end %>
           <% unless feature_type.features.any? %>
             <p class="text-secondary">No <%= feature_type.name.downcase %> have been created yet.</p>
