@@ -5,13 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-SubjectGroup.destroy_all
-Subject.destroy_all
-MemberGroup.destroy_all
-Member.destroy_all
-Language.destroy_all
-LanguageGroup.destroy_all
-Category.destroy_all
+
+Feature.destroy_all
+FeatureGroup.destroy_all
+FeatureType.destroy_all
 Ticket.destroy_all
 User.destroy_all
 
@@ -20,72 +17,6 @@ puts "\n== Creating users =="
 user = User.create!(
   email: "test@example.com",
   password: "Secret123"
-)
-
-puts "\n== Creating categories =="
-
-mhp = Category.create(
-  user: user,
-  name: "MHP",
-  colour: "#65e33b"
-)
-
-mcf = Category.create(
-  user: user,
-  name: "MCF",
-  colour: "#6cc9f5"
-)
-
-mvf = Category.create(
-  user: user,
-  name: "MVF",
-  colour: "#ffbf36"
-)
-
-my3c = Category.create(
-  user: user,
-  name: "My3c",
-  colour: "#c3f1fa"
-)
-
-puts "\n== Creating subjects =="
-
-elite = Subject.create(
-  user: user,
-  name: "Elite",
-  content: "Some information about Elite."
-)
-
-avantio = Subject.create(
-  user: user,
-  name: "Avantio",
-  content: "Some information about Avantio."
-)
-
-arkiane = Subject.create(
-  user: user,
-  name: "Arkiane",
-  content: "Some information about Arkiane."
-)
-
-interhome = Subject.create(
-  user: user,
-  name: "Interhome",
-  content: "Some information about Interhome."
-)
-
-puts "\n== Creating members =="
-
-david = Member.create(
-  name: "David",
-  colour: "#f5aa42",
-  user: user,
-)
-
-jane = Member.create(
-  name: "Jane",
-  colour: "#fc68e6",
-  user: user,
 )
 
 puts "\n== Creating tickets =="
@@ -142,80 +73,3 @@ ticket_five = Ticket.create(
   start_time:Time.new - 7.hour
 )
 
-puts "\n== Creating member groups =="
-
-MemberGroup.create(
-  member: jane,
-  ticket: ticket_four
-)
-
-MemberGroup.create(
-  member: jane,
-  ticket: ticket_five
-)
-
-puts "\n== Creating subject groups =="
-
-SubjectGroup.create(
-  subject: avantio,
-  ticket: ticket_one
-)
-
-SubjectGroup.create(
-  subject: avantio,
-  ticket: ticket_one
-)
-
-SubjectGroup.create(
-  subject: avantio,
-  ticket: ticket_two
-)
-
-SubjectGroup.create(
-  subject: avantio,
-  ticket: ticket_three
-)
-
-SubjectGroup.create(
-  subject: arkiane,
-  ticket: ticket_three
-)
-
-SubjectGroup.create(
-  subject: elite,
-  ticket: ticket_three
-)
-
-SubjectGroup.create(
-  subject: arkiane,
-  ticket: ticket_four
-)
-
-SubjectGroup.create(
-  subject: avantio,
-  ticket: ticket_five
-)
-
-puts "\n== Creating languages =="
-
-css = Language.create(
-  user: user,
-  name: "css"
-)
-
-js = Language.create(
-  user: user,
-  name: "js"
-)
-
-ruby = Language.create(
-  user: user,
-  name: "ruby"
-)
-
-puts "\n== Creating language groups =="
-
-LanguageGroup.create(
-  language: ruby,
-  ticket: ticket_one
-)

@@ -1,47 +1,37 @@
-<h1>CMS</h1>
 
-<div class="row m-0 p-0">
-  <div class="col-12 col-md-6 col-lg-3 border-right">
-    <%= render partial: "entity_section", locals: {records: @subjects, new_record: Subject.new, name: "subject"} %>
-  </div>
+<div class="row m-0 p-0 py-3">
+  <div class="col-12 col-md-6 col-lg-2 border-right">
+    <p>Create feature type</p>
 
-  <div class="col-12 col-md-6 col-lg-3 border-right">
-    <%= render partial: "entity_section", locals: {records: @categories, new_record: Category.new, name: "category"} %>
+    <%= render partial: "feature_type/form", locals: {feature_type: FeatureType.new} %>
   </div>
+    <% @feature_types.each do |feature_type| %>
+      <div class="col-12 col-md-6 col-lg-2 border-right">
+         <div class="cmsEntity-container cms-category" style="border-top: solid 5px <%= feature_type.colour %>">
+            <div class="d-flex justify-content-between align-items-center">
+              <h6 class="m-0"><b><%= feature_type.name %></b></h6>
+              <span><%= feature_type.features.count %></span>
+            </div>
+          </div>
 
-  <div class="col-12 col-md-6 col-lg-3 border-right">
-    <%= render partial: "entity_section", locals: {records: @members, new_record: Member.new, name: "member"} %>
-  </div>
+          <div class="cmsEntity-container d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#newCategory" aria-expanded="false" aria-controls="newCategory">
+            <h6 class="m-0"><b>New</b></h6>
+            <span>+</span>
+          </div>
+          <div class="collapse mb-3" id="newCategory">
+            <div>
 
-  <div class="col-12 col-md-6 col-lg-3">
-    <%= render partial: "entity_section", locals: {records: @languages, new_record: Subject.new, name: "subject"} %>
-  </div>
+            </div>
+          </div>
+
+          <div class="arrow-divider arrow-divider-body mb-5"></div>
+
+          <% feature_type.features.each do |feature| %>
+            <%# <%= render partial: "category", locals: { category: category } %>
+          <% end %>
+          <% unless feature_type.features.any? %>
+            <p class="text-secondary">No <%= feature_type.name.downcase %> have been created yet.</p>
+          <% end %>
+      </div>
+    <% end %>
 </div>
-
-
-
-<div class="cmsEntity-container cms-languages">
-      <div class="d-flex justify-content-between align-items-center">
-        <h6 class="m-0"><b>Technology</b></h6>
-        <span><%= @languages.count %></span>
-      </div>
-    </div>
-
-    <div class="cmsEntity-container d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#newlanguages" aria-expanded="false" aria-controls="newlanguages">
-      <h6 class="m-0"><b>New</b></h6>
-      <span>+</span>
-    </div>
-    <div class="collapse mb-3" id="newlanguages">
-      <div>
-        <%= render partial: "languages/form", locals: { language: @language } %>
-      </div>
-    </div>
-
-    <div class="arrow-divider arrow-divider-body mb-5"></div>
-
-    <% @languages.each do |language| %>
-      <%= render partial: "language", locals: { language: language } %>
-    <% end %>
-    <% unless @languages.any? %>
-      <p class="text-secondary">No languages have been created yet.</p>
-    <% end %>

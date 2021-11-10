@@ -7,10 +7,8 @@ Rails.application.routes.draw do
   get "/websites", to: "websites#websites"
   get "/cms", to: "cms#cms", as: :cms
   resources :tickets
-  resources :subjects
-  resources :categories
-  resources :languages
-  resources :members
+  resources :features
+  resources :feature_types
   resources :settings
 
   devise_for :users
