@@ -69,3 +69,24 @@
 .icon:hover {
   color: rgb(255, 166, 0);
 }
+
+.cmsSections-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.cmsSection {
+  max-width: 500px;
+  width: 100%;
+  padding: 1rem 0.5rem;
+  border-right: solid var(--border-colour) 1px;
+}
+
+.cmsSection:first-child {
+  padding-left: 1rem;
+}
+
+.cmsSection:last-child {
+  padding-right: 1rem;
+  border: none;
+}

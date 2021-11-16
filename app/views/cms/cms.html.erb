@@ -1,8 +1,11 @@
-<%= link_to "Add feature type", new_feature_type_path %>
+<div class="container-fluid mt-3">
+  <%= link_to "Add feature type", new_feature_type_path, class: "btn btn-primary" %>
+  <hr class="mb-0">
+</div>
 
-<div class="row m-0 p-0 py-3">
+<div class="cmsSections-container">
     <% @feature_types.each do |feature_type| %>
-      <div class="col-12 col-md-6 col-lg-2 border-right">
+      <div class="cmsSection">
          <div class="cmsEntity-container cms-category" style="border-top: solid 5px <%= feature_type.colour %>">
             <div class="d-flex justify-content-between align-items-center">
               <h6 class="m-0"><b><%= feature_type.name %></b></h6>
