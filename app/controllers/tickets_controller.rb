@@ -1,9 +1,5 @@
 class TicketsController < SessionsController
   before_action :set_ticket, only: %i[edit update destroy]
-  before_action :set_subjects, only: %i[edit update new create]
-  before_action :set_members, only: %i[edit update new create]
-  before_action :set_categories, only: %i[edit update new create]
-  before_action :set_languages, only: %i[edit update new create]
 
   def new
     @ticket = Ticket.new
