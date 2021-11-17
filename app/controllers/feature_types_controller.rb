@@ -1,5 +1,5 @@
 class FeatureTypesController < ApplicationController
-  before_action :set_featue_type, only: %i[edit update]
+  before_action :set_featue_type, only: %i[edit update destroy]
 
   def new
   end
@@ -23,6 +23,12 @@ class FeatureTypesController < ApplicationController
     else
 
     end
+    redirect_to cms_path
+  end
+
+  def destroy
+    @feature_type.destroy
+    flash[:success] = "Feature types has been removed."
     redirect_to cms_path
   end
 
