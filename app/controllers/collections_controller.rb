@@ -1,4 +1,5 @@
 class CollectionsController < ApplicationController
+  include CollectionHelper
   before_action :authenticate_user!
 
   def index
@@ -11,9 +12,13 @@ class CollectionsController < ApplicationController
   end
 
   def create
-    @collection = Collection.new(collection_params)
+    @collection = Collection.new(name: collection_params[:name])
     if @collection.save!
       UserGroup.create!(user: current_user, collection: @collection)
+      template = collection_params[:template]
+      if template === "Web Developer"
+        web_developer_template(@collection)
+      end
       redirect_to collections_path
     else
       render 'new'
@@ -32,6 +37,6 @@ class CollectionsController < ApplicationController
   private
 
   def collection_params
-    params.require(:collection).permit(:name)
+    params.require(:collection).permit(:name, :template)
   end
 end
