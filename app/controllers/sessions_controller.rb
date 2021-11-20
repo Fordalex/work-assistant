@@ -20,7 +20,11 @@ class SessionsController < ApplicationController
   end
 
   def set_collection
+    # TODO save collection_id to the users profile instead of a session
     @collection = Collection.find_by(id: session[:collection_id])
-    redirect_to collections_path unless @collection
+    unless @collection
+      flash[:warning] = "A collection needs to be selected first"
+      redirect_to collections_path
+    end
   end
 end
