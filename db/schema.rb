@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_20_111311) do
+ActiveRecord::Schema.define(version: 2021_11_20_113543) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,15 +51,6 @@ ActiveRecord::Schema.define(version: 2021_11_20_111311) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
-  end
-
-  create_table "categories", force: :cascade do |t|
-    t.bigint "user_id"
-    t.string "colour"
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_categories_on_user_id"
   end
 
   create_table "collections", force: :cascade do |t|
@@ -103,83 +94,12 @@ ActiveRecord::Schema.define(version: 2021_11_20_111311) do
     t.index ["user_id"], name: "index_features_on_user_id"
   end
 
-  create_table "job_type_groups", force: :cascade do |t|
-    t.bigint "job_type_id"
-    t.bigint "ticket_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["job_type_id"], name: "index_job_type_groups_on_job_type_id"
-    t.index ["ticket_id"], name: "index_job_type_groups_on_ticket_id"
-  end
-
-  create_table "job_types", force: :cascade do |t|
-    t.bigint "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_job_types_on_user_id"
-  end
-
-  create_table "language_groups", force: :cascade do |t|
-    t.bigint "language_id"
-    t.bigint "ticket_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["language_id"], name: "index_language_groups_on_language_id"
-    t.index ["ticket_id"], name: "index_language_groups_on_ticket_id"
-  end
-
-  create_table "languages", force: :cascade do |t|
-    t.bigint "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
-    t.index ["user_id"], name: "index_languages_on_user_id"
-  end
-
-  create_table "member_groups", force: :cascade do |t|
-    t.bigint "member_id"
-    t.bigint "ticket_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["member_id"], name: "index_member_groups_on_member_id"
-    t.index ["ticket_id"], name: "index_member_groups_on_ticket_id"
-  end
-
-  create_table "members", force: :cascade do |t|
-    t.string "name"
-    t.string "colour"
-    t.bigint "user_id"
-    t.bigint "subject_group_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["subject_group_id"], name: "index_members_on_subject_group_id"
-    t.index ["user_id"], name: "index_members_on_user_id"
-  end
-
   create_table "settings", force: :cascade do |t|
     t.bigint "user_id"
     t.string "theme", default: "light"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_settings_on_user_id"
-  end
-
-  create_table "subject_groups", force: :cascade do |t|
-    t.bigint "ticket_id"
-    t.bigint "subject_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["subject_id"], name: "index_subject_groups_on_subject_id"
-    t.index ["ticket_id"], name: "index_subject_groups_on_ticket_id"
-  end
-
-  create_table "subjects", force: :cascade do |t|
-    t.bigint "user_id"
-    t.string "name"
-    t.text "content"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_subjects_on_user_id"
   end
 
   create_table "tickets", force: :cascade do |t|
@@ -203,6 +123,15 @@ ActiveRecord::Schema.define(version: 2021_11_20_111311) do
     t.index ["user_id"], name: "index_tickets_on_user_id"
   end
 
+  create_table "user_groups", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "collection_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["collection_id"], name: "index_user_groups_on_collection_id"
+    t.index ["user_id"], name: "index_user_groups_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -211,8 +140,6 @@ ActiveRecord::Schema.define(version: 2021_11_20_111311) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "collection_id"
-    t.index ["collection_id"], name: "index_users_on_collection_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
