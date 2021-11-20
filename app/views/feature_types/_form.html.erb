@@ -1,12 +1,12 @@
 <div>
-  <%= form_with(model: feature_type) do |form| %>
-    <% if feature_type.errors.any? %>
+  <%= form_with(record: record) do |form| %>
+    <% if record.errors.any? %>
       <div id="error_explanation">
         <h2>
-          <%= pluralize(feature_type.errors.count, "error" ) %> prohibited this feature type from being saved:
+          <%= pluralize(record.errors.count, "error" ) %> prohibited this feature type from being saved:
         </h2>
         <ul>
-          <% feature_type.errors.each do |error| %>
+          <% record.errors.each do |error| %>
             <li>
               <%= error.full_message %>
             </li>
@@ -29,9 +29,9 @@
       <%= form.submit :save, class: "btn btn-success container-fluid mt-3" %>
     </div>
 
-    <% unless feature_type.new_record? %>
+    <% unless record.new_record? %>
     <div class="col">
-      <%= link_to "Delete", feature_type_path(feature_type), data: {confirm: "Are you sure?"}, method: :delete, class: "btn btn-danger container-fluid" %>
+      <%= link_to "Delete", feature_type_path(record), data: {confirm: "Are you sure?"}, method: :delete, class: "btn btn-danger container-fluid" %>
     </div>
     <% end %>
 
