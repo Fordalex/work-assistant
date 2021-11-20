@@ -4,7 +4,6 @@ Rails.application.routes.draw do
 
   get "/home", to: "home#home", as: :home
   get "/notes", to: "notes#notes"
-  get "/websites", to: "websites#websites"
   get "/cms", to: "cms#cms", as: :cms
   resources :tickets
   resources :feature_types
