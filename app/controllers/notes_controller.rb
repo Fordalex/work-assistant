@@ -3,6 +3,7 @@ class NotesController < TicketsController
   # TODO Write some tests!!
 
   def notes
+    @feature_types = FeatureType.where(collection: @collection)
     @tickets = Ticket.where(collection: @collection)
   end
 
