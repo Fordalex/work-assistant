@@ -59,6 +59,11 @@ subject = FeatureType.create!(
   name: "Subjects"
 )
 
+FeatureType.create!(
+  collection: group_collection,
+  name: "Languages"
+)
+
 puts "\n== Creating features =="
 
 Feature.create!(
