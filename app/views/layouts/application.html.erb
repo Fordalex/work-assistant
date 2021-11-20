@@ -24,6 +24,9 @@
     <% if user_signed_in? %>
       <%= render partial: "layouts/navigation" %>
       <div class="page-container">
+        <div>
+          collection: <%= @collection&.name %>
+        </div>
         <%= yield %>
       </div>
     <% else %>

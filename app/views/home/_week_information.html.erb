@@ -7,18 +7,7 @@
       <th>Count</th>
       <th>Duration</th>
     </tr>
-    <% all_categories_stats(@week_tickets).each do |category, dict| %>
-      <tr>
-        <td>
-          <div class="d-flex justify-content-start align-items-center">
-            <div class="category-block me-2" style="background-color: <%= dict[:colour] %>;"></div>
-            <span><%= category %></span>
-          </div>
-        </td>
-        <td><%= dict[:count] %></td>
-        <td><%= time_conversion(dict[:duration].to_i) %></td>
-      </tr>
-    <% end %>
+
   </table>
   <div class="pieChart-container">
     <canvas class="jsChart" width="400" height="400" data-colours="<%= values_for_chart(@week_tickets, :colour) %>" data-categories="<%= values_for_chart(@week_tickets, :category) %>" data-durations="<%= values_for_chart(@week_tickets, :duration) %>"></canvas>
