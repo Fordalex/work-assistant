@@ -41,6 +41,18 @@
       <% end %>
     </li>
 
+    <li class="navList-item">
+      <%= link_to collections_path do %>
+        <% if current_page?(collections_path) %>
+          <%= image_tag("icons/collection_icon_selected.png") %>
+          <span class="navLink-selected">Collections</span>
+        <% else %>
+          <%= image_tag("icons/collection_icon.png") %>
+          <span>Collections</span>
+        <% end %>
+      <% end %>
+    </li>
+
   </ul>
   <ul>
     <li class="navList-item">
