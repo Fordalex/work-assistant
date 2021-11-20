@@ -31,8 +31,8 @@ puts "\n== Creating collections =="
 personal_collection = Collection.create!(
   name: "Personal"
 )
-group_collection = Collection.create!(
-  name: "Group"
+work_collection = Collection.create!(
+  name: "Work"
 )
 
 puts "\n== Creating user groups =="
@@ -43,24 +43,24 @@ UserGroup.create(
 )
 
 UserGroup.create(
-  collection: group_collection,
+  collection: work_collection,
   user: first_user
 )
 
 UserGroup.create(
-  collection: group_collection,
+  collection: work_collection,
   user: second_user
 )
 
 puts "\n== Creating feature types =="
 
-subject = FeatureType.create!(
-  collection: personal_collection,
+subjects = FeatureType.create!(
+  collection: work_collection,
   name: "Subjects"
 )
 
-FeatureType.create!(
-  collection: group_collection,
+languages = FeatureType.create!(
+  collection: personal_collection,
   name: "Languages"
 )
 
@@ -69,13 +69,19 @@ puts "\n== Creating features =="
 Feature.create!(
   name: "Arkiane",
   content: "Not sure about his attribute??",
-  feature_type: subject,
+  feature_type: subjects,
 )
 
 Feature.create!(
   name: "Elite",
   content: "Not sure about his attribute??",
-  feature_type: subject,
+  feature_type: subjects,
+)
+
+Feature.create!(
+  name: "Ruby",
+  content: "Not sure about his attribute??",
+  feature_type: languages,
 )
 
 puts "\n== Creating tickets =="
@@ -84,16 +90,16 @@ ticket_one = Ticket.create(
   collection: personal_collection,
   date: Date.today,
   title: "MHP",
-  description: "Fix layout issue with the parks navigation, Tony has request this to be changed.",
+  description: "This is a ticket description for the personal collection",
   duration: 60,
   start_time: Time.now + 1.hour
 )
 
 ticket_one = Ticket.create(
-  collection: group_collection,
+  collection: work_collection,
   date: Date.today,
   title: "MHP",
-  description: "Fix layout issue with the parks navigation, Tony has request this to be changed.",
+  description: "This is a ticket description for the work collection",
   duration: 60,
   start_time: Time.now + 1.hour
 )
