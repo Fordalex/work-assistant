@@ -95,3 +95,12 @@
 .notes-table td {
   padding: 2px;
 }
+
+.notes-ticketWrapper {
+  background-image: linear-gradient(135deg, var(--mid-bg-colour) 20%, var(--dark-bg-colour) 100%);
+  border: solid 1px var(--border-colour);
+  box-shadow: 0 0 35px 0 rgba(0,0,0,var(--shadow-opacity));
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-top: 1rem;
+}

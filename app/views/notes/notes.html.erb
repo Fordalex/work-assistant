@@ -2,16 +2,16 @@
   <%= javascript_pack_tag "chart" %>
 <% end %>
 
-<h2>Notes</h2>
+<h2>Tickets</h2>
 
 <div class="white-container row p-4 m-4">
 
-  sort by inputs
+  <h4 class="p-0">Sort</h4>
 
   <hr class="mb-0">
 
   <div class="col-2 m-0 p-0 pe-3 pt-3 border-right">
-
+    <h4>Filter</h4>
     <%= form_with url: notes_path, method: :get do |form| %>
       <%= form.submit "Search", class: "btn btn-success" %>
     <% end %>
@@ -21,7 +21,7 @@
 
     <% if @tickets.any? %>
       <% @tickets.each do |ticket| %>
-        <%= ticket.description %>
+        <%= render partial: "ticket", locals: {ticket: ticket} %>
       <% end %>
     <% else %>
     <p class="text-secondary m-0">No tickets found.</p>
