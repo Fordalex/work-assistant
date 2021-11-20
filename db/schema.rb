@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_10_223705) do
+ActiveRecord::Schema.define(version: 2021_11_20_111311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,11 @@ ActiveRecord::Schema.define(version: 2021_11_10_223705) do
     t.index ["user_id"], name: "index_categories_on_user_id"
   end
 
+  create_table "collections", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "feature_groups", force: :cascade do |t|
     t.bigint "feature_id"
     t.bigint "ticket_id"
@@ -78,6 +83,8 @@ ActiveRecord::Schema.define(version: 2021_11_10_223705) do
     t.bigint "feature_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "collection_id"
+    t.index ["collection_id"], name: "index_feature_types_on_collection_id"
     t.index ["feature_id"], name: "index_feature_types_on_feature_id"
     t.index ["user_id"], name: "index_feature_types_on_user_id"
   end
@@ -189,7 +196,9 @@ ActiveRecord::Schema.define(version: 2021_11_10_223705) do
     t.string "commit"
     t.string "resource"
     t.text "technical"
+    t.bigint "collection_id"
     t.index ["category_id"], name: "index_tickets_on_category_id"
+    t.index ["collection_id"], name: "index_tickets_on_collection_id"
     t.index ["subject_group_id"], name: "index_tickets_on_subject_group_id"
     t.index ["user_id"], name: "index_tickets_on_user_id"
   end
@@ -202,6 +211,8 @@ ActiveRecord::Schema.define(version: 2021_11_10_223705) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "collection_id"
+    t.index ["collection_id"], name: "index_users_on_collection_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

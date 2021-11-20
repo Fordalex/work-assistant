@@ -14,15 +14,29 @@ User.destroy_all
 
 puts "\n== Creating users =="
 
-user = User.create!(
-  email: "test@example.com",
-  password: "Secret123"
+first_user = User.create!(
+  email: "first@example.com",
+  password: "password123"
 )
+
+second_user = User.create!(
+  email: "second@example.com",
+  password: "password123"
+)
+
+puts "\n== Creating collections =="
+
+personal_collection = Collection.create!()
+group_collection = Collection.create!()
+
+puts "\n== Creating feature types =="
+
+puts "\n== Creating features =="
 
 puts "\n== Creating tickets =="
 
 ticket_one = Ticket.create(
-  user: user,
+  collection: personal_collection,
   date: Date.today,
   title: "MHP",
   description: "Fix layout issue with the parks navigation, Tony has request this to be changed.",
