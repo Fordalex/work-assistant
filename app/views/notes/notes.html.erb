@@ -4,13 +4,6 @@
 
 <h2>Notes</h2>
 
-<div class="row m-0 px-4">
-  <%= render partial: "pie_chart", locals: {records: @categories, name: "Categories"} %>
-  <%= render partial: "pie_chart", locals: {records: @members, name: "Members"} %>
-  <%= render partial: "pie_chart", locals: {records: @subjects, name: "Subjects"} %>
-  <%= render partial: "pie_chart", locals: {records: @languages, name: "Technologies"} %>
-</div>
-
 <div class="white-container row p-4 m-4">
 
   sort by inputs
@@ -20,27 +13,6 @@
   <div class="col-2 m-0 p-0 pe-3 pt-3 border-right">
 
     <%= form_with url: notes_path, method: :get do |form| %>
-
-      <h6>Filter (or)</h6>
-
-      <%= render partial: "checkbox_search", locals: {records: @categories, name: "categories", searched: @searched_categories} %>
-
-      <hr class="sm-hr">
-
-      <h6>Filter (and)</h6>
-
-      <%= render partial: "checkbox_search", locals: {records: @members, name: "members", searched: @searched_members} %>
-
-      <hr class="sm-hr">
-
-      <%= render partial: "checkbox_search", locals: {records: @subjects, name: "subjects", searched: @searched_subjects} %>
-
-      <hr class="sm-hr">
-
-      <%= render partial: "checkbox_search", locals: {records: @languages, name: "languages", searched: @searched_languages} %>
-
-      <hr class="sm-hr">
-
       <%= form.submit "Search", class: "btn btn-success" %>
     <% end %>
   </div>
@@ -48,61 +20,9 @@
   <div class="col-10 m-0 p-0 ps-3">
 
     <% if @tickets.any? %>
-    <table class="table ticket-table">
-      <tr>
-        <th>ID</th>
-        <th>Category</th>
-        <th>Description</th>
-        <th>Members</th>
-        <th>Subjects</th>
-        <th>Technologies</th>
-        <th>Duration</th>
-        <th>Date</th>
-        <th>Links</th>
-        <th>Actions</th>
-      </tr>
-
       <% @tickets.each do |ticket| %>
-        <tr>
-          <td><b>#<%= ticket.id %></b></td>
-          <td>
-            <div class="d-flex justify-content-start align-items-center">
-              <div class="category-block me-2" style="background-color:<%= ticket&.category&.colour %>;"></div>
-              <%= ticket&.category&.name %>
-            </div>
-          </td>
-          <td><%= ticket.description.truncate(100) %></td>
-          <td>
-            <% ticket.member_groups.each do |member_group| %>
-              <%= render partial: "shared/member", locals: {member_group: member_group} %>
-            <% end %>
-          </td>
-          <td class="notes-subjectContainer">
-            <% ticket&.subject_groups&.each do |subject_group| %>
-              <span><%= subject_group&.subject&.name %></span>
-            <% end %>
-          </td>
-          <td>
-            <% ticket&.language_groups&.each do |language_group| %>
-              <span><%= language_group&.language&.name %></span>
-            <% end %>
-          </td>
-          <td><%= time_conversion(ticket&.duration) %></td>
-          <td><%= ticket&.date&.strftime("%d %b %y") %></td>
-          <td>
-            <% if ticket.commit.present? %>
-              <%= link_to "", ticket.commit, target: "_blank", class: "fab fa-github icon" %>
-            <% end %>
-            <% if ticket.resource.present? %>
-              <%= link_to "", ticket.resource, target: "_blank", class: "fas fa-globe-asia icon" %>
-            <% end %>
-          </td>
-          <td>
-            <%= link_to "Edit", edit_ticket_path(ticket),class: "btn btn-primary btn-small" %>
-          </td>
-        </tr>
+        <%= ticket.description %>
       <% end %>
-    </table>
     <% else %>
     <p class="text-secondary m-0">No tickets found.</p>
     <% end %>

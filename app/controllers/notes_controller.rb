@@ -1,18 +1,9 @@
 class NotesController < TicketsController
-  before_action :set_members, only: %i[notes]
-  before_action :set_subjects, only: %i[notes]
-  before_action :set_languages, only: %i[notes]
-  before_action :set_categories, only: %i[notes]
-
   # TODO refactor this controller
   # TODO Write some tests!!
 
   def notes
-    @tickets = find_tickets
-    @searched_categories = searched_key(:categories)
-    @searched_members = searched_key(:members)
-    @searched_subjects = searched_key(:subjects)
-    @searched_languages = searched_key(:languages)
+    @tickets = Ticket.where(collection: @collection)
   end
 
   private
