@@ -1,15 +1,16 @@
-class FeatureTypesController < ApplicationController
+class FeatureTypesController < SessionsController
   before_action :set_featue_type, only: %i[edit update destroy]
 
   def new
   end
 
   def create
-    @feature_type = FeatureType.new(feature_types_params.merge(user: current_user))
+    @feature_type = FeatureType.new(feature_types_params.merge(collection: @collection))
     if @feature_type.save!
-
+      flash[:success] = "#{feature_type.name} created successfully"
     else
-
+      render 'new'
+      flash[:success] = "An error occurred please try again."
     end
     redirect_to cms_path
   end
