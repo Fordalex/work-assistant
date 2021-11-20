@@ -19,7 +19,8 @@ class CollectionsController < ApplicationController
       if template === "Web Developer"
         web_developer_template(@collection)
       end
-      redirect_to collections_path
+      session[:collection_id] = @collection.id
+      redirect_to cms_path
     else
       render 'new'
     end
