@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_20_113543) do
+ActiveRecord::Schema.define(version: 2021_11_20_133132) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2021_11_20_113543) do
   create_table "collections", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
   end
 
   create_table "feature_groups", force: :cascade do |t|
@@ -85,13 +86,11 @@ ActiveRecord::Schema.define(version: 2021_11_20_113543) do
     t.text "content"
     t.bigint "feature_type_id"
     t.bigint "feature_group_id"
-    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "colour"
     t.index ["feature_group_id"], name: "index_features_on_feature_group_id"
     t.index ["feature_type_id"], name: "index_features_on_feature_type_id"
-    t.index ["user_id"], name: "index_features_on_user_id"
   end
 
   create_table "settings", force: :cascade do |t|
@@ -111,13 +110,11 @@ ActiveRecord::Schema.define(version: 2021_11_20_113543) do
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "category_id", null: false
     t.bigint "subject_group_id"
     t.string "commit"
     t.string "resource"
     t.text "technical"
     t.bigint "collection_id"
-    t.index ["category_id"], name: "index_tickets_on_category_id"
     t.index ["collection_id"], name: "index_tickets_on_collection_id"
     t.index ["subject_group_id"], name: "index_tickets_on_subject_group_id"
     t.index ["user_id"], name: "index_tickets_on_user_id"

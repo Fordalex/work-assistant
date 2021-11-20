@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :feature_types
   resources :features
   resources :settings
+  resources :collections
 
   devise_for :users
 end
