@@ -28,6 +28,6 @@ class FeaturesController < SessionsController
   private
 
   def features_params
-    params.require(:feature).permit(:name, :colour, :content, :feature_type_id)
+    params.require(:feature).permit(:name, :colour, :content, :feature_type_id, :feature_ticket_type)
   end
 end
