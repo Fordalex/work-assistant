@@ -64,6 +64,25 @@ RSpec.describe "Tickets", type: :request do
       end
     end
 
+    context "with nil feature_text and feature_checkboxes params" do
+      before do
+        post tickets_path, params: {
+          ticket: {
+            title: "The title",
+            date: date,
+            start_time: time,
+            duration: 100,
+            description: "Description",
+          }
+        }
+      end
+
+      it "create a new ticket" do
+        expect(response).to redirect_to notes_path
+        expect(Ticket.count).to eq 1
+      end
+    end
+
     # context "with invalid params" do
     #   before do
     #     post tickets_path, params: {ticket:{duration: 40, description: "asdf"}}

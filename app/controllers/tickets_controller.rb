@@ -52,8 +52,26 @@ class TicketsController < SessionsController
     @feature_types = FeatureType.where(collection: @collection)
   end
 
+  def feature_checkboxes_params
+    params[:ticket][:feature_checkboxes]
+  end
+
+  def feature_text_params
+    params[:ticket][:feature_text]
+  end
+
   def update_features
     FeatureGroup.where(ticket: @ticket).destroy_all
+    if feature_checkboxes_params
+      update_feature_checkboxes
+    end
+
+    if feature_text_params
+      update_feature_text
+    end
+  end
+
+  def update_feature_checkboxes
     params[:ticket][:feature_checkboxes].each do |feature_id, active|
       if active == "1"
         feature = Feature.find_by(id: feature_id)
@@ -63,8 +81,10 @@ class TicketsController < SessionsController
         )
       end
     end
+  end
 
-    params[:ticket][:feature_text].each do |feature_id, text|
+  def update_feature_text
+    feature_text_params.each do |feature_id, text|
       if text.present?
         feature = Feature.find_by(id: feature_id)
         FeatureGroup.create!(
