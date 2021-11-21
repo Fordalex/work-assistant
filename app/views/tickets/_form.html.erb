@@ -2,16 +2,15 @@
   <%= javascript_pack_tag "duration" %>
 <% end %>
 
-
-  <%= form_with(model: ticket) do |form| %>
-<div class="row m-0 p-0">
-    <% if ticket.errors.any? %>
+<%= form_with(model: record) do |form| %>
+  <div class="row m-0 p-0">
+    <% if record.errors.any? %>
       <div id="error_explanation">
         <h2>
-          <%= pluralize(ticket.errors.count, "error" ) %> prohibited this ticket from being saved:
+          <%= pluralize(record.errors.count, "error" ) %> prohibited this record from being saved:
         </h2>
         <ul>
-          <% ticket.errors.each do |error| %>
+          <% record.errors.each do |error| %>
             <li>
               <%= error.full_message %>
             </li>
@@ -20,120 +19,69 @@
       </div>
     <% end %>
 
-      <% date = date || ticket&.date %>
-      <% day = day || "edit" %>
+    <% date = date || record&.date %>
+    <% day = day || "edit" %>
 
-      <div class="col-12 col-md-6 m-0 p-0 pe-3 border-right">
-        <h4>Information</h4>
+    <p class="text-secondary p-0">Add the ticket information below.</p>
 
-        <%= form.label :category, class: "required" %>
-        <div class="input-group-icon">
-          <%= form.select :category_id, Category.where(user: current_user).map{ |c| [c.name, c.id] }, {prompt: "Pick a category..."}, id: "category#{day}", class: "form-control", required: true %>
-          <div class="input-icon">
-            <i class="fas fa-folder-open"></i>
-          </div>
-        </div>
-
-        <%= form.label :description, class: "required" %>
-        <div class="input-group-icon">
-          <%= form.text_area :description, class: "form-control large-textArea input-style", placeholder: "Add your description here...", id: "description#{day}", required: true %>
-          <div class="input-icon">
-            <i class="fas fa-info-circle"></i>
-          </div>
-        </div>
-
-            <label class="mb-2">Members</label><br>
-        <% @members.each do |member| %>
-          <% member_group = ticket.member_groups.where(member: member, ticket: ticket).first %>
-          <%= form.check_box "member_checkboxes[#{member.id}]", {checked: member_group.present?, class: "word-checkbox"} %>
-          <%= form.label "member_checkboxes[#{member.id}]", member.name %>
-        <% end %>
-        <% unless @members.any? %>
-          <p class="text-secondary">Members can be added from the cms page</p>
-        <% end %>
-
-        <br><label class="mb-2">Subjects</label><br>
-        <% @subjects.each do |subject| %>
-          <% subject_group = ticket.subject_groups.where(subject: subject, ticket: ticket).first %>
-          <%= form.check_box "subject_checkboxes[#{subject.id}]", {checked: subject_group.present?, class: "word-checkbox"} %>
-          <%= form.label "subject_checkboxes[#{subject.id}]", subject.name %>
-        <% end %>
-          <% unless @subjects.any? %>
-          <p class="text-secondary">Subjects can be added from the cms page</p>
-        <% end %>
+    <h4 class="p-0">Information</h4>
+    <%= form.label :title %>
+    <div class="input-group-icon">
+      <%= form.text_field :title, class: "form-control input-style", placeholder: "Add title...", id: "commit#{day}" %>
+      <div class="input-icon">
+        <i class="fab fa-github"></i>
       </div>
+    </div>
 
-
-      <div class="col-12 col-md-6 m-0 p-0 ps-3">
-        <h4>Technical</h4>
-
-        <%= form.label :technical %>
-        <div class="input-group-icon">
-          <%= form.text_area :technical, class: "form-control large-textArea input-style", placeholder: "Add code and message here...", id: "description#{day}" %>
-          <div class="input-icon">
-            <i class="fas fa-laptop-code"></i>
-          </div>
-        </div>
-
-        <%= form.label :commit %>
-        <div class="input-group-icon">
-          <%= form.text_field :commit, class: "form-control input-style", placeholder: "Add a link to your commit...", id: "commit#{day}" %>
-          <div class="input-icon">
-            <i class="fab fa-github"></i>
-          </div>
-        </div>
-
-        <%= form.label :resource %>
-        <div class="input-group-icon">
-          <%= form.text_field :resource, class: "form-control", placeholder: "Add a resource link...", id: "resource#{day}" %>
-          <div class="input-icon">
-            <i class="fas fa-link"></i>
-          </div>
-        </div>
-
-        <div class="pb-3">
-          <br><label class="mb-2">languages</label><br>
-          <% @languages.each do |language| %>
-            <% language_group = ticket.language_groups.where(language: language, ticket: ticket).first %>
-            <%= form.check_box "language_checkboxes[#{language.id}]", {checked: language_group.present?, class: "word-checkbox"} %>
-            <%= form.label "language_checkboxes[#{language.id}]", language.name %>
-          <% end %>
-            <% unless @languages.any? %>
-            <p class="text-secondary">languages can be added from the cms page</p>
-          <% end %>
-        </div>
+    <%= form.label :description, class: "required" %>
+    <div class="input-group-icon mb-3">
+      <%= form.text_area :description, class: "form-control large-textArea input-style", placeholder: "Add your description here...", id: "description#{day}", required: true %>
+      <div class="input-icon">
+        <i class="fas fa-info-circle"></i>
       </div>
+    </div>
 
-      <div class="col-12 m-0 p-0">
-        <hr class="mt-0">
-        <h4>Time</h4>
+    <hr>
 
-        <%= form.label :date, class: "required" %>
-        <%= form.date_field :date, class: "form-control", id: "startTime#{day}", value: ticket&.date&.strftime("%Y-%m-%d") || DateTime.now.strftime("%Y-%m-%d"), required: true %>
-
-        <%= form.label :start_time, class: "required" %>
-        <%= form.time_field :start_time, class: "form-control", id: "startTime#{day}", value: ticket.start_time&.strftime("%H:%M") || Time.now.strftime("%H:%M"), required: true %>
-
-        <div class="form-group container-fluid p-0">
-          <%= form.label :duration, class: "required" %>
-          <%= form.range_field :duration, min: 0, max: 600, step: 5, value: ticket.duration || 30, class: "duration-input", id: "durationInput#{day}", required: true %>
-          <span id="durationInput<%= day %>Container">
-            <%= time_conversion(ticket.duration || 30) %>
-          </span>
+    <div class="px-0 py-1">
+      <% @feature_types.each do |feature_type| %>
+        <h4><%= form.label "#{feature_type.name}:" %></h4>
+        <div class="px-0 py-1">
+        <% feature_type.features.each do |feature| %>
+          <%= form.check_box "feature_checkboxes[#{feature.id}]", {checked: false, class: "word-checkbox"} %>
+          <%= form.label "feature_checkboxes[#{feature.id}]", feature.name %>
+        <% end %>
         </div>
+        <hr>
+      <% end %>
+    </div>
 
-        <div class="row m-0 p-0 mt-4">
-          <div class="col">
-            <%= form.submit :save, class: "btn btn-success container-fluid" %>
-          </div>
-          <% if ticket.description.present? %>
-            <div class="col">
-              <%= link_to "Delete", ticket_path(ticket), data: {confirm: "Are you sure?"}, method: :delete, class: "btn btn-danger container-fluid" %>
-            </div>
-          <% end %>
-        </div>
+    <h4 class="p-0">Time</h4>
+
+    <%= form.label :date, class: "required" %>
+    <%= form.date_field :date, format: "dd-mm-yyy", class: "form-control", id: "startTime#{day}", value: record&.date&.strftime("%Y-%m-%d") || DateTime.now.strftime("%Y-%m-%d"), required: true %>
+
+    <%= form.label :start_time, class: "required" %>
+    <%= form.time_field :start_time, class: "form-control", id: "startTime#{day}", value: record.start_time&.strftime("%H:%M") || Time.now.strftime("%H:%M"), required: true %>
+
+    <div class="form-group container-fluid p-0">
+      <%= form.label :duration, class: "required" %>
+      <%= form.range_field :duration, min: 0, max: 600, step: 5, value: record.duration || 30, class: "duration-input", id: "durationInput#{day}", required: true %>
+      <span id="durationInput<%= day %>Container">
+        <%= time_conversion(record.duration || 30) %>
+      </span>
+    </div>
+
+    <div class="row m-0 p-0 mt-4">
+      <div class="col">
+        <%= form.submit :save, class: "btn btn-success container-fluid" %>
       </div>
-
-</div>
-  <% end %>
+      <% if record.description.present? %>
+        <div class="col">
+          <%= link_to "Delete", ticket_path(record), data: {confirm: "Are you sure?"}, method: :delete, class: "btn btn-danger container-fluid" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
 
