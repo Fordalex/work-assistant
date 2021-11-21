@@ -1,14 +1,16 @@
 class TicketsController < SessionsController
   before_action :set_ticket, only: %i[edit update destroy]
+  before_action :set_feature_types, only: %i[edit new]
 
   def new
     @ticket = Ticket.new
   end
 
   def create
-    @ticket = Ticket.new(tickets_params.merge(user: current_user))
+    @ticket = Ticket.new(tickets_params.merge(collection: @collection))
     if @ticket.save
-      flash[:success] = "#{@ticket.category.name} ticket has been added!"
+      update_features
+      flash[:success] = "#{@ticket.title} ticket has been added!"
       redirect_to notes_path
     else
       flash[:warning] = "An error occured please try again"
@@ -21,7 +23,8 @@ class TicketsController < SessionsController
 
   def update
     if @ticket.update(tickets_params)
-      flash[:success] = "#{@ticket.category.name} ticket has been updated!"
+      update_features
+      flash[:success] = "#{@ticket.title} ticket has been updated!"
       redirect_to notes_path
     else
       flash[:warning] = "An error occured please try again"
@@ -37,11 +40,39 @@ class TicketsController < SessionsController
   private
 
   def set_ticket
-    @ticket = Ticket.where(user: current_user, id: params[:id]).first
+    @ticket = Ticket.where(collection: @collection, id: params[:id]).first
   end
 
   def tickets_params
-    params.require(:ticket).permit(:category_id, :description,
-      :start_time, :commit, :resource, :date, :duration, :technical)
+    params.require(:ticket).permit(:title, :description,
+      :start_time, :date, :duration, :feature_checkboxes)
+  end
+
+  def set_feature_types
+    @feature_types = FeatureType.where(collection: @collection)
+  end
+
+  def update_features
+    FeatureGroup.where(ticket: @ticket).destroy_all
+    params[:ticket][:feature_checkboxes].each do |feature_id, active|
+      if active == "1"
+        feature = Feature.find_by(id: feature_id)
+        FeatureGroup.create!(
+          feature: feature,
+          ticket: @ticket
+        )
+      end
+    end
+
+    params[:ticket][:feature_text].each do |feature_id, text|
+      if text.present?
+        feature = Feature.find_by(id: feature_id)
+        FeatureGroup.create!(
+          feature: feature,
+          ticket: @ticket,
+          text: text,
+        )
+      end
+    end
   end
 end
