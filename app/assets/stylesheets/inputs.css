@@ -195,6 +195,7 @@ input:checked + label:after {
 }
 
 .input-group-icon {
+  padding: 0;
   position: relative;
 }
 
