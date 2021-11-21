@@ -1,7 +1,11 @@
 <div class="cmsEntity-containerItem">
   <div class="d-flex justify-content-between align-items-center">
     <h6 class="m-0"><%= feature.name %></h6>
-    <div class="category-block" style="background-color:<%= feature.colour %>;"></div>
+    <% if feature.feature_ticket_type === "Select" %>
+      <div class="category-block" style="background-color:<%= feature.colour %>;"></div>
+    <% else %>
+      <p class="p-0 m-0">Text</p>
+    <% end %>
   </div>
   <hr class="mb-0">
   <div class="d-flex justify-content-end align-items-center mt-2">
