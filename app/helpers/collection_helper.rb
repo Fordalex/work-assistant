@@ -17,22 +17,46 @@ module CollectionHelper
     language = FeatureType.create!(
       collection: collection,
       name: "Languages",
-      feature_ticket_type: "Select"
     )
     Feature.create!(
       name: "HTML",
       feature_type: language,
-      feature_ticket_type: "Select"
     )
     Feature.create!(
       name: "CSS",
       feature_type: language,
-      feature_ticket_type: "Select"
     )
     Feature.create!(
       name: "JS",
       feature_type: language,
-      feature_ticket_type: "Select"
+    )
+    FeatureType.create!(
+      collection: collection,
+      name: "Members",
+    )
+    job_type = FeatureType.create!(
+      collection: collection,
+      name: "Work type",
+    )
+    Feature.create!(
+      name: "Pairing",
+      feature_type: job_type,
+    )
+    Feature.create!(
+      name: "Solo",
+      feature_type: job_type,
+    )
+    Feature.create!(
+      name: "Training",
+      feature_type: job_type,
+    )
+    Feature.create!(
+      name: "Meeting",
+      feature_type: job_type,
+    )
+    Feature.create!(
+      name: "Phone call",
+      feature_type: job_type,
     )
   end
 end
