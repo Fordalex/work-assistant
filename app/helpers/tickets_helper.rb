@@ -60,7 +60,7 @@ module TicketsHelper
     feature_types.map do |key|
       key_feature_groups = feature_groups.filter{|fg| fg.feature.feature_type.name === key}
       values = key_feature_groups.map{|kfg| {name: kfg.feature.name, text: kfg.text || ""} }
-      {"#{key}": values}
+      { feature_type: key, features: values}
     end
   end
 end

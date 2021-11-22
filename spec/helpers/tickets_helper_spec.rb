@@ -76,7 +76,7 @@ RSpec.describe TicketsHelper, type: :helper do
       davids_feature_group = FactoryBot.create(:feature_group, ticket: ticket, feature: david, text: "Davids note")
       bobs_feature_group = FactoryBot.create(:feature_group, ticket: ticket, feature: bob)
       feature_groups = [davids_feature_group, bobs_feature_group]
-      expect(sort_feature_groups(feature_groups)).to eq [{"Members": [{name: "David", text: "Davids note"},{name: "Bob", text: ""}]}]
+      expect(sort_feature_groups(feature_groups)).to eq [{feature_type: "Members", features: [{name: "David", text: "Davids note"},{name: "Bob", text: ""}]}]
     end
   end
 end
