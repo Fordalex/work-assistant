@@ -2,12 +2,13 @@ class FeatureTypesController < SessionsController
   before_action :set_featue_type, only: %i[edit update destroy]
 
   def new
+    @feature_type = FeatureType.new
   end
 
   def create
     @feature_type = FeatureType.new(feature_types_params.merge(collection: @collection))
     if @feature_type.save!
-      flash[:success] = "#{feature_type.name} created successfully"
+      flash[:success] = "#{@feature_type.name} created successfully"
     else
       render 'new'
       flash[:success] = "An error occurred please try again."
@@ -40,6 +41,6 @@ class FeatureTypesController < SessionsController
   end
 
   def feature_types_params
-    params.require(:feature_type).permit(:name, :content, :colour)
+    params.require(:feature_type).permit(:name, :colour)
   end
 end
