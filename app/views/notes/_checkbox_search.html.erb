@@ -1,11 +1,8 @@
-<% if records.any? %>
-  <h5><%= name.capitalize %></h5>
-  <% records.each do |record| %>
-    <div class="search-checkboxContainer">
-      <%= check_box_tag "#{name}[][#{record.name}]", {}, searched.include?(record.name) %>
-      <span><%= record.name %></span>
-    </div>
-  <% end %>
-<% else %>
-  <small>No <%= name %> created.</small>
+
+<h5><%= feature_type.name.capitalize %></h5>
+<% feature_type.features.each do |feature| %>
+  <div class="search-checkboxContainer">
+    <%= check_box_tag "#{feature_type.name}[][#{feature.name}]", {}, searched.include?(feature.name) %>
+    <span><%= feature.name %></span>
+  </div>
 <% end %>
