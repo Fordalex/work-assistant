@@ -4,7 +4,7 @@ class FeaturesController < SessionsController
   end
 
   def create
-    @feature = Feature.new(features_params.merge(user: current_user))
+    @feature = Feature.new(features_params)
     if @feature.save!
 
     else
