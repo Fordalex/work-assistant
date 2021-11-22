@@ -51,4 +51,16 @@ module TicketsHelper
     rest = rest.length < 2 ? '0' + rest : rest
     "#{hours}h : #{rest}m"
   end
+
+  def sort_feature_groups(feature_groups)
+    # Gets a unique list of feature types
+    feature_types = feature_groups.map{|fg| fg.feature.feature_type.name}.uniq
+
+    # Sorts feature groups to a feature type
+    feature_types.map do |key|
+      key_feature_groups = feature_groups.filter{|fg| fg.feature.feature_type.name === key}
+      values = key_feature_groups.map{|kfg| {name: kfg.feature.name, text: kfg.text || ""} }
+      {"#{key}": values}
+    end
+  end
 end
