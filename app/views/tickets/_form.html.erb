@@ -48,8 +48,13 @@
         <h4><%= form.label "#{feature_type.name}:" %></h4>
         <div class="px-0 py-1">
         <% feature_type.features.each do |feature| %>
-          <%= form.check_box "feature_checkboxes[#{feature.id}]", {checked: false, class: "word-checkbox"} %>
-          <%= form.label "feature_checkboxes[#{feature.id}]", feature.name %>
+          <% if feature.feature_ticket_type === "Select" %>
+            <%= form.check_box "feature_checkboxes[#{feature.id}]", {checked: false, class: "word-checkbox"} %>
+            <%= form.label "feature_checkboxes[#{feature.id}]", feature.name %>
+          <% else %>
+            <%= form.label "feature_text[#{feature.id}]", feature.name %>
+            <%= form.text_field "feature_text[#{feature.id}]" %>
+          <% end %>
         <% end %>
         </div>
         <hr>

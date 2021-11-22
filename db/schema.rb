@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_21_150312) do
+ActiveRecord::Schema.define(version: 2021_11_21_182816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 2021_11_21_150312) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "colour"
-    t.string "feature_ticket_type"
+    t.string "feature_ticket_type", default: "Select"
     t.index ["feature_group_id"], name: "index_features_on_feature_group_id"
     t.index ["feature_type_id"], name: "index_features_on_feature_type_id"
   end
