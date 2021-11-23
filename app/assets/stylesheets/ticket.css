@@ -1,0 +1,23 @@
+.ticket-featureContainer {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.ticket-description {
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.featureType-container {
+  margin-right: 1rem;
+}
+
+.ticket-featureContainer .featureType-title {
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.ticket-featureContainer .featureType-feature {
+  font-size: 0.7rem;
+  margin: 0;
+}

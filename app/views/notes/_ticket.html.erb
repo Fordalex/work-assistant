@@ -1,23 +1,36 @@
 <div class="notes-ticketWrapper">
   <div class="d-flex justify-content-between">
-    <h5><%= ticket.title %></h5>
+    <h4><%= ticket.title %></h4>
     <%= link_to edit_ticket_path(ticket) do %>
       <i class="fas fa-edit ms-2"></i>
     <% end %>
   </div>
+  <hr class="mt-0">
 
-  <p><%= ticket.description %></p>
-  <div class="row m-0 p-0">
-  <% sort_feature_groups(ticket.feature_groups).each do |feature_group| %>
-    <div class="col">
-      <h4><%= feature_group[:feature_type] %></h4>
-      <% feature_group[:features].each do |feature| %>
-        <h6><%= feature[:name] %></h6>
-        <% if feature[:text].present? %>
-          <p><%= feature[:text] %></p>
+  <p class="ticket-description"><%= ticket.description %></p>
+
+  <div class="ticket-featureContainer mt-2">
+    <% sort_feature_groups(ticket.feature_groups).each do |feature_group| %>
+      <div class="featureType-container">
+        <h4 class="featureType-title"><%= feature_group[:feature_type] %></h4>
+        <% feature_group[:features].each do |feature| %>
+          <p class="featureType-feature"><%= feature[:name] %></p>
+          <% if feature[:text].present? %>
+            <% if feature[:feature_ticket_type] === "Link" %>
+              <%= link_to feature[:name], feature[:text], class: "btn btn-success", target: "_blank" %>
+            <% else %>
+              <p class="featureType-feature"><%= feature[:text] %></p>
+            <% end %>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
-  <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <hr>
+
+  <div class="d-flex justify-content-between">
+    <small class="m-0 text-secondary"><%= ticket.date %></small>
+    <small class="m-0 text-secondary"><%= ticket.start_time %></small>
   </div>
 </div>

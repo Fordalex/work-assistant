@@ -1,7 +1,8 @@
 class Feature < ApplicationRecord
   FEATURE_TICKET_TYPES = [
     "Select",
-    "Text"
+    "Text",
+    "Link"
   ]
 
   belongs_to :feature_type
