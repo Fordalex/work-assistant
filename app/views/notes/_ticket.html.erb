@@ -5,29 +5,25 @@
       <i class="fas fa-edit ms-2"></i>
     <% end %>
   </div>
-  <hr class="mt-0">
 
+  <hr class="mt-0">
   <p class="ticket-description"><%= ticket.description %></p>
 
-  <div class="ticket-featureContainer mt-2">
-    <% sort_feature_groups(ticket.feature_groups).each do |feature_group| %>
-      <div class="featureType-container">
-        <h4 class="featureType-title"><%= feature_group[:feature_type] %></h4>
-        <% feature_group[:features].each do |feature| %>
-          <p class="featureType-feature"><%= feature[:name] %></p>
-          <% if feature[:text].present? %>
-            <% if feature[:feature_ticket_type] === "Link" %>
-              <%= link_to feature[:name], feature[:text], class: "btn btn-success", target: "_blank" %>
-            <% else %>
-              <p class="featureType-feature"><%= feature[:text] %></p>
-            <% end %>
-          <% end %>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-
   <hr>
+
+  <% if ticket.feature_groups.any? %>
+
+    <p>Tags <i class="fas fa-tags sm-icon"></i></p>
+
+    <div class="ticket-featureContainer mt-2">
+      <% sort_feature_groups(ticket.feature_groups).each do |feature_group| %>
+        <%= render partial: "feature_group", locals: {feature_group: feature_group} %>
+      <% end %>
+    </div>
+
+    <hr>
+
+  <% end %>
 
   <div class="d-flex justify-content-between">
     <small class="m-0 text-secondary"><%= ticket.date %></small>

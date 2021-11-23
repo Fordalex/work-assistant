@@ -11,12 +11,12 @@
 
 <div class="white-container row p-4 m-4">
 
-  <h3 class="p-0">Sort</h3>
+  <h6 class="p-0">Sort <i class="fas fa-sort sm-icon"></i></h6>
 
   <hr class="mb-0">
 
   <div class="col-2 m-0 p-0 pe-3 pt-3 border-right">
-    <h3>Filter</h3>
+    <h6>Filter <i class="fas fa-filter sm-icon"></i></h6>
     <%= form_with url: notes_path, method: :get do |form| %>
 
       <% @feature_types.each do |feature_type| %>

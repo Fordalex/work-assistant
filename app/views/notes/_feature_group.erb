@@ -1,0 +1,18 @@
+<div class="featureType-container">
+  <h4 class="featureType-title"><%= feature_group[:feature_type] %></h4>
+
+  <% feature_group[:features].each do |feature| %>
+
+    <% if feature[:feature_ticket_type] === "Link" %>
+      <%= link_to feature[:name], feature[:text], class: "featureType-button", target: "_blank" %>
+
+    <% elsif feature[:feature_ticket_type] === "Select" %>
+      <p class="featureType-feature"><%= feature[:name] %></p>
+
+    <% elsif feature[:feature_ticket_type] === "Text" %>
+      <% if feature[:text].present? %>
+        <p class="ticket-description"><b><%= feature[:name] %>:</b> <%= feature[:text] %></p>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

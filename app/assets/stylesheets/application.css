@@ -26,7 +26,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 p {
-  letter-spacing: 1px;
+  letter-spacing: 0.25px;
 }
 
 hr {
@@ -41,7 +41,9 @@ a {
   white-space: nowrap;
 }
 
-
+.sm-icon {
+  font-size: 0.7rem;
+}
 
 .profiler-results {
     display: none;
