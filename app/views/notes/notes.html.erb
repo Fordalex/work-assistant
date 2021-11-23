@@ -11,18 +11,18 @@
 
 <div class="white-container row p-4 m-4">
 
-  <h4 class="p-0">Sort</h4>
+  <h3 class="p-0">Sort</h3>
 
   <hr class="mb-0">
 
   <div class="col-2 m-0 p-0 pe-3 pt-3 border-right">
-    <h4>Filter</h4>
+    <h3>Filter</h3>
     <%= form_with url: notes_path, method: :get do |form| %>
 
       <% @feature_types.each do |feature_type| %>
         <%= render partial: "checkbox_search", locals: { feature_type: feature_type, searched: [] } %>
         <%= form.select :and_or, options_for_select(["And", "Or"]), {}, class: "form-control p-1 mt-2" %>
-        <hr>
+        <hr class="sm-hr">
       <% end %>
 
       <%= form.label :start_date %>
