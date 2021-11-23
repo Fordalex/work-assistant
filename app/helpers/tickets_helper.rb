@@ -59,8 +59,8 @@ module TicketsHelper
     # Sorts feature groups to a feature type
     feature_types.map do |key|
       key_feature_groups = feature_groups.filter{|fg| fg.feature.feature_type.name === key}
-      values = key_feature_groups.map{|kfg| {name: kfg.feature.name, text: kfg.text || ""} }
-      { feature_type: key, features: values}
+      values = key_feature_groups.map{|kfg| {name: kfg.feature.name, feature_ticket_type: kfg.feature.feature_ticket_type, text: kfg.text || ""} }
+      {feature_type: key, features: values}
     end
   end
 end
