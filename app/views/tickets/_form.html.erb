@@ -52,6 +52,7 @@
             <%= form.check_box "feature_checkboxes[#{feature.id}]", {checked: false, class: "word-checkbox"} %>
             <%= form.label "feature_checkboxes[#{feature.id}]", feature.name %>
           <% else %>
+            <br>
             <%= form.label "feature_text[#{feature.id}]", feature.name %>
             <%= form.text_field "feature_text[#{feature.id}]", placeholder: feature.feature_ticket_type === "Link" ? "https://www.enter-link-here.com" : "Enter text here..." %>
           <% end %>

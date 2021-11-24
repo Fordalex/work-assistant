@@ -5,7 +5,9 @@
   </div>
   <hr class="mb-0">
   <div class="d-flex justify-content-end align-items-center mt-2">
-    <i class="fas fa-edit icon"></i>
+     <%= link_to edit_feature_path(feature) do %>
+      <i class="fas fa-edit ms-2"></i>
+    <% end %>
     <%= link_to feature_path(feature), data: {confirm: "Are you sure?"}, method: :delete do %>
       <i class="fas fa-trash icon"></i>
     <% end %>
