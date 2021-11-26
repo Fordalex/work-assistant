@@ -18,12 +18,12 @@ puts "\n== Creating users =="
 
 first_user = User.create!(
   email: "first@example.com",
-  password: "password123"
+  password: "Password123"
 )
 
 second_user = User.create!(
   email: "second@example.com",
-  password: "password123"
+  password: "Password123"
 )
 
 puts "\n== Creating collections =="
