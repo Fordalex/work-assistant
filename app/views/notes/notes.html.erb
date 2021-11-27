@@ -20,8 +20,7 @@
     <%= form_with url: notes_path, method: :get do |form| %>
 
       <% @feature_types.each do |feature_type| %>
-        <%= render partial: "checkbox_search", locals: { feature_type: feature_type, searched: [] } %>
-        <%= form.select :and_or, options_for_select(["And", "Or"]), {}, class: "form-control p-1 mt-2" %>
+        <%= render partial: "checkbox_search", locals: { feature_type: feature_type, feature_ids: @feature_ids } %>
         <hr class="sm-hr">
       <% end %>
 

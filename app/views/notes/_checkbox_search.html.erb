@@ -1,8 +1,8 @@
-
 <h5><%= feature_type.name.capitalize %></h5>
 <% feature_type.features.each do |feature| %>
   <div class="search-checkboxContainer">
-    <%= check_box_tag "#{feature_type.name}[][#{feature.name}]", {}, searched.include?(feature.name) %>
+    <%#= remove feature types and change for feature_ids, then update the request spec and maybe the controller %>
+    <%= check_box_tag "[feature_types][#{feature_type.id}][#{feature.id}]", {}, feature_ids.include?(feature.id) %>
     <span><%= feature.name %></span>
   </div>
 <% end %>

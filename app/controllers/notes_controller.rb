@@ -1,70 +1,28 @@
 class NotesController < TicketsController
-  # TODO refactor this controller
-  # TODO Write some tests!!
+  before_action :get_tickets, only: %i[notes]
 
   def notes
     @feature_types = FeatureType.where(collection: @collection)
-    @tickets = Ticket.where(collection: @collection)
+    @feature_ids = feature_ids
   end
 
   private
 
-  def searched_key(key)
-    if params[key].present?
-      params[key][0].keys
-    else
-      []
-    end
-  end
-
-  def find_tickets
-    tickets = Ticket.where(user: current_user)
-    filter_by_category(tickets)
-  end
-
-  def filter_by_category(tickets)
-    if params[:categories].present?
-      tickets = tickets.filter{|t| params[:categories][0].keys.include?(t.category.name)}
-    end
-    filter_by_subject(tickets)
-  end
-
-  def filter_by_subject(tickets)
-    if params[:subjects].present?
-      tickets = tickets.filter do |ticket|
-        ticket_subjects = ticket.subject_groups.reduce([]) { |a,sg| a << sg.subject.name }
-        searched_subjects = params[:subjects][0].keys
-        searched_subjects.all? { |i| ticket_subjects.include?(i) }
+  def feature_ids
+    ids = []
+    if params[:feature_types].present?
+      params[:feature_types].each do |key, value|
+        value.each.map{|k,v| ids << k.to_i}
       end
-    else
-      tickets
     end
-    filter_by_member(tickets)
+    ids
   end
 
-  def filter_by_member(tickets)
-    if params[:members].present?
-      tickets = tickets.filter do |ticket|
-        ticket_members = ticket.member_groups.reduce([]) { |a,sg| a << sg.member.name }
-        searched_members = params[:members][0].keys
-        searched_members.all? { |i| ticket_members.include?(i) }
-      end
+  def get_tickets
+    if feature_ids.any?
+      @tickets = Ticket.joins(:feature_groups).where(collection: @collection, feature_groups: { feature: feature_ids }).uniq
     else
-      tickets
-    end
-    filter_by_technology(tickets)
-  end
-
-  def filter_by_technology(tickets)
-    if params[:languages].present?
-      tickets = tickets.filter do |ticket|
-        ticket_languages = ticket.language_groups.reduce([]) { |a,sg| a << sg.language.name }
-        searched_languages = params[:languages][0].keys
-
-        searched_languages.all? { |i| ticket_languages.include?(i) }
-      end
-    else
-      tickets
+      @tickets = Ticket.joins(:feature_groups).where(collection: @collection).uniq
     end
   end
 end
