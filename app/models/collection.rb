@@ -4,6 +4,6 @@ class Collection < ApplicationRecord
   ]
 
   has_many :user_groups
-  has_many :tickets
-  has_many :feature_types
+  has_many :tickets, dependent: :destroy
+  has_many :feature_types, dependent: :destroy
 end
