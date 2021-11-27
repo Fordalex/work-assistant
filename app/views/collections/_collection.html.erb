@@ -1,6 +1,12 @@
 
 <div class="collectionWrapper">
-  <h4><%= collection.name %></h4>
+  <div class="d-flex justify-content-between">
+    <h4><%= collection.name %></h4>
+    <%= link_to edit_collection_path(collection) do %>
+      <i class="fas fa-edit ms-2"></i>
+    <% end %>
+  </div>
+
   <hr>
   <p>Members:</p>
   <ul>
