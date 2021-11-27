@@ -20,13 +20,21 @@
       <%= form.text_field :name, class: "form-control", required: true %>
     </div>
 
-    <div class="form-group">
-      <%= form.label :template %>
-      <%= form.select :template, Collection::TEMPLATES, {include_blank: true}, class: "form-control"%>
-    </div>
+    <% if record.new_record? %>
+      <div class="form-group">
+        <%= form.label :template %>
+        <%= form.select :template, Collection::TEMPLATES, {include_blank: true}, class: "form-control"%>
+      </div>
+    <% end %>
 
     <div class="actions">
       <%= form.submit :save, class: "btn btn-success container-fluid mt-3" %>
     </div>
+
+    <% unless record.new_record? %>
+      <div class="col">
+        <%= link_to "Delete", collection_path(record), data: {confirm: "Are you sure?"}, method: :delete, class: "btn btn-danger container-fluid" %>
+      </div>
+    <% end %>
   <% end %>
 </div>
