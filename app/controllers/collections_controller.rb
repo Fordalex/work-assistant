@@ -45,8 +45,6 @@ class CollectionsController < ApplicationController
     redirect_to collections_path
   end
 
-  private
-
   def set_collection_in_session
     if Collection.find_by(id: params[:id])
       session[:collection_id] = params[:id]
@@ -55,6 +53,8 @@ class CollectionsController < ApplicationController
       redirect_to collections_path
     end
   end
+
+  private
 
   def set_collection
     @collection = Collection.find_by(id: params[:id])

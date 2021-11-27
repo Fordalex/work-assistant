@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :features
   resources :settings
   resources :collections
-  get "/set_collection/:id", to: "collections#set_collection", as: :set_collection
+  get "/set_collection/:id", to: "collections#set_collection_in_session", as: :set_collection
 
   devise_for :users
 end
