@@ -4,7 +4,7 @@ def sign_in
   let!(:session) { {collection_id: collection.id} }
 
   before do
-    allow_any_instance_of(SessionsController).to receive(:authenticate_user!).and_return(true)
+    allow_any_instance_of(SessionsController).to receive(:authenticate_user!).and_return(user)
     allow_any_instance_of(SessionsController).to receive(:current_user).and_return(user)
   end
 end
