@@ -96,5 +96,5 @@ test:
 production:
   <<: *default
   database: work_assistant_production
-  username: work_assistant
+  username: fordalex
   url: <%= ENV['DATABASE_URL'] %>
